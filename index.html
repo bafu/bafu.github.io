@@ -1,9 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@numbersprotocol/capture-eye/capture-eye.bundled.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bofu Chen — Technical Founder & OSS Builder</title>
+    <link rel="icon" href="assets/bofu-logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=Inter:wght@400;500;600;700&display=swap">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bafuchen.github.io">
+    <meta property="og:title" content="Bofu Chen — From Commit -> Company">
+    <meta property="og:description" content="Building open tech. Sharing the playbook.">
+    <meta property="og:image" content="assets/og-image.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bafuchen.github.io">
+    <meta name="twitter:title" content="Bofu Chen — From Commit -> Company">
+    <meta name="twitter:description" content="Building open tech. Sharing the playbook.">
+    <meta name="twitter:creator" content="@bafuchen">
+    <meta name="twitter:image" content="assets/og-image.jpg">
+    <style>
+        :root {
+            --charcoal: #121212;
+            --snow: #F7F7F7;
+            --code-blue: #0000D8;
+            --builder-green: #21B76E;
+            --insight-pink: #FF5560;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--charcoal);
+            color: var(--snow);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(33, 183, 110, 0.4);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--code-blue);
+            text-decoration: none;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .menu-item {
+            color: var(--snow);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .menu-item:hover {
+            color: var(--insight-pink);
+        }
+        
+        .menu-item.active {
+            color: var(--insight-pink);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .icon-link {
+            color: var(--snow);
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .icon-link:hover {
+            color: var(--insight-pink);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--builder-green);
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        
+        .hero-bio {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--code-blue);
+            color: var(--snow);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--insight-pink);
+        }
+        
+        .newsletter-card {
+            background-color: var(--snow);
+            color: var(--charcoal);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 48px;
+        }
+        
+        .newsletter-card h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--code-blue);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .newsletter-card p {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid rgba(18, 18, 18, 0.2);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--code-blue);
+        }
+        
+        .timeline {
+            position: relative;
+            margin-top: 48px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 24px;
+            width: 2px;
+            height: 100%;
+            background-color: rgba(33, 183, 110, 0.3);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 48px;
+            position: relative;
+            padding-left: 48px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 4px;
+            left: 20px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--builder-green);
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            background-color: rgba(33, 183, 110, 0.1);
+            padding: 24px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        
+        .timeline-date {
+            color: var(--insight-pink);
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-subtitle {
+            font-size: 16px;
+            color: rgba(247, 247, 247, 0.7);
+            margin-bottom: 12px;
+        }
+        
+        .timeline-desc {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .skill-tag {
+            padding: 4px 12px;
+            background-color: rgba(0, 0, 216, 0.15);
+            border-radius: 16px;
+            font-size: 12px;
+            color: var(--snow);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        
+        .project-card {
+            background-color: rgba(33, 183, 110, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .project-info {
+            padding: 24px;
+        }
+        
+        .project-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .project-desc {
+            font-size: 14px;
+            margin-bottom: 16px;
+            color: rgba(247, 247, 247, 0.9);
+        }
+        
+        .prose {
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+        
+        .prose h1 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .prose h2 {
+            font-size: 24px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .prose p {
+            margin-bottom: 16px;
+        }
+        
+        .prose ul {
+            margin-bottom: 16px;
+            padding-left: 18px;
+        }
+        
+        .prose li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            border-top: 1px solid rgba(33, 183, 110, 0.4);
+            padding: 24px 0;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(247, 247, 247, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-bio {
+                font-size: 16px;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <p>Buy Me a Coffee by collecting the NFT below</p>
-  <capture-eye nid="bafybeibjutj2qxmadwbtop7lz7rndmre6x2xells7lu75ze2fbik75pc5i" prefetch="true">
-    <img width=200px src="https://ipfs-pin.numbersprotocol.io/ipfs/bafybeibjutj2qxmadwbtop7lz7rndmre6x2xells7lu75ze2fbik75pc5i" />
-  </capture-eye>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">{B}</a>
+                <div class="menu">
+                    <a href="/" class="menu-item active">Home</a>
+                    <a href="#work" class="menu-item">Work & Startup</a>
+                    <a href="#projects" class="menu-item">Projects</a>
+                    <a href="#contact" class="menu-item">Contact</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://github.com/bafu" class="icon-link" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/bofuchen" class="icon-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h1 class="hero-title">Building open tech.<br>Sharing the playbook.</h1>
+            <p class="hero-bio">I'm <strong>Bofu Chen</strong>, a serial entrepreneur, open‑source contributor, and the founder behind Numbers Protocol. Here I write about the messy reality of scaling products, teams, and code.</p>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="container">
+            <h2 class="section-title">Work & Startup Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - Present</div>
+                        <h3 class="timeline-title">Founder & CEO/CTO</h3>
+                        <h4 class="timeline-subtitle">
+                            <a href="https://www.numbersprotocol.io/" target="_blank" style="color: inherit; text-decoration: none;">
+                                Numbers Protocol <i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 5px;"></i>
+                            </a>
+                        </h4>
+                        <p class="timeline-desc">Built an open, decentralized protocol for digital media provenance. Secured millions of digital assets and won multiple international awards including the Tech4Trust Award.</p>
+                        <div class="skills">
+                            <span class="skill-tag">Blockchain</span>
+                            <span class="skill-tag">Open Source</span>
+                            <span class="skill-tag">Product Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017 - 2020</div>
+                        <h3 class="timeline-title">Co-Founder & CTO</h3>
+                        <h4 class="timeline-subtitle">
+                            <a href="https://webbrain.ai/" target="_blank" style="color: inherit; text-decoration: none;">
+                                WebBrain <i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 5px;"></i>
+                            </a>
+                        </h4>
+                        <p class="timeline-desc">Created an AI knowledge engine that helps organizations transform content into interactive knowledge bases. Led technical team and product vision.</p>
+                        <div class="skills">
+                            <span class="skill-tag">Artificial Intelligence</span>
+                            <span class="skill-tag">Product Development</span>
+                            <span class="skill-tag">Technical Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2014 - 2017</div>
+                        <h3 class="timeline-title">Senior Software Engineer</h3>
+                        <h4 class="timeline-subtitle">
+                            <a href="https://canonical.com/" target="_blank" style="color: inherit; text-decoration: none;">
+                                Canonical Ltd. <i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 5px;"></i>
+                            </a>
+                        </h4>
+                        <p class="timeline-desc">Contributed to Ubuntu's core system integration. Led key OEM partnerships with major hardware manufacturers to optimize Ubuntu for their devices.</p>
+                        <div class="skills">
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Open Source</span>
+                            <span class="skill-tag">System Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Talks & Awards Tabs -->
+            <div style="margin-top: 64px;">
+                <div class="tabs-container" style="display: flex; border-bottom: 1px solid rgba(33, 183, 110, 0.3); margin-bottom: 32px;">
+                    <button class="tab active" onclick="showWorkTab('talks')" style="padding: 12px 24px; cursor: pointer; background: transparent; border: none; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; position: relative; color: var(--builder-green);">Talks & Education</button>
+                    <button class="tab" onclick="showWorkTab('awards')" style="padding: 12px 24px; cursor: pointer; background: transparent; border: none; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; position: relative; color: var(--snow);">Awards</button>
+                                    </div>
+                
+                <!-- Talks & Education Tab -->
+                <div id="talks" class="work-content active">
+                    <div>
+                        <h3 style="font-family: 'IBM Plex Mono', monospace; color: var(--builder-green); font-size: 24px; margin-bottom: 24px;">Featured Talks</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2025</div>
+                                    <h3 class="timeline-title">Building Trust in Digital Content</h3>
+                                    <h4 class="timeline-subtitle">MIT Media Lab</h4>
+                                    <p class="timeline-desc">Discussing the intersection of blockchain, AI, and digital provenance in combating misinformation.</p>
+                                    <a href="#" target="_blank" style="display: inline-block; margin-top: 12px; color: var(--insight-pink); text-decoration: none; font-weight: 500; font-size: 14px;">Watch Talk <i class="fas fa-external-link-alt" style="font-size: 10px; margin-left: 4px;"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2024</div>
+                                    <h3 class="timeline-title">From Open Source to Sustainable Business</h3>
+                                    <h4 class="timeline-subtitle">FOSDEM, Brussels</h4>
+                                    <p class="timeline-desc">Sharing strategies for building commercial products on open source foundations while maintaining community trust.</p>
+                                    <a href="#" target="_blank" style="display: inline-block; margin-top: 12px; color: var(--insight-pink); text-decoration: none; font-weight: 500; font-size: 14px;">View Slides <i class="fas fa-external-link-alt" style="font-size: 10px; margin-left: 4px;"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">2023</div>
+                                    <h3 class="timeline-title">The Content Authenticity Initiative</h3>
+                                    <h4 class="timeline-subtitle">Web3 Summit, Singapore</h4>
+                                    <p class="timeline-desc">Exploring standards and technologies for verifying the origin and authenticity of digital content at scale.</p>
+                                    <a href="#" target="_blank" style="display: inline-block; margin-top: 12px; color: var(--insight-pink); text-decoration: none; font-weight: 500; font-size: 14px;">Read Transcript <i class="fas fa-external-link-alt" style="font-size: 10px; margin-left: 4px;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Awards Tab -->
+                <div id="awards-tab" class="work-content" style="display: none;">
+                    <div>
+                        <h3 style="font-family: 'IBM Plex Mono', monospace; color: var(--builder-green); font-size: 24px; margin-bottom: 24px;">Recognition & Achievements</h3>
+                        
+                        <div class="project-grid">
+                            <div class="project-card">
+                                <div class="project-info">
+                                    <div class="timeline-date">2025</div>
+                                    <h3 class="project-title">IEEE Digital Trust Award Finalist</h3>
+                                    <p class="project-desc">Recognized for pioneering work in creating decentralized content verification systems.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card">
+                                <div class="project-info">
+                                    <div class="timeline-date">2024</div>
+                                    <h3 class="project-title">Open Source Innovator of the Year</h3>
+                                    <p class="project-desc">For contributions to open-source development tools and community building.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card">
+                                <div class="project-info">
+                                    <div class="timeline-date">2023</div>
+                                    <h3 class="project-title">Web3 Builder Impact Award</h3>
+                                    <p class="project-desc">Recognized for creating tools that advance transparency and trust in digital content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background-color: rgba(33, 183, 110, 0.05);">
+        <div class="container">
+            <h2 class="section-title">Open Source Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">
+                            <a href="https://github.com/numbersprotocol/capture-lite" target="_blank" style="color: inherit; text-decoration: none;">
+                                Capture App <i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 5px;"></i>
+                            </a>
+                        </h3>
+                        <p class="project-desc">A mobile application for capturing photos and videos with permanent digital signatures, ensuring content authenticity in the era of AI-generated media.</p>
+                        <div class="skills">
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Ionic</span>
+                            <span class="skill-tag">Web3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">
+                            <a href="https://github.com/numbersprotocol/stages" target="_blank" style="color: inherit; text-decoration: none;">
+                                Stages <i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 5px;"></i>
+                            </a>
+                        </h3>
+                        <p class="project-desc">A framework for creating reproducible data pipelines. Transform raw data into actionable insights with complete lineage tracking.</p>
+                        <div class="skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">Provenance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">
+                            <a href="https://github.com/webbrain-tools/brain-cli" target="_blank" style="color: inherit; text-decoration: none;">
+                                Brain CLI <i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 5px;"></i>
+                            </a>
+                        </h3>
+                        <p class="project-desc">Command-line interface for managing knowledge bases, creating content embeddings, and building AI-powered documentation systems.</p>
+                        <div class="skills">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">CLI</span>
+                            <span class="skill-tag">Knowledge Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title" style="text-align: center;">Get In Touch</h2>
+            <p style="max-width: 500px; margin: 0 auto 32px;">Interested in collaborating or speaking opportunities? Feel free to reach out.</p>
+            <div style="display: flex; justify-content: center; gap: 24px;">
+                <a href="mailto:bofu@numbersprotocol.io" style="color: var(--snow); text-decoration: none;">
+                    <i class="fas fa-envelope" style="font-size: 24px; color: var(--builder-green);"></i>
+                    <p style="margin-top: 8px; font-size: 14px;">Email</p>
+                </a>
+                <a href="https://twitter.com/bofuchen" target="_blank" style="color: var(--snow); text-decoration: none;">
+                    <i class="fab fa-twitter" style="font-size: 24px; color: var(--builder-green);"></i>
+                    <p style="margin-top: 8px; font-size: 14px;">Twitter</p>
+                </a>
+                <a href="https://github.com/bafu" target="_blank" style="color: var(--snow); text-decoration: none;">
+                    <i class="fab fa-github" style="font-size: 24px; color: var(--builder-green);"></i>
+                    <p style="margin-top: 8px; font-size: 14px;">GitHub</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Bofu Chen. Built with ❤️ and open source.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === "#") return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        
+            // Highlight active menu item on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const menuItems = document.querySelectorAll('.menu-item');
+        
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                    const href = item.getAttribute('href');
+                    if (href === `/${current}` || (href === '/' && current === '')) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        
+            // Newsletter form submission
+            const form = document.querySelector('.newsletter-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const input = this.querySelector('input');
+                    const email = input.value;
+                    
+                    if (email) {
+                        // Here you would typically send this to your newsletter service
+                        console.log('Subscribing:', email);
+                        
+                        // Show success message
+                        this.innerHTML = '<p style="color: var(--builder-green); font-weight: 600;">✅ Thanks! Check your inbox.</p>';
+                    }
+                });
+            }
+        });
+        
+        // Work tabs functionality
+        function showWorkTab(tabName) {
+            // Hide all content sections
+            document.querySelectorAll('.work-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tabs-container .tab').forEach(tab => {
+                tab.style.color = 'var(--snow)';
+            });
+            
+            // Show the selected tab content and mark tab as active
+            if (tabName === 'awards') {
+                document.getElementById('awards-tab').style.display = 'block';
+                        } else {
+                document.getElementById('talks').style.display = 'block';
+            }
+            
+            // Find the tab button that corresponds to this tab and mark it active
+            document.querySelectorAll('.tabs-container .tab').forEach(tab => {
+                if (tab.textContent.toLowerCase().includes(tabName)) {
+                    tab.style.color = 'var(--builder-green)';
+                }
+            });
+        }
+    </script>
 </body>
+</html>

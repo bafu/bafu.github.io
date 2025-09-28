@@ -20,7 +20,7 @@ npm run preview
 
 ## Deployment
 
-GitHub Pages deployment is automated via the **Deploy to GitHub Pages** workflow located in `.github/workflows/deploy.yml`. On every push to `main` (or manual dispatch), the workflow:
+GitHub Pages deployment is automated via the **Deploy to GitHub Pages** workflow located in `.github/workflows/deploy.yml`. On every push to `master` (or manual dispatch), the workflow:
 
 1. Installs dependencies with `npm ci`.
 2. Builds the static site with `npm run build`.

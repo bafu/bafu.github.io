@@ -18,4 +18,12 @@ npm run build
 npm run preview
 ```
 
-The site is configured with `base: '/bafu.github.io/'` for GitHub Pages deployment.
+## Deployment
+
+GitHub Pages deployment is automated via the **Deploy to GitHub Pages** workflow located in `.github/workflows/deploy.yml`. On every push to `main` (or manual dispatch), the workflow:
+
+1. Installs dependencies with `npm ci`.
+2. Builds the static site with `npm run build`.
+3. Publishes the generated `dist/` directory using the official GitHub Pages actions.
+
+Ensure the repository's **Pages** settings are configured to use **GitHub Actions** as the source so the workflow output is served at https://bafu.github.io/.

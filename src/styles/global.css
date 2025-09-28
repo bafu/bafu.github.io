@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-charcoal text-snow font-sans antialiased;
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+.container {
+  @apply mx-auto w-11/12 max-w-5xl;
+}

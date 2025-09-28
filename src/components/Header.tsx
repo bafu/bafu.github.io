@@ -16,7 +16,7 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
   return (
     <header
       id="site-header"
-      className="sticky top-0 z-50 border-b border-builderGreen/40 bg-charcoal/80 backdrop-blur"
+      className="sticky top-0 z-50 border-b border-electric/30 bg-midnight/80 backdrop-blur"
     >
       <div className="container">
         <nav className="flex items-center justify-between py-4">
@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
           >
             <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />
           </a>
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-6 rounded-full border border-electric/20 bg-midnight/60 px-6 py-2 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -38,8 +38,10 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                   event.preventDefault()
                   onNavigate(item.id)
                 }}
-                className={`text-sm font-medium transition-colors ${
-                  activeSection === item.id ? 'text-insightPink' : 'text-snow hover:text-insightPink'
+                className={`text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
+                  activeSection === item.id
+                    ? 'text-electric'
+                    : 'text-mist hover:text-electric'
                 }`}
               >
                 {item.label}
@@ -51,7 +53,7 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
               href="https://github.com/bafu"
               target="_blank"
               rel="noreferrer"
-              className="text-snow hover:text-insightPink"
+              className="text-mist transition-colors hover:text-electric"
             >
               <i className="fab fa-github" aria-hidden="true"></i>
               <span className="sr-only">GitHub</span>
@@ -60,7 +62,7 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
               href="https://twitter.com/bafuchen"
               target="_blank"
               rel="noreferrer"
-              className="text-snow hover:text-insightPink"
+              className="text-mist transition-colors hover:text-electric"
             >
               <i className="fab fa-twitter" aria-hidden="true"></i>
               <span className="sr-only">Twitter</span>

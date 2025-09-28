@@ -74,7 +74,7 @@ const App = () => {
   }
 
   return (
-    <div className="bg-charcoal text-snow">
+    <div className="min-h-screen bg-gradient-to-br from-midnight via-twilight to-black text-ice">
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
       <main>
         <Hero />

@@ -5,28 +5,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: '#040404',
-        twilight: '#0E0F11',
-        cobalt: '#191919',
-        ice: '#F3F3F3',
-        mist: '#A8B4C6',
-        primary: '#0082F3',
-        'primary-bright': '#2895F7',
-        'primary-cyan': '#25B8E9',
-        coral: '#EA384C',
-        lavender: '#E6BBFD'
+        'brand-black': '#1A1A1A',
+        'brand-white': '#FFFFFF',
+        'brand-natural': '#F4E6D5',
+        'stone-cream': '#D0C2A3',
+        'sand-yellow': '#E3C87A',
+        'sky-blue': '#A0D7E6',
+        'ocean-blue': '#2E65A0',
+        'land-green': '#769B74',
+        'dusk-pink': '#C68D8D',
+        'fish-red': '#F25C4C',
+        'digital-stone': '#B18C52',
+        'digital-yellow': '#FFD542',
+        'digital-sky': '#7FD6FF',
+        'digital-ocean': '#0A60FF',
+        'digital-land': '#5BA37C',
+        'digital-dusk': '#FF76A0',
+        'digital-fish': '#FF3A2B'
       },
       fontFamily: {
-        sans: ['"Noto Sans"', 'Inter', 'sans-serif'],
-        display: ['"Space Grotesk"', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'monospace']
+        sans: ['"Overused Grotesk"', 'Inter', 'sans-serif'],
+        display: ['"Instrument Serif"', 'serif'],
+        mono: ['"Roboto Mono"', 'monospace']
       },
       boxShadow: {
-        glass: '0 30px 80px rgba(7, 20, 40, 0.45)'
+        glass: '0 24px 60px rgba(26, 26, 26, 0.12)'
       }
     }
   },
-  safelist: ['text-primary', 'text-ice', 'border-primary', 'bg-primary', 'bg-cobalt'],
+  safelist: [
+    'text-digital-ocean',
+    'text-brand-black',
+    'bg-brand-white',
+    'bg-brand-natural',
+    'border-brand-black',
+    'bg-digital-ocean',
+    'text-brand-white'
+  ],
   plugins: []
 }
 

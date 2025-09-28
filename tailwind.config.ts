@@ -5,14 +5,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: '#05060F',
-        twilight: '#081021',
-        cobalt: '#0F243E',
-        ice: '#F5FBFF',
-        mist: '#A5B7D8',
-        electric: '#00C9FF',
-        sky: '#2DC8FC',
-        coral: '#FC2D30'
+        midnight: '#040404',
+        twilight: '#0E0F11',
+        cobalt: '#191919',
+        ice: '#F3F3F3',
+        mist: '#A8B4C6',
+        primary: '#0082F3',
+        'primary-bright': '#2895F7',
+        'primary-cyan': '#25B8E9',
+        coral: '#EA384C',
+        lavender: '#E6BBFD'
       },
       fontFamily: {
         sans: ['"Noto Sans"', 'Inter', 'sans-serif'],
@@ -24,7 +26,7 @@ const config: Config = {
       }
     }
   },
-  safelist: ['text-electric', 'text-ice', 'border-electric', 'bg-sky', 'bg-cobalt'],
+  safelist: ['text-primary', 'text-ice', 'border-primary', 'bg-primary', 'bg-cobalt'],
   plugins: []
 }
 

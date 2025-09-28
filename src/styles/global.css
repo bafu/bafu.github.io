@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  @apply bg-charcoal text-snow font-sans antialiased;
+  @apply bg-brand-natural text-brand-black font-sans antialiased;
 }
 
 a {
@@ -15,5 +15,5 @@ a {
 }
 
 .container {
-  @apply mx-auto w-11/12 max-w-5xl;
+  @apply mx-auto w-11/12 max-w-6xl;
 }

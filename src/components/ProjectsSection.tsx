@@ -3,7 +3,7 @@ import { projects } from '../data/projects'
 const ProjectsSection = () => {
   return (
     <section id="projects" className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(10,96,255,0.12),_transparent_60%)]"></div>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(46,82,160,0.12),_transparent_60%)]"></div>
       <div className="container">
         <h2 className="font-display text-3xl font-semibold text-brand-black md:text-4xl">Free Software Projects</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -17,7 +17,7 @@ const ProjectsSection = () => {
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-digital-ocean transition-colors hover:text-brand-black"
+                  className="inline-flex items-center gap-2 text-brand-dark-blue transition-colors hover:text-brand-black"
                 >
                   {project.title}
                   <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
@@ -26,7 +26,7 @@ const ProjectsSection = () => {
               <p className="mt-3 text-sm leading-relaxed text-brand-black/70">{project.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="rounded-full bg-brand-natural px-3 py-1 text-xs font-medium text-brand-black">
+                  <span key={tag} className="rounded-full bg-brand-cream px-3 py-1 text-xs font-medium text-brand-black">
                     {tag}
                   </span>
                 ))}

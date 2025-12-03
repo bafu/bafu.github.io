@@ -77,7 +77,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-natural via-brand-white to-stone-cream/40 text-brand-black">
+    <div className="min-h-screen bg-gradient-to-br from-brand-cream via-brand-white to-brand-stone/40 text-brand-black">
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
       <main>
         <Hero />

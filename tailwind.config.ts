@@ -7,25 +7,19 @@ const config: Config = {
       colors: {
         'brand-black': '#1A1A1A',
         'brand-white': '#FFFFFF',
-        'brand-natural': '#F4E6D5',
-        'stone-cream': '#D0C2A3',
-        'sand-yellow': '#E3C87A',
-        'sky-blue': '#A0D7E6',
-        'ocean-blue': '#2E65A0',
-        'land-green': '#769B74',
-        'dusk-pink': '#C68D8D',
-        'fish-red': '#F25C4C',
-        'digital-stone': '#B18C52',
-        'digital-yellow': '#FFD542',
-        'digital-sky': '#7FD6FF',
-        'digital-ocean': '#0A60FF',
-        'digital-land': '#5BA37C',
-        'digital-dusk': '#FF76A0',
-        'digital-fish': '#FF3A2B'
+        'brand-green': '#7F9C7E',
+        'brand-yellow': '#D8B76A',
+        'brand-stone': '#CEC0A3',
+        'brand-red': '#ED5D29',
+        'brand-pink': '#F9C6C0',
+        'brand-dark-blue': '#2E52A0',
+        'brand-light-blue': '#C1E1DC',
+        'brand-cream': '#F4E9D5'
       },
       fontFamily: {
         sans: ['"Overused Grotesk"', 'Inter', 'sans-serif'],
-        display: ['"Instrument Serif"', 'serif'],
+        display: ['"Roboto Mono"', 'monospace'],
+        detail: ['"Instrument Sans"', 'sans-serif'],
         mono: ['"Roboto Mono"', 'monospace']
       },
       boxShadow: {
@@ -34,13 +28,19 @@ const config: Config = {
     }
   },
   safelist: [
-    'text-digital-ocean',
+    'text-brand-dark-blue',
     'text-brand-black',
     'bg-brand-white',
-    'bg-brand-natural',
+    'bg-brand-cream',
     'border-brand-black',
-    'bg-digital-ocean',
-    'text-brand-white'
+    'bg-brand-dark-blue',
+    'text-brand-white',
+    'bg-brand-green',
+    'bg-brand-yellow',
+    'bg-brand-stone',
+    'bg-brand-red',
+    'bg-brand-pink',
+    'bg-brand-light-blue'
   ],
   plugins: []
 }

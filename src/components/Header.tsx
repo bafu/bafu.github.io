@@ -16,7 +16,7 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
   return (
     <header
       id="site-header"
-      className="sticky top-0 z-50 border-b border-brand-black/10 bg-brand-natural/80 backdrop-blur"
+      className="sticky top-0 z-50 border-b border-brand-black/10 bg-brand-cream/80 backdrop-blur"
     >
       <div className="container">
         <nav className="flex items-center justify-between py-4">
@@ -40,7 +40,7 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                 }}
                 className={`text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
                   activeSection === item.id
-                    ? 'text-digital-ocean'
+                    ? 'text-brand-dark-blue'
                     : 'text-brand-black/60 hover:text-brand-black'
                 }`}
               >

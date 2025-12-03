@@ -3,14 +3,14 @@ import RotatingProfileImage from './RotatingProfileImage'
 const Hero = () => {
   return (
     <section id="hero" className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(10,96,255,0.15),_transparent_55%)]"></div>
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(46,82,160,0.15),_transparent_55%)]"></div>
       <div className="container flex flex-col-reverse items-center gap-12 md:flex-row md:justify-between">
         <div className="w-full space-y-8 md:w-3/5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-black/20 bg-brand-black px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-natural">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-black/20 bg-brand-black px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-cream">
             Numbers Protocol
           </span>
           <h1 className="font-display text-4xl font-semibold leading-tight text-brand-black md:text-6xl">
-            From commit to <span className="text-digital-ocean">company</span>
+            From commit to <span className="text-brand-dark-blue">company</span>
           </h1>
           <p className="text-lg leading-relaxed text-brand-black/70 md:text-xl">
             I'm <strong className="font-semibold text-brand-black">Bofu Chen</strong>, a serial entrepreneur, open-source contributor, and founder at Numbers Protocol. This is where I share pragmatic lessons on scaling products, teams, and code without losing the plot.
@@ -23,7 +23,7 @@ const Hero = () => {
                 const anchor = document.getElementById('projects')
                 anchor?.scrollIntoView({ behavior: 'smooth', block: 'start' })
               }}
-              className="inline-flex items-center gap-2 rounded-full bg-digital-ocean px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-brand-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-black"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-dark-blue px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-brand-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-black"
             >
               Explore Work
               <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>

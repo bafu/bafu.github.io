@@ -16,7 +16,7 @@ const ExperienceSection = () => {
             <article key={experience.title} className="relative mb-12 last:mb-0">
               <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
               <div className="rounded-2xl border border-brand-black/10 bg-brand-white/80 p-6">
-                <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-digital-ocean">{experience.period}</p>
+                <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-brand-dark-blue">{experience.period}</p>
                 <h3 className="mt-2 text-xl font-semibold text-brand-black md:text-2xl">{experience.title}</h3>
                 <h4 className="mt-1 font-medium text-brand-black">
                   <a
@@ -32,7 +32,7 @@ const ExperienceSection = () => {
                 <p className="mt-3 text-sm leading-relaxed text-brand-black/70">{experience.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {experience.skills.map((skill) => (
-                    <span key={skill} className="rounded-full bg-brand-natural px-3 py-1 text-xs font-medium text-brand-black">
+                    <span key={skill} className="rounded-full bg-brand-cream px-3 py-1 text-xs font-medium text-brand-black">
                       {skill}
                     </span>
                   ))}
@@ -87,14 +87,14 @@ const ExperienceSection = () => {
                   <article key={talk.title} className="relative mb-8 last:mb-0">
                     <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
                     <div className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5">
-                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-digital-ocean">{talk.date}</p>
+                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{talk.date}</p>
                       <h4 className="mt-2 text-lg font-semibold text-brand-black">
                         {talk.url ? (
                           <a
                             href={talk.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-digital-ocean"
+                            className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-brand-dark-blue"
                           >
                             {talk.title}
                             <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
@@ -118,14 +118,14 @@ const ExperienceSection = () => {
                     key={`${award.year}-${award.title}`}
                     className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-6 shadow-glass"
                   >
-                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-digital-ocean">{award.year}</p>
+                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{award.year}</p>
                     <h4 className="mt-2 text-lg font-semibold text-brand-black">
                       {award.url ? (
                         <a
                           href={award.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-digital-ocean"
+                          className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-brand-dark-blue"
                         >
                           {award.title}
                           <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
@@ -149,14 +149,14 @@ const ExperienceSection = () => {
                   <article key={item.title} className="relative mb-8 last:mb-0">
                     <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
                     <div className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5">
-                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-digital-ocean">{item.date}</p>
+                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{item.date}</p>
                       <h4 className="mt-2 text-lg font-semibold text-brand-black">
                         {item.url ? (
                           <a
                             href={item.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-digital-ocean"
+                            className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-brand-dark-blue"
                           >
                             {item.title}
                             <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>

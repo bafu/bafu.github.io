@@ -51,7 +51,7 @@ const RotatingProfileImage = () => {
     // Show a placeholder while images load
     return (
       <div className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass">
-        <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-digital-ocean/20 blur-3xl"></div>
+        <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-brand-dark-blue/20 blur-3xl"></div>
         <div className="relative aspect-square w-full animate-pulse rounded-2xl bg-brand-black/10"></div>
       </div>
     )
@@ -59,7 +59,7 @@ const RotatingProfileImage = () => {
 
   return (
     <div className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass">
-      <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-digital-ocean/20 blur-3xl"></div>
+      <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-brand-dark-blue/20 blur-3xl"></div>
       <div className="relative w-full overflow-hidden rounded-2xl">
         {IMAGES.map((src, index) => (
           <img

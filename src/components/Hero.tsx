@@ -1,3 +1,5 @@
+import RotatingProfileImage from './RotatingProfileImage'
+
 const Hero = () => {
   return (
     <section id="hero" className="relative overflow-hidden py-24">
@@ -41,10 +43,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="w-full max-w-xs md:w-2/5 md:max-w-none">
-          <div className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass">
-            <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-digital-ocean/20 blur-3xl"></div>
-            <img src="/assets/profile-pic.png" alt="Bofu Chen" className="relative w-full rounded-2xl" />
-          </div>
+          <RotatingProfileImage />
         </div>
       </div>
     </section>

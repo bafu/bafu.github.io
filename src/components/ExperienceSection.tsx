@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { awards } from '../data/awards'
 import { experiences } from '../data/experience'
 import { talks } from '../data/talks'
+import { media } from '../data/media'
 
 const ExperienceSection = () => {
-  const [activeTab, setActiveTab] = useState<'talks' | 'awards'>('talks')
+  const [activeTab, setActiveTab] = useState<'talks' | 'awards' | 'media'>('talks')
 
   return (
     <section id="work" className="py-24">
@@ -65,6 +66,17 @@ const ExperienceSection = () => {
             >
               Awards
             </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('media')}
+              className={`px-6 pb-3 text-base font-semibold transition-colors ${
+                activeTab === 'media'
+                  ? 'text-brand-black'
+                  : 'text-brand-black/60 hover:text-brand-black'
+              }`}
+            >
+              Media
+            </button>
           </div>
 
           {activeTab === 'talks' ? (
@@ -76,14 +88,28 @@ const ExperienceSection = () => {
                     <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
                     <div className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5">
                       <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-digital-ocean">{talk.date}</p>
-                      <h4 className="mt-2 text-lg font-semibold text-brand-black">{talk.title}</h4>
+                      <h4 className="mt-2 text-lg font-semibold text-brand-black">
+                        {talk.url ? (
+                          <a
+                            href={talk.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-digital-ocean"
+                          >
+                            {talk.title}
+                            <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
+                          </a>
+                        ) : (
+                          talk.title
+                        )}
+                      </h4>
                       <p className="mt-1 text-sm text-brand-black/70">{talk.event}</p>
                     </div>
                   </article>
                 ))}
               </div>
             </div>
-          ) : (
+          ) : activeTab === 'awards' ? (
             <div className="mt-10">
               <h3 className="font-display text-2xl font-semibold text-brand-black">Recognition &amp; Achievements</h3>
               <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -93,10 +119,54 @@ const ExperienceSection = () => {
                     className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-6 shadow-glass"
                   >
                     <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-digital-ocean">{award.year}</p>
-                    <h4 className="mt-2 text-lg font-semibold text-brand-black">{award.title}</h4>
+                    <h4 className="mt-2 text-lg font-semibold text-brand-black">
+                      {award.url ? (
+                        <a
+                          href={award.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-digital-ocean"
+                        >
+                          {award.title}
+                          <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
+                        </a>
+                      ) : (
+                        award.title
+                      )}
+                    </h4>
                     {award.description ? (
                       <p className="mt-2 text-sm text-brand-black/70">{award.description}</p>
                     ) : null}
+                  </article>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="mt-10">
+              <h3 className="font-display text-2xl font-semibold text-brand-black">Media Coverage</h3>
+              <div className="relative mt-8 border-l border-brand-black/10 pl-10">
+                {media.map((item) => (
+                  <article key={item.title} className="relative mb-8 last:mb-0">
+                    <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
+                    <div className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5">
+                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-digital-ocean">{item.date}</p>
+                      <h4 className="mt-2 text-lg font-semibold text-brand-black">
+                        {item.url ? (
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-digital-ocean"
+                          >
+                            {item.title}
+                            <i className="fas fa-external-link-alt text-xs" aria-hidden="true"></i>
+                          </a>
+                        ) : (
+                          item.title
+                        )}
+                      </h4>
+                      <p className="mt-1 text-sm text-brand-black/70">{item.source}</p>
+                    </div>
                   </article>
                 ))}
               </div>

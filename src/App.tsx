@@ -7,6 +7,7 @@ import ProjectsSection from './components/ProjectsSection'
 import SiteFooter from './components/SiteFooter'
 
 const SECTION_IDS = ['hero', 'work', 'projects', 'contact'] as const
+const ENABLE_WEBBRAIN = false // Temporarily disabled
 
 const App = () => {
   const [activeSection, setActiveSection] = useState<(typeof SECTION_IDS)[number]>('hero')
@@ -40,6 +41,8 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    if (!ENABLE_WEBBRAIN) return
+
     const initWidget = () => window.WebBrain?.init({ userId: 'AhRuxnjQn5WVbWDt8EZDWgU98RM2' })
 
     if (window.WebBrain) {

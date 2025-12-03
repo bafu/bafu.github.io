@@ -11,10 +11,9 @@ const ExperienceSection = () => {
     <section id="work" className="py-24">
       <div className="container">
         <h2 className="font-display text-3xl font-semibold text-brand-black md:text-4xl">Work &amp; Startup Experience</h2>
-        <div className="relative mt-12 border-l border-brand-black/10 pl-10">
+        <div className="mt-12">
           {experiences.map((experience) => (
             <article key={experience.title} className="relative mb-12 last:mb-0">
-              <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
               <div className="rounded-2xl border border-brand-black/10 bg-brand-white/80 p-6">
                 <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-brand-dark-blue">{experience.period}</p>
                 <h3 className="mt-2 text-xl font-semibold text-brand-black md:text-2xl">{experience.title}</h3>
@@ -82,10 +81,9 @@ const ExperienceSection = () => {
           {activeTab === 'talks' ? (
             <div className="mt-10">
               <h3 className="font-display text-2xl font-semibold text-brand-black">Featured Talks</h3>
-              <div className="relative mt-8 border-l border-brand-black/10 pl-10">
+              <div className="mt-8">
                 {talks.map((talk) => (
                   <article key={talk.title} className="relative mb-8 last:mb-0">
-                    <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
                     <div className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5">
                       <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{talk.date}</p>
                       <h4 className="mt-2 text-lg font-semibold text-brand-black">
@@ -144,10 +142,9 @@ const ExperienceSection = () => {
           ) : (
             <div className="mt-10">
               <h3 className="font-display text-2xl font-semibold text-brand-black">Media Coverage</h3>
-              <div className="relative mt-8 border-l border-brand-black/10 pl-10">
+              <div className="mt-8">
                 {media.map((item) => (
                   <article key={item.title} className="relative mb-8 last:mb-0">
-                    <span className="absolute -left-3 top-2 h-3 w-3 rounded-full bg-brand-black"></span>
                     <div className="rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5">
                       <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{item.date}</p>
                       <h4 className="mt-2 text-lg font-semibold text-brand-black">

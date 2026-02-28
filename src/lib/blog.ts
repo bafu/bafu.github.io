@@ -12,6 +12,7 @@ type BlogFrontmatter = {
   date: string
   description: string
   tags?: string[]
+  draft?: boolean
 }
 
 export const posts: BlogPost[] = Object.entries(modules)
@@ -24,9 +25,11 @@ export const posts: BlogPost[] = Object.entries(modules)
       date: data.date ?? '',
       description: data.description ?? '',
       tags: data.tags ?? [],
+      draft: data.draft ?? false,
       content
     }
   })
+  .filter((post) => import.meta.env.DEV || !post.draft)
   .sort((a, b) => (a.date > b.date ? -1 : 1))
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

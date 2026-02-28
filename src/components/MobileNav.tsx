@@ -1,24 +1,20 @@
 import { useEffect, useRef, type FC } from 'react'
-
-const navItems = [
-  { id: 'hero', label: 'Home' },
-  { id: 'work', label: 'Work & Startup' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' }
-] as const
+import { Link, useLocation } from 'react-router-dom'
+import { useNavigation } from '../context/NavigationContext'
+import { sectionNavItems } from '../data/navigation'
 
 type MobileNavProps = {
   isOpen: boolean
   onClose: () => void
-  onNavigate: (id: string) => void
-  activeSection: string
 }
 
-const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose, onNavigate, activeSection }) => {
+const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
   const drawerRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+  const { activeSection, handleNavigate } = useNavigation()
 
-  // Lock body scroll when open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -31,7 +27,6 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose, onNavigate, activeSect
     }
   }, [isOpen])
 
-  // Focus trap
   useEffect(() => {
     if (!isOpen) return
 
@@ -62,18 +57,26 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose, onNavigate, activeSect
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen, onClose])
 
+  const handleSectionClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault()
+    if (isHome) {
+      handleNavigate(id)
+      onClose()
+    } else {
+      window.location.href = `/#${id}`
+    }
+  }
+
   if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 z-[60] md:hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
-      {/* Backdrop */}
       <div
         className="mobile-nav-overlay absolute inset-0 bg-brand-black/40 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Drawer */}
       <div
         ref={drawerRef}
         className="mobile-nav-drawer absolute right-0 top-0 flex h-full w-72 flex-col bg-brand-cream shadow-glass"
@@ -94,17 +97,13 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose, onNavigate, activeSect
         </div>
 
         <nav className="flex flex-1 flex-col gap-1 px-4 py-6">
-          {navItems.map((item) => (
+          {sectionNavItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => {
-                e.preventDefault()
-                onNavigate(item.id)
-                onClose()
-              }}
+              href={isHome ? `#${item.id}` : `/#${item.id}`}
+              onClick={(e) => handleSectionClick(e, item.id)}
               className={`rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition-colors ${
-                activeSection === item.id
+                isHome && activeSection === item.id
                   ? 'bg-brand-dark-blue/10 text-brand-dark-blue'
                   : 'text-brand-black/60 hover:bg-brand-black/5 hover:text-brand-black'
               }`}
@@ -112,6 +111,17 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose, onNavigate, activeSect
               {item.label}
             </a>
           ))}
+          <Link
+            to="/blog"
+            onClick={onClose}
+            className={`rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition-colors ${
+              location.pathname.startsWith('/blog')
+                ? 'bg-brand-dark-blue/10 text-brand-dark-blue'
+                : 'text-brand-black/60 hover:bg-brand-black/5 hover:text-brand-black'
+            }`}
+          >
+            Blog
+          </Link>
         </nav>
 
         <div className="border-t border-brand-black/10 px-6 py-4">

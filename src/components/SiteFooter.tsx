@@ -1,11 +1,10 @@
-const navItems = [
-  { id: 'hero', label: 'Home' },
-  { id: 'work', label: 'Work' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' }
-]
+import { Link, useLocation } from 'react-router-dom'
+import { footerNavItems } from '../data/navigation'
 
 const SiteFooter = () => {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -23,21 +22,37 @@ const SiteFooter = () => {
           </div>
 
           {/* Navigation */}
-          <nav className="flex gap-6" aria-label="Footer navigation">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => {
-                  e.preventDefault()
-                  const target = document.getElementById(item.id)
-                  target?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="flex flex-wrap justify-center gap-6" aria-label="Footer navigation">
+            {footerNavItems.map((item) =>
+              isHome ? (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    const target = document.getElementById(item.id)
+                    target?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <a
+                  key={item.id}
+                  href={`/#${item.id}`}
+                  className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
+            <Link
+              to="/blog"
+              className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* Social + Back to top */}

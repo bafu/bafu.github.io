@@ -1,20 +1,23 @@
-import { useState, type FC } from 'react'
+import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { useNavigation } from '../context/NavigationContext'
+import { sectionNavItems } from '../data/navigation'
 import MobileNav from './MobileNav'
 
-const navItems = [
-  { id: 'hero', label: 'Home' },
-  { id: 'work', label: 'Work & Startup' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' }
-] as const
-
-export type HeaderProps = {
-  activeSection: string
-  onNavigate: (id: string) => void
-}
-
-const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
+const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+  const { activeSection, handleNavigate } = useNavigation()
+
+  const handleSectionClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault()
+    if (isHome) {
+      handleNavigate(id)
+    } else {
+      window.location.href = `/#${id}`
+    }
+  }
 
   return (
     <>
@@ -27,26 +30,31 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
       >
         <div className="container">
           <nav className="flex items-center justify-between py-4" aria-label="Main navigation">
-            <a
-              href="#hero"
-              onClick={(event) => {
-                event.preventDefault()
-                onNavigate('hero')
-              }}
-            >
-              <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />
-            </a>
+            {isHome ? (
+              <a
+                href="#hero"
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleNavigate('hero')
+                }}
+              >
+                <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />
+              </a>
+            ) : (
+              <Link to="/">
+                <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />
+              </Link>
+            )}
+
+            {/* Desktop nav */}
             <div className="hidden items-center gap-6 rounded-full border border-brand-black/10 bg-brand-white/80 px-6 py-2 md:flex">
-              {navItems.map((item) => (
+              {sectionNavItems.map((item) => (
                 <a
                   key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(event) => {
-                    event.preventDefault()
-                    onNavigate(item.id)
-                  }}
+                  href={isHome ? `#${item.id}` : `/#${item.id}`}
+                  onClick={(e) => handleSectionClick(e, item.id)}
                   className={`text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
-                    activeSection === item.id
+                    isHome && activeSection === item.id
                       ? 'text-brand-dark-blue'
                       : 'text-brand-black/60 hover:text-brand-black'
                   }`}
@@ -54,7 +62,19 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                   {item.label}
                 </a>
               ))}
+              <Link
+                to="/blog"
+                className={`text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
+                  location.pathname.startsWith('/blog')
+                    ? 'text-brand-dark-blue'
+                    : 'text-brand-black/60 hover:text-brand-black'
+                }`}
+              >
+                Blog
+              </Link>
             </div>
+
+            {/* Social links + hamburger */}
             <div className="flex items-center gap-4 text-lg">
               <a
                 href="https://github.com/bafu"
@@ -74,7 +94,6 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                 <i className="fab fa-twitter" aria-hidden="true"></i>
                 <span className="sr-only">Twitter</span>
               </a>
-              {/* Hamburger button — visible below md */}
               <button
                 type="button"
                 onClick={() => setMobileNavOpen(true)}
@@ -94,8 +113,6 @@ const Header: FC<HeaderProps> = ({ activeSection, onNavigate }) => {
       <MobileNav
         isOpen={mobileNavOpen}
         onClose={() => setMobileNavOpen(false)}
-        onNavigate={onNavigate}
-        activeSection={activeSection}
       />
     </>
   )

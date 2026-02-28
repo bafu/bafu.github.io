@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const IMAGES = [
   '/assets/bofu-nvidia-hq-2017-3.jpg',
@@ -14,11 +14,12 @@ const IMAGE_ALTS = [
   'Bofu Chen at GTC 2017',
 ]
 
-const ROTATION_INTERVAL = 4000 // 4 seconds per image
+const ROTATION_INTERVAL = 4000
 
 const RotatingProfileImage = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
 
   // Preload all images on mount
   useEffect(() => {
@@ -36,19 +37,26 @@ const RotatingProfileImage = () => {
       .catch((error) => console.error('Error preloading images:', error))
   }, [])
 
-  // Auto-rotate images
+  // Check for reduced motion preference
+  const prefersReducedMotion = typeof window !== 'undefined'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  // Auto-rotate images (pauses on hover or reduced motion)
   useEffect(() => {
-    if (!isLoaded) return
+    if (!isLoaded || isPaused || prefersReducedMotion) return
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % IMAGES.length)
+      setCurrentIndex((prev) => (prev + 1) % IMAGES.length)
     }, ROTATION_INTERVAL)
 
     return () => clearInterval(interval)
-  }, [isLoaded])
+  }, [isLoaded, isPaused, prefersReducedMotion])
+
+  const goToImage = useCallback((index: number) => {
+    setCurrentIndex(index)
+  }, [])
 
   if (!isLoaded) {
-    // Show a placeholder while images load
     return (
       <div className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass">
         <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-brand-dark-blue/20 blur-3xl"></div>
@@ -58,9 +66,13 @@ const RotatingProfileImage = () => {
   }
 
   return (
-    <div className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass">
+    <div
+      className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-brand-dark-blue/20 blur-3xl"></div>
-      <div className="relative w-full overflow-hidden rounded-2xl">
+      <div className="relative w-full overflow-hidden rounded-2xl" aria-live="polite" aria-atomic="true">
         {IMAGES.map((src, index) => (
           <img
             key={src}
@@ -72,6 +84,23 @@ const RotatingProfileImage = () => {
             style={{
               position: index === 0 ? 'relative' : 'absolute',
             }}
+            aria-hidden={index !== currentIndex}
+          />
+        ))}
+      </div>
+      {/* Dot indicators */}
+      <div className="mt-3 flex justify-center gap-2" role="group" aria-label="Image carousel controls">
+        {IMAGES.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => goToImage(index)}
+            aria-label={`Go to image ${index + 1}: ${IMAGE_ALTS[index]}`}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex
+                ? 'w-6 bg-brand-dark-blue'
+                : 'w-2 bg-brand-black/20 hover:bg-brand-black/40'
+            }`}
           />
         ))}
       </div>

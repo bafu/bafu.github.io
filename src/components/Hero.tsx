@@ -2,20 +2,20 @@ import RotatingProfileImage from './RotatingProfileImage'
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative overflow-hidden py-24">
+    <section id="hero" className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(46,82,160,0.15),_transparent_55%)]"></div>
-      <div className="container flex flex-col-reverse items-center gap-12 md:flex-row md:justify-between">
-        <div className="w-full space-y-8 md:w-3/5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-black/20 bg-brand-black px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-cream">
+      <div className="container flex flex-col-reverse items-center gap-10 sm:gap-12 md:flex-row md:justify-between lg:gap-16">
+        <div className="w-full space-y-6 sm:space-y-8 md:w-3/5">
+          <span className="hero-animate hero-delay-0 inline-flex items-center gap-2 rounded-full border border-brand-black/20 bg-brand-black px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-cream">
             Numbers Protocol
           </span>
-          <h1 className="font-display text-4xl font-semibold leading-tight text-brand-black md:text-6xl">
+          <h1 className="hero-animate hero-delay-1 font-display text-3xl font-semibold leading-tight text-brand-black sm:text-4xl md:text-5xl lg:text-6xl">
             From commit to <span className="text-brand-dark-blue">company</span>
           </h1>
-          <p className="text-lg leading-relaxed text-brand-black/70 md:text-xl">
+          <p className="hero-animate hero-delay-2 text-base leading-relaxed text-brand-black/70 sm:text-lg md:text-xl">
             I'm <strong className="font-semibold text-brand-black">Bofu Chen</strong>, a serial entrepreneur, open-source contributor, and founder at Numbers Protocol. This is where I share pragmatic lessons on scaling products, teams, and code without losing the plot.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="hero-animate hero-delay-3 flex flex-wrap gap-4">
             <a
               href="#projects"
               onClick={(event) => {
@@ -23,7 +23,7 @@ const Hero = () => {
                 const anchor = document.getElementById('projects')
                 anchor?.scrollIntoView({ behavior: 'smooth', block: 'start' })
               }}
-              className="inline-flex items-center gap-2 rounded-full bg-brand-dark-blue px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-brand-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-black"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-dark-blue px-6 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-brand-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-black hover:shadow-lg"
             >
               Explore Work
               <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
@@ -42,7 +42,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className="w-full max-w-xs md:w-2/5 md:max-w-none">
+        <div className="hero-animate hero-delay-2 w-full max-w-xs sm:max-w-sm md:w-2/5 md:max-w-none">
           <RotatingProfileImage />
         </div>
       </div>

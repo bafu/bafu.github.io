@@ -17,3 +17,139 @@ a {
 .container {
   @apply mx-auto w-11/12 max-w-6xl;
 }
+
+/* Skip-to-content link */
+.skip-to-content {
+  @apply absolute -top-full left-4 z-[100] rounded-b-lg bg-brand-dark-blue px-4 py-2 text-sm font-semibold text-brand-white;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  @apply top-0;
+}
+
+/* Focus-visible styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-brand-dark-blue ring-offset-2 ring-offset-brand-cream;
+}
+
+/* Hero entrance animations */
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: hero-fade-in 0.6s ease-out forwards;
+}
+
+.hero-delay-0 { animation-delay: 0ms; }
+.hero-delay-1 { animation-delay: 150ms; }
+.hero-delay-2 { animation-delay: 300ms; }
+.hero-delay-3 { animation-delay: 450ms; }
+
+/* Scroll reveal animations */
+@keyframes scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+}
+
+.scroll-reveal.is-visible {
+  animation: scroll-reveal 0.6s ease-out forwards;
+}
+
+/* Tab content transition */
+@keyframes tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-content-enter {
+  animation: tab-fade-in 0.3s ease-out;
+}
+
+/* Mobile nav overlay */
+@keyframes mobile-nav-overlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mobile-nav-slide {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.mobile-nav-overlay {
+  animation: mobile-nav-overlay 0.2s ease-out;
+}
+
+.mobile-nav-drawer {
+  animation: mobile-nav-slide 0.3s ease-out;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* Background noise texture */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate {
+    opacity: 1;
+    animation: none;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+  }
+
+  .scroll-reveal.is-visible {
+    animation: none;
+  }
+
+  .tab-content-enter {
+    animation: none;
+  }
+
+  .mobile-nav-overlay,
+  .mobile-nav-drawer {
+    animation: none;
+  }
+}

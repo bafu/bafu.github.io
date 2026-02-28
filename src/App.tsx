@@ -4,6 +4,7 @@ import ExperienceSection from './components/ExperienceSection'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import ProjectsSection from './components/ProjectsSection'
+import ScrollProgress from './components/ScrollProgress'
 import SiteFooter from './components/SiteFooter'
 
 const SECTION_IDS = ['hero', 'work', 'projects', 'contact'] as const
@@ -77,13 +78,22 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-cream via-brand-white to-brand-stone/40 text-brand-black">
+    <div className="noise-overlay relative min-h-screen bg-gradient-to-br from-brand-cream via-brand-white to-brand-stone/40 text-brand-black">
+      <ScrollProgress />
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
-      <main>
+      <main id="main-content">
         <Hero />
-        <ExperienceSection />
+        {/* Subtle divider */}
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-gradient-to-r from-transparent via-brand-black/10 to-transparent" />
+        <div className="bg-brand-cream/40">
+          <ExperienceSection />
+        </div>
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-gradient-to-r from-transparent via-brand-black/10 to-transparent" />
         <ProjectsSection />
-        <ContactSection />
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-gradient-to-r from-transparent via-brand-black/10 to-transparent" />
+        <div className="bg-brand-cream/40">
+          <ContactSection />
+        </div>
       </main>
       <SiteFooter />
     </div>

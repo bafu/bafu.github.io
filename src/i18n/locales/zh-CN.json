@@ -12,7 +12,7 @@
     "heading": "从 commit 到",
     "headingHighlight": "公司",
     "descPart1": "我是",
-    "descName": "陈柏孚",
+    "descName": "陈伯符",
     "descPart2": "，连续创业者、开源贡献者，Numbers Protocol 创始人。在这里分享关于产品规模化、团队管理与技术实践的务实经验。",
     "exploreWork": "探索作品",
     "connect": "联系我"
@@ -48,7 +48,7 @@
     "work": "工作",
     "projects": "项目",
     "contact": "联系",
-    "copyright": "\u00a9 {year} 陈柏孚 (Bofu Chen)。以开源精神打造。",
+    "copyright": "\u00a9 {year} 陈伯符 (Bofu Chen)。以开源精神打造。",
     "backToTop": "回到顶部"
   },
   "a11y": {
@@ -65,7 +65,7 @@
     "navMenu": "导航菜单"
   },
   "meta": {
-    "title": "陈柏孚 — 创业家与开源贡献者",
-    "description": "陈柏孚的作品集与博客，Numbers Protocol 创始人。"
+    "title": "陈伯符 — 创业家与开源贡献者",
+    "description": "陈伯符的作品集与博客，Numbers Protocol 创始人。"
   }
 }

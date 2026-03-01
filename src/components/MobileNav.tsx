@@ -16,7 +16,16 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const location = useLocation()
   const { t, localePath, isHomePath } = useI18n()
-  const { activeSection, handleNavigate } = useNavigation()
+  const { activeSection } = useNavigation()
+
+  const scrollTo = (id: string) => {
+    const target = document.getElementById(id)
+    if (!target) return
+    const header = document.getElementById('site-header')
+    const headerHeight = header?.getBoundingClientRect().height ?? 0
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
 
   const isBlogActive = location.pathname.replace(/^\/(zh-TW|zh-CN|ja)/, '').startsWith('/blog')
 
@@ -65,7 +74,7 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
   const handleSectionClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault()
     if (isHomePath) {
-      handleNavigate(id)
+      scrollTo(id)
       onClose()
     } else {
       window.location.href = localePath('/') + '#' + id

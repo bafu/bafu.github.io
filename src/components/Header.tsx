@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useNavigation } from '../context/NavigationContext'
 import { sectionNavIds, NAV_TRANSLATION_KEYS } from '../data/navigation'
 import { useI18n } from '../i18n'
@@ -11,12 +11,21 @@ const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const location = useLocation()
   const { t, localePath, isHomePath } = useI18n()
-  const { activeSection, handleNavigate } = useNavigation()
+  const { activeSection } = useNavigation()
+
+  const scrollTo = (id: string) => {
+    const target = document.getElementById(id)
+    if (!target) return
+    const header = document.getElementById('site-header')
+    const headerHeight = header?.getBoundingClientRect().height ?? 0
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
 
   const handleSectionClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault()
     if (isHomePath) {
-      handleNavigate(id)
+      scrollTo(id)
     } else {
       window.location.href = localePath('/') + '#' + id
     }
@@ -40,7 +49,7 @@ const Header = () => {
                 href="#hero"
                 onClick={(e) => {
                   e.preventDefault()
-                  handleNavigate('hero')
+                  scrollTo('hero')
                 }}
               >
                 <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />

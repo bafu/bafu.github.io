@@ -1,28 +1,31 @@
-import { Navigate, Link, useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
+import { useI18n } from '../i18n'
 import { getPostBySlug } from '../lib/blog'
+import LocaleLink from '../components/LocaleLink'
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>()
-  const post = slug ? getPostBySlug(slug) : undefined
+  const { lang, t, localePath } = useI18n()
+  const post = slug ? getPostBySlug(slug, lang) : undefined
 
   if (!post) {
-    return <Navigate to="/blog" replace />
+    return <Navigate to={localePath('/blog')} replace />
   }
 
   return (
     <main id="main-content" className="container py-20 sm:py-28">
-      <Link
+      <LocaleLink
         to="/blog"
         className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-black/50 transition-colors hover:text-brand-dark-blue"
       >
         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
-        Back to blog
-      </Link>
+        {t('blog.backToBlog')}
+      </LocaleLink>
 
       <article className="mt-8 max-w-3xl">
         <header>

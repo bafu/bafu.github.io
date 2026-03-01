@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work & Startup",
+    "projects": "Projects",
+    "contact": "Contact",
+    "blog": "Blog",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "badge": "Numbers Protocol",
+    "heading": "From commit to",
+    "headingHighlight": "company",
+    "descPart1": "I'm",
+    "descName": "Bofu Chen",
+    "descPart2": ", a serial entrepreneur, open-source contributor, and founder at Numbers Protocol. This is where I share pragmatic lessons on scaling products, teams, and code without losing the plot.",
+    "exploreWork": "Explore Work",
+    "connect": "Connect"
+  },
+  "experience": {
+    "heading": "Work & Startup Experience",
+    "tabs": {
+      "talks": "Talks & Education",
+      "awards": "Awards",
+      "media": "Media"
+    },
+    "subheadings": {
+      "talks": "Featured Talks",
+      "awards": "Recognition & Achievements",
+      "media": "Media Coverage"
+    },
+    "tablistLabel": "Experience categories"
+  },
+  "projects": {
+    "heading": "Free Software Projects"
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "description": "Interested in collaborating or speaking opportunities? Let's build something audacious together."
+  },
+  "blog": {
+    "heading": "Blog",
+    "subtitle": "Thoughts on engineering, open source, and startup life.",
+    "backToBlog": "Back to blog"
+  },
+  "footer": {
+    "home": "Home",
+    "work": "Work",
+    "projects": "Projects",
+    "contact": "Contact",
+    "copyright": "\u00a9 {year} Bofu Chen. Built with open source.",
+    "backToTop": "Back to top"
+  },
+  "a11y": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "mainNav": "Main navigation",
+    "footerNav": "Footer navigation",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "emailMe": "Send me an email",
+    "followTwitter": "Follow me on X (Twitter)",
+    "viewGithub": "View my GitHub profile",
+    "navMenu": "Navigation menu"
+  },
+  "meta": {
+    "title": "Bofu Chen — Entrepreneur & Open-Source Contributor",
+    "description": "Portfolio and blog of Bofu Chen, founder of Numbers Protocol."
+  }
+}

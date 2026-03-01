@@ -1,14 +1,18 @@
-import { projects } from '../data/projects'
+import { getProjects } from '../data/projects'
+import { useI18n } from '../i18n'
 import ScrollReveal from './ScrollReveal'
 
 const ProjectsSection = () => {
+  const { lang, t } = useI18n()
+  const projects = getProjects(lang)
+
   return (
     <section id="projects" className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(46,82,160,0.12),_transparent_60%)]"></div>
       <div className="container">
         <ScrollReveal>
           <h2 className="font-display text-2xl font-semibold text-brand-black sm:text-3xl md:text-4xl">
-            Free Software Projects
+            {t('projects.heading')}
           </h2>
         </ScrollReveal>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-2 lg:grid-cols-3">

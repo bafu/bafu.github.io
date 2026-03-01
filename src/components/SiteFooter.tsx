@@ -1,9 +1,11 @@
-import { Link, useLocation } from 'react-router-dom'
-import { footerNavItems } from '../data/navigation'
+import { useLocation } from 'react-router-dom'
+import { sectionNavIds, FOOTER_TRANSLATION_KEYS } from '../data/navigation'
+import { useI18n } from '../i18n'
+import LocaleLink from './LocaleLink'
 
 const SiteFooter = () => {
   const location = useLocation()
-  const isHome = location.pathname === '/'
+  const { t, localePath, isHomePath } = useI18n()
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -17,42 +19,42 @@ const SiteFooter = () => {
           <div className="text-center sm:text-left">
             <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="mx-auto h-6 brightness-0 invert sm:mx-0" />
             <p className="mt-3 text-xs text-brand-cream/50">
-              &copy; {new Date().getFullYear()} Bofu Chen. Built with open source.
+              {t('footer.copyright', { year: String(new Date().getFullYear()) })}
             </p>
           </div>
 
           {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-6" aria-label="Footer navigation">
-            {footerNavItems.map((item) =>
-              isHome ? (
+          <nav className="flex flex-wrap justify-center gap-6" aria-label={t('a11y.footerNav')}>
+            {sectionNavIds.map((id) =>
+              isHomePath ? (
                 <a
-                  key={item.id}
-                  href={`#${item.id}`}
+                  key={id}
+                  href={`#${id}`}
                   onClick={(e) => {
                     e.preventDefault()
-                    const target = document.getElementById(item.id)
+                    const target = document.getElementById(id)
                     target?.scrollIntoView({ behavior: 'smooth' })
                   }}
                   className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
                 >
-                  {item.label}
+                  {t(FOOTER_TRANSLATION_KEYS[id])}
                 </a>
               ) : (
                 <a
-                  key={item.id}
-                  href={`/#${item.id}`}
+                  key={id}
+                  href={`${localePath('/')}#${id}`}
                   className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
                 >
-                  {item.label}
+                  {t(FOOTER_TRANSLATION_KEYS[id])}
                 </a>
               )
             )}
-            <Link
+            <LocaleLink
               to="/blog"
               className="text-xs font-medium uppercase tracking-[0.15em] text-brand-cream/50 transition-colors hover:text-brand-cream"
             >
-              Blog
-            </Link>
+              {t('nav.blog')}
+            </LocaleLink>
           </nav>
 
           {/* Social + Back to top */}
@@ -62,7 +64,7 @@ const SiteFooter = () => {
               target="_blank"
               rel="noreferrer"
               className="text-brand-cream/50 transition-colors hover:text-brand-cream"
-              aria-label="GitHub"
+              aria-label={t('a11y.github')}
             >
               <i className="fab fa-github" aria-hidden="true"></i>
             </a>
@@ -71,7 +73,7 @@ const SiteFooter = () => {
               target="_blank"
               rel="noreferrer"
               className="text-brand-cream/50 transition-colors hover:text-brand-cream"
-              aria-label="Twitter"
+              aria-label={t('a11y.twitter')}
             >
               <i className="fab fa-twitter" aria-hidden="true"></i>
             </a>
@@ -79,7 +81,7 @@ const SiteFooter = () => {
               type="button"
               onClick={scrollToTop}
               className="ml-2 flex h-8 w-8 items-center justify-center rounded-full border border-brand-cream/20 text-brand-cream/50 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-cream/40 hover:text-brand-cream"
-              aria-label="Back to top"
+              aria-label={t('footer.backToTop')}
             >
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />

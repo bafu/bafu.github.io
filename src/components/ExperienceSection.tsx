@@ -1,19 +1,21 @@
 import { useRef, useState } from 'react'
-import { awards } from '../data/awards'
-import { experiences } from '../data/experience'
-import { talks } from '../data/talks'
-import { media } from '../data/media'
+import { getAwards } from '../data/awards'
+import { getExperiences } from '../data/experience'
+import { getTalks } from '../data/talks'
+import { getMedia } from '../data/media'
+import { useI18n } from '../i18n'
 import ScrollReveal from './ScrollReveal'
 
-const TABS = [
-  { id: 'talks', label: 'Talks & Education' },
-  { id: 'awards', label: 'Awards' },
-  { id: 'media', label: 'Media' }
-] as const
+const TAB_IDS = ['talks', 'awards', 'media'] as const
 
-type TabId = (typeof TABS)[number]['id']
+type TabId = (typeof TAB_IDS)[number]
 
 const ExperienceSection = () => {
+  const { lang, t } = useI18n()
+  const experiences = getExperiences(lang)
+  const awards = getAwards(lang)
+  const talks = getTalks(lang)
+  const media = getMedia(lang)
   const [activeTab, setActiveTab] = useState<TabId>('talks')
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -21,18 +23,18 @@ const ExperienceSection = () => {
     let nextIndex: number | null = null
 
     if (e.key === 'ArrowRight') {
-      nextIndex = (index + 1) % TABS.length
+      nextIndex = (index + 1) % TAB_IDS.length
     } else if (e.key === 'ArrowLeft') {
-      nextIndex = (index - 1 + TABS.length) % TABS.length
+      nextIndex = (index - 1 + TAB_IDS.length) % TAB_IDS.length
     } else if (e.key === 'Home') {
       nextIndex = 0
     } else if (e.key === 'End') {
-      nextIndex = TABS.length - 1
+      nextIndex = TAB_IDS.length - 1
     }
 
     if (nextIndex !== null) {
       e.preventDefault()
-      setActiveTab(TABS[nextIndex].id)
+      setActiveTab(TAB_IDS[nextIndex])
       tabRefs.current[nextIndex]?.focus()
     }
   }
@@ -42,7 +44,7 @@ const ExperienceSection = () => {
       <div className="container">
         <ScrollReveal>
           <h2 className="font-display text-2xl font-semibold text-brand-black sm:text-3xl md:text-4xl">
-            Work &amp; Startup Experience
+            {t('experience.heading')}
           </h2>
         </ScrollReveal>
         <div className="mt-8 sm:mt-10 md:mt-12">
@@ -86,29 +88,29 @@ const ExperienceSection = () => {
             <div
               className="flex gap-1 border-b border-brand-black/10"
               role="tablist"
-              aria-label="Experience categories"
+              aria-label={t('experience.tablistLabel')}
             >
-              {TABS.map((tab, index) => (
+              {TAB_IDS.map((id, index) => (
                 <button
-                  key={tab.id}
+                  key={id}
                   ref={(el) => { tabRefs.current[index] = el }}
                   type="button"
                   role="tab"
-                  id={`tab-${tab.id}`}
-                  aria-selected={activeTab === tab.id}
-                  aria-controls={`tabpanel-${tab.id}`}
-                  tabIndex={activeTab === tab.id ? 0 : -1}
-                  onClick={() => setActiveTab(tab.id)}
+                  id={`tab-${id}`}
+                  aria-selected={activeTab === id}
+                  aria-controls={`tabpanel-${id}`}
+                  tabIndex={activeTab === id ? 0 : -1}
+                  onClick={() => setActiveTab(id)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   className={`relative px-4 pb-3 text-sm font-semibold transition-colors sm:px-6 sm:text-base ${
-                    activeTab === tab.id
+                    activeTab === id
                       ? 'text-brand-black'
                       : 'text-brand-black/60 hover:text-brand-black'
                   }`}
                 >
-                  {tab.label}
+                  {t(`experience.tabs.${id}`)}
                   {/* Animated underline */}
-                  {activeTab === tab.id && (
+                  {activeTab === id && (
                     <span className="absolute bottom-0 left-0 h-0.5 w-full bg-brand-dark-blue" />
                   )}
                 </button>
@@ -125,7 +127,7 @@ const ExperienceSection = () => {
             >
               {activeTab === 'talks' && (
                 <>
-                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">Featured Talks</h3>
+                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">{t('experience.subheadings.talks')}</h3>
                   <div className="mt-6 sm:mt-8">
                     {talks.map((talk) => (
                       <article key={talk.title} className="relative mb-6 last:mb-0 sm:mb-8">
@@ -156,7 +158,7 @@ const ExperienceSection = () => {
 
               {activeTab === 'awards' && (
                 <>
-                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">Recognition &amp; Achievements</h3>
+                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">{t('experience.subheadings.awards')}</h3>
                   <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {awards.map((award) => (
                       <article
@@ -190,7 +192,7 @@ const ExperienceSection = () => {
 
               {activeTab === 'media' && (
                 <>
-                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">Media Coverage</h3>
+                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">{t('experience.subheadings.media')}</h3>
                   <div className="mt-6 sm:mt-8">
                     {media.map((item) => (
                       <article key={item.title} className="relative mb-6 last:mb-0 sm:mb-8">

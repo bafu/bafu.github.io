@@ -1,23 +1,27 @@
-import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
-import { posts } from '../lib/blog'
+import LocaleLink from '../components/LocaleLink'
+import { useI18n } from '../i18n'
+import { getPosts } from '../lib/blog'
 
 const BlogListPage = () => {
+  const { lang, t } = useI18n()
+  const posts = getPosts(lang)
+
   return (
     <main id="main-content" className="container py-20 sm:py-28">
       <ScrollReveal>
         <h1 className="font-display text-3xl font-bold tracking-tight text-brand-black sm:text-4xl">
-          Blog
+          {t('blog.heading')}
         </h1>
         <p className="mt-3 text-base text-brand-black/60 sm:text-lg">
-          Thoughts on engineering, open source, and startup life.
+          {t('blog.subtitle')}
         </p>
       </ScrollReveal>
 
       <div className="mt-12 grid gap-6">
         {posts.map((post, i) => (
           <ScrollReveal key={post.slug} delay={i * 100}>
-            <Link
+            <LocaleLink
               to={`/blog/${post.slug}`}
               className="group block rounded-2xl border border-brand-black/10 bg-brand-white/80 p-6 transition-shadow hover:shadow-glass sm:p-8"
             >
@@ -42,7 +46,7 @@ const BlogListPage = () => {
                   ))}
                 </div>
               )}
-            </Link>
+            </LocaleLink>
           </ScrollReveal>
         ))}
       </div>

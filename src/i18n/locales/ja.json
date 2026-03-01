@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "work": "職歴・起業",
+    "projects": "プロジェクト",
+    "contact": "お問い合わせ",
+    "blog": "ブログ",
+    "skipToContent": "メインコンテンツへ"
+  },
+  "hero": {
+    "badge": "Numbers Protocol",
+    "heading": "コミットから",
+    "headingHighlight": "会社へ",
+    "descPart1": "",
+    "descName": "Bofu Chen",
+    "descPart2": " — 連続起業家、オープンソースコントリビューター、Numbers Protocol 創設者。プロダクト、チーム、コードのスケーリングについて、実践的な知見を共有しています。",
+    "exploreWork": "作品を見る",
+    "connect": "つながる"
+  },
+  "experience": {
+    "heading": "職歴・起業経験",
+    "tabs": {
+      "talks": "講演・教育",
+      "awards": "受賞歴",
+      "media": "メディア"
+    },
+    "subheadings": {
+      "talks": "注目の講演",
+      "awards": "受賞・実績",
+      "media": "メディア掲載"
+    },
+    "tablistLabel": "経験カテゴリ"
+  },
+  "projects": {
+    "heading": "フリーソフトウェアプロジェクト"
+  },
+  "contact": {
+    "heading": "お問い合わせ",
+    "description": "コラボレーションや講演の機会に興味がありますか？一緒に大胆なものを作りましょう。"
+  },
+  "blog": {
+    "heading": "ブログ",
+    "subtitle": "エンジニアリング、オープンソース、スタートアップライフについての考察。",
+    "backToBlog": "ブログに戻る"
+  },
+  "footer": {
+    "home": "ホーム",
+    "work": "職歴",
+    "projects": "プロジェクト",
+    "contact": "お問い合わせ",
+    "copyright": "\u00a9 {year} Bofu Chen. オープンソースで構築。",
+    "backToTop": "トップに戻る"
+  },
+  "a11y": {
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "menu": "メニュー",
+    "mainNav": "メインナビゲーション",
+    "footerNav": "フッターナビゲーション",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "emailMe": "メールを送る",
+    "followTwitter": "X (Twitter) でフォロー",
+    "viewGithub": "GitHub プロフィールを見る",
+    "navMenu": "ナビゲーションメニュー"
+  },
+  "meta": {
+    "title": "Bofu Chen — 起業家・オープンソースコントリビューター",
+    "description": "Bofu Chen のポートフォリオとブログ。Numbers Protocol 創設者。"
+  }
+}

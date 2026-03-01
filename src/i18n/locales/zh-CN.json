@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "首页",
+    "work": "工作与创业",
+    "projects": "项目",
+    "contact": "联系",
+    "blog": "博客",
+    "skipToContent": "跳至主要内容"
+  },
+  "hero": {
+    "badge": "Numbers Protocol",
+    "heading": "从 commit 到",
+    "headingHighlight": "公司",
+    "descPart1": "我是",
+    "descName": "陈柏孚",
+    "descPart2": "，连续创业者、开源贡献者，Numbers Protocol 创始人。在这里分享关于产品规模化、团队管理与技术实践的务实经验。",
+    "exploreWork": "探索作品",
+    "connect": "联系我"
+  },
+  "experience": {
+    "heading": "工作与创业经历",
+    "tabs": {
+      "talks": "演讲与教育",
+      "awards": "奖项",
+      "media": "媒体"
+    },
+    "subheadings": {
+      "talks": "精选演讲",
+      "awards": "荣誉与成就",
+      "media": "媒体报道"
+    },
+    "tablistLabel": "经历分类"
+  },
+  "projects": {
+    "heading": "自由软件项目"
+  },
+  "contact": {
+    "heading": "联系我",
+    "description": "对合作或演讲机会感兴趣？让我们一起打造不凡的事物。"
+  },
+  "blog": {
+    "heading": "博客",
+    "subtitle": "关于工程、开源与创业生活的思考。",
+    "backToBlog": "返回博客"
+  },
+  "footer": {
+    "home": "首页",
+    "work": "工作",
+    "projects": "项目",
+    "contact": "联系",
+    "copyright": "\u00a9 {year} 陈柏孚 (Bofu Chen)。以开源精神打造。",
+    "backToTop": "回到顶部"
+  },
+  "a11y": {
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "menu": "菜单",
+    "mainNav": "主要导航",
+    "footerNav": "页脚导航",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "emailMe": "发邮件给我",
+    "followTwitter": "在 X (Twitter) 上关注我",
+    "viewGithub": "查看我的 GitHub 个人资料",
+    "navMenu": "导航菜单"
+  },
+  "meta": {
+    "title": "陈柏孚 — 创业家与开源贡献者",
+    "description": "陈柏孚的作品集与博客，Numbers Protocol 创始人。"
+  }
+}

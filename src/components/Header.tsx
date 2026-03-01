@@ -1,36 +1,41 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useNavigation } from '../context/NavigationContext'
-import { sectionNavItems } from '../data/navigation'
+import { sectionNavIds, NAV_TRANSLATION_KEYS } from '../data/navigation'
+import { useI18n } from '../i18n'
+import LocaleLink from './LocaleLink'
+import LanguageSwitcher from './LanguageSwitcher'
 import MobileNav from './MobileNav'
 
 const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const location = useLocation()
-  const isHome = location.pathname === '/'
+  const { t, localePath, isHomePath } = useI18n()
   const { activeSection, handleNavigate } = useNavigation()
 
   const handleSectionClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault()
-    if (isHome) {
+    if (isHomePath) {
       handleNavigate(id)
     } else {
-      window.location.href = `/#${id}`
+      window.location.href = localePath('/') + '#' + id
     }
   }
+
+  const isBlogActive = location.pathname.replace(/^\/(zh-TW|zh-CN|ja)/, '').startsWith('/blog')
 
   return (
     <>
       <a href="#main-content" className="skip-to-content">
-        Skip to content
+        {t('nav.skipToContent')}
       </a>
       <header
         id="site-header"
         className="sticky top-0 z-50 border-b border-brand-black/10 bg-brand-cream/80 backdrop-blur"
       >
         <div className="container">
-          <nav className="flex items-center justify-between py-4" aria-label="Main navigation">
-            {isHome ? (
+          <nav className="flex items-center justify-between py-4" aria-label={t('a11y.mainNav')}>
+            {isHomePath ? (
               <a
                 href="#hero"
                 onClick={(e) => {
@@ -41,41 +46,44 @@ const Header = () => {
                 <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />
               </a>
             ) : (
-              <Link to="/">
+              <LocaleLink to="/">
                 <img src="/assets/bofuchen-lockup.svg" alt="Bofu Chen" className="h-7" />
-              </Link>
+              </LocaleLink>
             )}
 
             {/* Desktop nav */}
             <div className="hidden items-center gap-6 rounded-full border border-brand-black/10 bg-brand-white/80 px-6 py-2 md:flex">
-              {sectionNavItems.map((item) => (
+              {sectionNavIds.map((id) => (
                 <a
-                  key={item.id}
-                  href={isHome ? `#${item.id}` : `/#${item.id}`}
-                  onClick={(e) => handleSectionClick(e, item.id)}
+                  key={id}
+                  href={isHomePath ? `#${id}` : `${localePath('/')}#${id}`}
+                  onClick={(e) => handleSectionClick(e, id)}
                   className={`text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
-                    isHome && activeSection === item.id
+                    isHomePath && activeSection === id
                       ? 'text-brand-dark-blue'
                       : 'text-brand-black/60 hover:text-brand-black'
                   }`}
                 >
-                  {item.label}
+                  {t(NAV_TRANSLATION_KEYS[id])}
                 </a>
               ))}
-              <Link
+              <LocaleLink
                 to="/blog"
                 className={`text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
-                  location.pathname.startsWith('/blog')
+                  isBlogActive
                     ? 'text-brand-dark-blue'
                     : 'text-brand-black/60 hover:text-brand-black'
                 }`}
               >
-                Blog
-              </Link>
+                {t('nav.blog')}
+              </LocaleLink>
             </div>
 
-            {/* Social links + hamburger */}
+            {/* Social links + language switcher + hamburger */}
             <div className="flex items-center gap-4 text-lg">
+              <div className="hidden sm:block">
+                <LanguageSwitcher />
+              </div>
               <a
                 href="https://github.com/bafu"
                 target="_blank"
@@ -83,7 +91,7 @@ const Header = () => {
                 className="hidden text-brand-black/60 transition-colors hover:text-brand-black sm:block"
               >
                 <i className="fab fa-github" aria-hidden="true"></i>
-                <span className="sr-only">GitHub</span>
+                <span className="sr-only">{t('a11y.github')}</span>
               </a>
               <a
                 href="https://twitter.com/bafuchen"
@@ -92,13 +100,13 @@ const Header = () => {
                 className="hidden text-brand-black/60 transition-colors hover:text-brand-black sm:block"
               >
                 <i className="fab fa-twitter" aria-hidden="true"></i>
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">{t('a11y.twitter')}</span>
               </a>
               <button
                 type="button"
                 onClick={() => setMobileNavOpen(true)}
                 className="flex h-10 w-10 items-center justify-center rounded-full text-brand-black/60 transition-colors hover:bg-brand-black/5 hover:text-brand-black md:hidden"
-                aria-label="Open menu"
+                aria-label={t('a11y.openMenu')}
                 aria-expanded={mobileNavOpen}
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">

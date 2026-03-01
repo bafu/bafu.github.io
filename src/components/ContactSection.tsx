@@ -1,20 +1,23 @@
+import { useI18n } from '../i18n'
 import ScrollReveal from './ScrollReveal'
 
 const ContactSection = () => {
+  const { t } = useI18n()
+
   return (
     <section id="contact" className="py-16 sm:py-20 md:py-24 lg:py-28">
       <div className="container text-center">
         <ScrollReveal>
-          <h2 className="font-display text-2xl font-semibold text-brand-black sm:text-3xl md:text-4xl">Get In Touch</h2>
+          <h2 className="font-display text-2xl font-semibold text-brand-black sm:text-3xl md:text-4xl">{t('contact.heading')}</h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-brand-black/70 sm:mt-6">
-            Interested in collaborating or speaking opportunities? Let's build something audacious together.
+            {t('contact.description')}
           </p>
         </ScrollReveal>
         <ScrollReveal delay={150}>
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm sm:mt-12 sm:gap-8">
             <a
               href="mailto:bofu@numbersprotocol.io"
-              aria-label="Send me an email"
+              aria-label={t('a11y.emailMe')}
               className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-black/10 bg-brand-white/90 text-brand-black/60 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-dark-blue hover:text-brand-white hover:shadow-glass sm:h-16 sm:w-16"
             >
               <svg
@@ -32,7 +35,7 @@ const ContactSection = () => {
               href="https://twitter.com/bafuchen"
               target="_blank"
               rel="noreferrer"
-              aria-label="Follow me on X (Twitter)"
+              aria-label={t('a11y.followTwitter')}
               className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-black/10 bg-brand-white/90 text-brand-black/60 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-dark-blue hover:text-brand-white hover:shadow-glass sm:h-16 sm:w-16"
             >
               <svg
@@ -49,7 +52,7 @@ const ContactSection = () => {
               href="https://github.com/bafu"
               target="_blank"
               rel="noreferrer"
-              aria-label="View my GitHub profile"
+              aria-label={t('a11y.viewGithub')}
               className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-black/10 bg-brand-white/90 text-brand-black/60 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-dark-blue hover:text-brand-white hover:shadow-glass sm:h-16 sm:w-16"
             >
               <svg

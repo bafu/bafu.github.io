@@ -1,88 +1,88 @@
-# Content Principles
+# 內容原則
 
-Guidelines for all content published on bafu.github.io and associated channels.
+適用於 bafu.github.io 及相關發布管道的所有內容準則。
 
 ---
 
-## 1. Voice: Tech Founder, Not Thought Leader
+## 1. 聲音：技術創辦人，不是意見領袖
 
-Write as a builder who ships products, not a commentator who observes from the sidelines.
+以一個親手出貨的建造者身分寫作，而不是在旁邊觀察的評論家。
 
-- **First-person experience over abstraction.** "We hit this wall at Numbers Protocol" beats "Companies often struggle with..."
-- **Show the messy middle.** Share the tradeoffs, the failed attempts, the debugging sessions — not just the polished outcome.
-- **Opinionated but honest.** Take a clear stance. When uncertain, say so. Avoid hedge words like "perhaps," "it could be argued that."
-- **Technical credibility.** Include code snippets, architecture diagrams, or terminal output when relevant. The reader should trust that you've actually done the work.
-- **No corporate speak.** Write like you're explaining something to a sharp engineer over coffee, not pitching to a VC.
+- **第一人稱經驗優先於抽象論述。**「我們在 Numbers Protocol 撞上了這堵牆」勝過「企業經常面臨的挑戰是……」
+- **展示混亂的過程。** 分享取捨、失敗的嘗試、除錯的過程——而不只是光鮮亮麗的結果。
+- **有主見但誠實。** 明確表態。不確定的時候就直說。避免使用「也許」、「有人認為」之類的迴避用語。
+- **技術可信度。** 在適當的地方附上程式碼片段、架構圖或終端機輸出。讀者應該信任你確實做過這些事。
+- **拒絕官腔。** 像在跟一個聰明的工程師喝咖啡聊天一樣寫作，而不是在跟 VC 做簡報。
 
-## 2. Every Post Must Be Useful
+## 2. 每篇文章都必須有用
 
-If someone finishes reading and can't do something they couldn't do before, the post failed.
+如果讀者看完之後沒辦法做到任何之前做不到的事，這篇文章就失敗了。
 
-- **Actionable takeaway.** Every article must contain at least one thing the reader can apply immediately — a framework, a code pattern, a decision heuristic, a tool recommendation.
-- **No "awareness" posts.** Don't write "AI is changing the world." Write "Here's how we reduced hallucination rate by 40% in our agent pipeline."
-- **Respect the reader's time.** If it can be said in 500 words, don't write 2000. If it needs 2000, structure it so readers can skip to what they need.
-- **The bar:** Before publishing, ask — "Would I bookmark this if someone else wrote it?"
+- **可行動的收穫。** 每篇文章至少要包含一個讀者可以立即應用的東西——一個框架、一個程式碼模式、一個決策法則、一個工具推薦。
+- **不寫「科普文」。** 不要寫「AI 正在改變世界」。要寫「我們如何在 agent pipeline 中將幻覺率降低 40%」。
+- **尊重讀者的時間。** 500 字能講完的事不要寫 2000 字。如果確實需要 2000 字，就用結構化的方式讓讀者能跳到需要的段落。
+- **發布前的檢驗標準：**「如果這篇是別人寫的，我會不會收藏？」
 
-## 3. Conclusion First (結論先行)
+## 3. 結論先行
 
-Every article opens with a **≤100-word summary** that tells the reader exactly what they'll get.
+每篇文章開頭都必須有一段 **100 字以內的摘要**，直接告訴讀者能得到什麼。
 
-### Format
+### 格式
 
 ```
 ## TL;DR
 
-[100 words or fewer. State the core insight, the solution, and the result.
-The reader should be able to stop here and still walk away with value.]
+[100 字以內。陳述核心洞察、解決方案和成果。
+讀者即使只看這段，也應該能帶走價值。]
 ```
 
-### Rules
+### 規則
 
-- The TL;DR comes immediately after the title/metadata — before any introduction or context.
-- Write it last, but place it first.
-- It must be self-contained: no "as we'll discuss below" or "keep reading to find out."
-- Use concrete numbers and specifics, not vague promises.
+- TL;DR 緊接在標題/metadata 之後——在任何前言或背景介紹之前。
+- 最後寫，但放在最前面。
+- 必須獨立成段：不可出現「如下文所述」或「繼續閱讀以了解」。
+- 使用具體數字和細節，不要用模糊的承諾。
 
-### Example
+### 範例
 
 > **TL;DR**
 >
-> Enterprise AI agents that can't explain their reasoning get blocked by compliance teams — we learned this the hard way at Numbers Protocol. We built TAEA (Transparent, Auditable, Explainable Agent) principles into Omni's agent pipeline: every decision is logged with provenance, every output links back to its source. Result: enterprise pilot approval time dropped from 3 months to 2 weeks.
+> 無法解釋推理過程的企業 AI agent 會被合規團隊擋下——我們在 Numbers Protocol 學到了這個教訓。我們將 TAEA（Transparent, Auditable, Explainable Agent）原則建入 Omni 的 agent pipeline：每個決策都帶有溯源紀錄，每個輸出都能追溯到來源。成果：企業試點審核時間從 3 個月縮短到 2 週。
 
-## 4. Dual Audience: Humans and Agents
+## 4. 雙重受眾：人類與 Agent
 
-Content is consumed by both human readers and AI agents (LLMs, RAG pipelines, search indexers). Write for both.
+內容同時被人類讀者和 AI agent（LLM、RAG pipeline、搜尋索引器）消費。為兩者而寫。
 
-### For Humans
+### 為人類而寫
 
-- Use narrative, examples, and visual hierarchy (headers, bold, lists).
-- Include context and motivation — the "why" behind decisions.
-- Keep the tone conversational and scannable.
+- 使用敘事、範例和視覺層次（標題、粗體、列表）。
+- 包含脈絡和動機——決策背後的「為什麼」。
+- 保持對話感，方便掃讀。
 
-### For Agents
+### 為 Agent 而寫
 
-- **Structured data.** Use consistent heading hierarchy (`##`, `###`) so content can be parsed programmatically.
-- **Explicit metadata.** Every blog post must include complete YAML frontmatter: `title`, `date`, `description`, `tags`.
-- **Self-contained sections.** Each `##` section should make sense in isolation — an agent may retrieve a single section, not the full article.
-- **Define terms inline.** Don't assume the reader (human or machine) has context from a previous post. Write "TAEA (Transparent, Auditable, Explainable Agent)" on first use in every article.
-- **Semantic HTML and Markdown.** Use proper heading levels, code fences with language tags, and alt text for images.
-- **Stable identifiers.** Use descriptive, lowercase, hyphenated slugs for blog post filenames (e.g., `enterprise-ai-audit-trail.md`).
+- **結構化資料。** 使用一致的標題層級（`##`、`###`），讓內容可以被程式化解析。
+- **明確的 metadata。** 每篇部落格文章必須包含完整的 YAML frontmatter：`title`、`date`、`description`、`tags`。
+- **段落自足性。** 每個 `##` 段落都應該獨立可讀——agent 可能只擷取單一段落，而非整篇文章。
+- **行內定義術語。** 不要假設讀者（無論人類或機器）擁有前一篇文章的上下文。每篇文章首次出現時都寫全稱：「TAEA（Transparent, Auditable, Explainable Agent）」。
+- **語意化 HTML 與 Markdown。** 使用正確的標題層級、帶語言標記的程式碼區塊，以及圖片替代文字。
+- **穩定的識別名稱。** 部落格文章的檔名使用描述性的小寫連字號格式（例如 `enterprise-ai-audit-trail.md`）。
 
-### Practical Checklist
+### 實用檢查清單
 
-- [ ] TL;DR is parseable as a standalone paragraph
-- [ ] All acronyms are expanded on first use
-- [ ] Code blocks have language annotations (` ```typescript `, not ` ``` `)
-- [ ] Headings describe content (not "Introduction" or "Part 1")
-- [ ] Tags in frontmatter use consistent, lowercase terms
+- [ ] TL;DR 可作為獨立段落被解析
+- [ ] 所有縮寫在首次出現時展開全稱
+- [ ] 程式碼區塊標註語言（` ```typescript `，而非 ` ``` `）
+- [ ] 標題描述實際內容（不用「前言」或「第一部分」）
+- [ ] Frontmatter 中的 tags 使用一致的小寫格式
 
 ---
 
-## Quick Reference
+## 速查表
 
-| Principle | One-Liner |
-|-----------|-----------|
-| **Voice** | Write as a founder who builds, not a pundit who comments |
-| **Usefulness** | Every post gives the reader a new capability |
-| **Conclusion First** | ≤100-word TL;DR at the top, always |
-| **Dual Audience** | Structured for machines, readable for humans |
+| 原則 | 一句話總結 |
+|------|-----------|
+| **聲音** | 以建造者的身分寫作，不是評論家 |
+| **實用性** | 每篇文章都給讀者一個新能力 |
+| **結論先行** | 開頭 100 字以內的 TL;DR，永遠如此 |
+| **雙重受眾** | 為機器結構化，為人類可讀 |

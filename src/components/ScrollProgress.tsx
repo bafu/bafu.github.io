@@ -15,9 +15,9 @@ const ScrollProgress = () => {
   }, [])
 
   return (
-    <div className="fixed left-0 top-0 z-[60] h-[3px] w-full">
+    <div className="fixed left-0 top-0 z-[60] h-[2px] w-full">
       <div
-        className="scroll-progress h-full bg-brand-dark-blue"
+        className="scroll-progress h-full bg-beige-gold"
         style={{ transform: `scaleX(${progress})` }}
       />
     </div>

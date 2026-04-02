@@ -7,7 +7,8 @@ const LanguageSwitcher = () => {
     <select
       value={lang}
       onChange={(e) => setLang(e.target.value as typeof lang)}
-      className="rounded-full border border-brand-black/10 bg-brand-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-black/60 transition-colors hover:border-brand-black/20 hover:text-brand-black focus:outline-none focus:ring-2 focus:ring-brand-dark-blue/30"
+      className="border border-border bg-card px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground focus:outline-none focus:ring-2 focus:ring-beige-gold focus:ring-offset-2 focus:ring-offset-background"
+      style={{ borderRadius: '0.25rem' }}
       aria-label="Select language"
     >
       {LANGUAGES.map((l) => (

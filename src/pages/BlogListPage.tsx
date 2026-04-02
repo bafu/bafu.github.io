@@ -10,10 +10,10 @@ const BlogListPage = () => {
   return (
     <main id="main-content" className="container py-20 sm:py-28">
       <ScrollReveal>
-        <h1 className="font-display text-3xl font-bold tracking-tight text-brand-black sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
           {t('blog.heading')}
         </h1>
-        <p className="mt-3 text-base text-brand-black/60 sm:text-lg">
+        <p className="mt-3 text-base text-muted-foreground sm:text-lg">
           {t('blog.subtitle')}
         </p>
       </ScrollReveal>
@@ -23,15 +23,15 @@ const BlogListPage = () => {
           <ScrollReveal key={post.slug} delay={i * 100}>
             <LocaleLink
               to={`/blog/${post.slug}`}
-              className="group block rounded-2xl border border-brand-black/10 bg-brand-white/80 p-6 transition-shadow hover:shadow-glass sm:p-8"
+              className="chanel-card group block p-6 transition-colors duration-200 hover:border-foreground/20 sm:p-8"
             >
-              <time className="text-xs font-medium uppercase tracking-widest text-brand-black/40">
+              <time className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
                 {post.date}
               </time>
-              <h2 className="mt-2 font-display text-xl font-bold tracking-tight text-brand-black group-hover:text-brand-dark-blue sm:text-2xl">
+              <h2 className="mt-2 font-serif text-xl font-normal tracking-tight text-foreground group-hover:text-deep-blue sm:text-2xl">
                 {post.title}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-brand-black/60 sm:text-base">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
                 {post.description}
               </p>
               {post.tags.length > 0 && (
@@ -39,7 +39,8 @@ const BlogListPage = () => {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-brand-cream px-3 py-1 text-xs font-medium text-brand-black/60"
+                      className="border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
+                      style={{ borderRadius: '0.25rem' }}
                     >
                       {tag}
                     </span>

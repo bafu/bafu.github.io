@@ -8,8 +8,8 @@ const ContactSection = () => {
     <section id="contact" className="py-16 sm:py-20 md:py-24 lg:py-28">
       <div className="container text-center">
         <ScrollReveal>
-          <h2 className="font-display text-2xl font-semibold text-brand-black sm:text-3xl md:text-4xl">{t('contact.heading')}</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-brand-black/70 sm:mt-6">
+          <h2 className="font-serif text-2xl font-normal text-foreground sm:text-3xl md:text-4xl">{t('contact.heading')}</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:mt-6">
             {t('contact.description')}
           </p>
         </ScrollReveal>
@@ -18,7 +18,8 @@ const ContactSection = () => {
             <a
               href="mailto:bofu@numbersprotocol.io"
               aria-label={t('a11y.emailMe')}
-              className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-black/10 bg-brand-white/90 text-brand-black/60 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-dark-blue hover:text-brand-white hover:shadow-glass sm:h-16 sm:w-16"
+              className="flex h-14 w-14 items-center justify-center border border-border bg-card text-muted-foreground transition-colors duration-200 hover:bg-foreground hover:text-background sm:h-16 sm:w-16"
+              style={{ borderRadius: '0.25rem' }}
             >
               <svg
                 className="h-5 w-5 sm:h-6 sm:w-6"
@@ -36,7 +37,8 @@ const ContactSection = () => {
               target="_blank"
               rel="noreferrer"
               aria-label={t('a11y.followTwitter')}
-              className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-black/10 bg-brand-white/90 text-brand-black/60 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-dark-blue hover:text-brand-white hover:shadow-glass sm:h-16 sm:w-16"
+              className="flex h-14 w-14 items-center justify-center border border-border bg-card text-muted-foreground transition-colors duration-200 hover:bg-foreground hover:text-background sm:h-16 sm:w-16"
+              style={{ borderRadius: '0.25rem' }}
             >
               <svg
                 className="h-4 w-4 sm:h-5 sm:w-5"
@@ -53,7 +55,8 @@ const ContactSection = () => {
               target="_blank"
               rel="noreferrer"
               aria-label={t('a11y.viewGithub')}
-              className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-black/10 bg-brand-white/90 text-brand-black/60 transition-all duration-300 hover:-translate-y-1 hover:bg-brand-dark-blue hover:text-brand-white hover:shadow-glass sm:h-16 sm:w-16"
+              className="flex h-14 w-14 items-center justify-center border border-border bg-card text-muted-foreground transition-colors duration-200 hover:bg-foreground hover:text-background sm:h-16 sm:w-16"
+              style={{ borderRadius: '0.25rem' }}
             >
               <svg
                 className="h-5 w-5 sm:h-6 sm:w-6"

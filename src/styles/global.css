@@ -4,12 +4,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ──────────────────────────────────────────
+   1. CSS Custom Properties — Light Mode
+   ────────────────────────────────────────── */
+
 :root {
   color-scheme: light;
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 97%;
+  --muted-foreground: 0 0% 29%;
+  --border: 0 0% 90%;
+  --accent: 37 38% 75%;
+  --beige: 37 38% 75%;
+  --beige-gold: 37 38% 52%;
+  --deep-blue: 215 32% 45%;
+  --nav-active: 215 70% 14%;
+  --prose-heading: 215 32% 45%;
+  --prose-inline-code: 25 50% 45%;
+  --success: 142 76% 36%;
+  --warning: 37 38% 52%;
+  --destructive: 0 84% 60%;
 }
 
+/* ──────────────────────────────────────────
+   2. CSS Custom Properties — Dark Mode
+   ────────────────────────────────────────── */
+
+.dark {
+  color-scheme: dark;
+
+  --background: 0 0% 7%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 11%;
+  --muted-foreground: 0 0% 71%;
+  --border: 0 0% 16%;
+  --accent: 37 33% 67%;
+  --beige: 37 33% 67%;
+  --beige-gold: 37 33% 60%;
+  --deep-blue: 215 38% 62%;
+  --nav-active: 215 50% 23%;
+  --prose-heading: 215 38% 62%;
+  --prose-inline-code: 25 50% 45%;
+  --success: 142 76% 36%;
+  --warning: 37 33% 60%;
+  --destructive: 0 84% 60%;
+}
+
+/* ──────────────────────────────────────────
+   3. Base Styles
+   ────────────────────────────────────────── */
+
 body {
-  @apply bg-brand-cream text-brand-black font-sans antialiased;
+  @apply bg-background text-foreground font-sans antialiased;
 }
 
 a {
@@ -20,9 +68,35 @@ a {
   @apply mx-auto w-11/12 max-w-6xl;
 }
 
-/* Skip-to-content link */
+/* ──────────────────────────────────────────
+   4. Chanel Style Utility Classes
+   ────────────────────────────────────────── */
+
+.chanel-nav {
+  @apply text-xs font-medium uppercase tracking-[0.15em];
+}
+
+.chanel-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.25rem;
+}
+
+.focus-gold:focus-visible {
+  @apply outline-none ring-2 ring-offset-2;
+  --tw-ring-color: hsl(var(--beige-gold));
+  --tw-ring-offset-color: hsl(var(--background));
+}
+
+/* ──────────────────────────────────────────
+   5. Skip-to-Content Link
+   ────────────────────────────────────────── */
+
 .skip-to-content {
-  @apply absolute -top-full left-4 z-[100] rounded-b-lg bg-brand-dark-blue px-4 py-2 text-sm font-semibold text-brand-white;
+  @apply absolute -top-full left-4 z-[100] px-4 py-2 text-sm font-semibold;
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  border-radius: 0 0 0.25rem 0.25rem;
   transition: top 0.2s;
 }
 
@@ -30,16 +104,59 @@ a {
   @apply top-0;
 }
 
-/* Focus-visible styles */
+/* ──────────────────────────────────────────
+   6. Focus-Visible Global Default
+   ────────────────────────────────────────── */
+
 *:focus-visible {
-  @apply outline-none ring-2 ring-brand-dark-blue ring-offset-2 ring-offset-brand-cream;
+  @apply outline-none ring-2 ring-offset-2;
+  --tw-ring-color: hsl(var(--beige-gold));
+  --tw-ring-offset-color: hsl(var(--background));
 }
 
-/* Hero entrance animations */
+/* ──────────────────────────────────────────
+   7. Selection Highlight
+   ────────────────────────────────────────── */
+
+::selection {
+  background: hsl(var(--beige));
+  color: black;
+}
+
+/* ──────────────────────────────────────────
+   8. Scrollbar
+   ────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* ──────────────────────────────────────────
+   9. Animations
+   ────────────────────────────────────────── */
+
 @keyframes hero-fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -49,19 +166,18 @@ a {
 
 .hero-animate {
   opacity: 0;
-  animation: hero-fade-in 0.6s ease-out forwards;
+  animation: hero-fade-in 0.3s ease-out forwards;
 }
 
 .hero-delay-0 { animation-delay: 0ms; }
-.hero-delay-1 { animation-delay: 150ms; }
-.hero-delay-2 { animation-delay: 300ms; }
-.hero-delay-3 { animation-delay: 450ms; }
+.hero-delay-1 { animation-delay: 100ms; }
+.hero-delay-2 { animation-delay: 200ms; }
+.hero-delay-3 { animation-delay: 300ms; }
 
-/* Scroll reveal animations */
 @keyframes scroll-reveal {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -74,14 +190,13 @@ a {
 }
 
 .scroll-reveal.is-visible {
-  animation: scroll-reveal 0.6s ease-out forwards;
+  animation: scroll-reveal 0.3s ease-out forwards;
 }
 
-/* Tab content transition */
 @keyframes tab-fade-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -93,7 +208,6 @@ a {
   animation: tab-fade-in 0.3s ease-out;
 }
 
-/* Mobile nav overlay */
 @keyframes mobile-nav-overlay {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -112,47 +226,38 @@ a {
   animation: mobile-nav-slide 0.3s ease-out;
 }
 
-/* Scroll progress bar */
 .scroll-progress {
   transform-origin: left;
   will-change: transform;
 }
 
-/* Background noise texture */
-.noise-overlay::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-
 /* ──────────────────────────────────────────
-   Blog prose — Markdown rendered content
+   10. Blog Prose — Markdown Rendered Content
    ────────────────────────────────────────── */
 
 .blog-prose {
-  @apply text-brand-black/80 leading-relaxed;
+  @apply leading-relaxed;
+  color: hsl(var(--foreground) / 0.8);
 }
 
 .blog-prose h1 {
-  @apply mt-12 mb-4 font-display text-2xl font-bold tracking-tight text-brand-black sm:text-3xl;
+  @apply mt-12 mb-4 font-serif text-2xl font-bold tracking-tight sm:text-3xl;
+  color: hsl(var(--prose-heading));
 }
 
 .blog-prose h2 {
-  @apply mt-10 mb-3 font-display text-xl font-bold tracking-tight text-brand-black sm:text-2xl;
+  @apply mt-10 mb-3 font-serif text-xl font-bold tracking-tight sm:text-2xl;
+  color: hsl(var(--prose-heading));
 }
 
 .blog-prose h3 {
-  @apply mt-8 mb-3 font-display text-lg font-bold text-brand-black;
+  @apply mt-8 mb-3 font-serif text-lg font-bold;
+  color: hsl(var(--prose-heading));
 }
 
 .blog-prose h4 {
-  @apply mt-6 mb-2 font-display text-base font-bold text-brand-black;
+  @apply mt-6 mb-2 font-serif text-base font-bold;
+  color: hsl(var(--prose-heading));
 }
 
 .blog-prose p {
@@ -172,15 +277,23 @@ a {
 }
 
 .blog-prose blockquote {
-  @apply my-6 border-l-4 border-brand-dark-blue/30 pl-4 italic text-brand-black/60;
+  @apply my-6 pl-4 italic;
+  border-left: 4px solid hsl(var(--deep-blue) / 0.3);
+  color: hsl(var(--foreground) / 0.6);
 }
 
 .blog-prose pre {
-  @apply my-6 overflow-x-auto rounded-xl p-4 text-sm leading-relaxed;
+  @apply my-6 overflow-x-auto p-4 text-sm leading-relaxed;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.25rem;
 }
 
 .blog-prose :not(pre) > code {
-  @apply rounded bg-brand-cream px-1.5 py-0.5 text-sm font-medium;
+  @apply px-1.5 py-0.5 text-sm font-medium;
+  background: hsl(var(--card));
+  color: hsl(var(--prose-inline-code));
+  border-radius: 0.25rem;
 }
 
 .blog-prose table {
@@ -188,36 +301,44 @@ a {
 }
 
 .blog-prose th {
-  @apply border-b-2 border-brand-black/10 px-4 py-2 text-left font-semibold;
+  @apply px-4 py-2 text-left font-semibold;
+  border-bottom: 2px solid hsl(var(--border));
 }
 
 .blog-prose td {
-  @apply border-b border-brand-black/10 px-4 py-2;
+  @apply px-4 py-2;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .blog-prose img {
-  @apply my-6 rounded-xl;
+  @apply my-6;
+  border-radius: 0.25rem;
 }
 
 .blog-prose hr {
-  @apply my-8 border-brand-black/10;
+  @apply my-8;
+  border-color: hsl(var(--border));
 }
 
 .blog-prose a {
-  @apply font-medium text-brand-dark-blue underline decoration-brand-dark-blue/30 underline-offset-2 hover:decoration-brand-dark-blue;
+  @apply font-medium underline underline-offset-2;
+  color: hsl(var(--deep-blue));
+  text-decoration-color: hsl(var(--deep-blue) / 0.3);
 }
 
-/* highlight.js overrides — blend with brand style */
+.blog-prose a:hover {
+  text-decoration-color: hsl(var(--deep-blue));
+}
+
 .blog-prose pre code.hljs {
   background: transparent;
   padding: 0;
 }
 
-.blog-prose pre {
-  background: #f6f1e7;
-}
+/* ──────────────────────────────────────────
+   11. Reduced Motion
+   ────────────────────────────────────────── */
 
-/* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .hero-animate {
     opacity: 1;

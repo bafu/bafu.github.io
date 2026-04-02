@@ -86,22 +86,23 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[60] md:hidden" role="dialog" aria-modal="true" aria-label={t('a11y.navMenu')}>
       <div
-        className="mobile-nav-overlay absolute inset-0 bg-brand-black/40 backdrop-blur-sm"
+        className="mobile-nav-overlay absolute inset-0 bg-foreground/40 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden="true"
       />
 
       <div
         ref={drawerRef}
-        className="mobile-nav-drawer absolute right-0 top-0 flex h-full w-72 flex-col bg-brand-cream shadow-glass"
+        className="mobile-nav-drawer absolute right-0 top-0 flex h-full w-72 flex-col border-l border-border bg-background"
       >
-        <div className="flex items-center justify-between border-b border-brand-black/10 px-6 py-4">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-black/60">{t('a11y.menu')}</span>
+        <div className="flex items-center justify-between border-b border-border px-6 py-4">
+          <span className="chanel-nav text-muted-foreground">{t('a11y.menu')}</span>
           <button
             ref={closeButtonRef}
             type="button"
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-brand-black/60 transition-colors hover:bg-brand-black/5 hover:text-brand-black"
+            className="flex h-10 w-10 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+            style={{ borderRadius: '0.25rem' }}
             aria-label={t('a11y.closeMenu')}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
@@ -116,11 +117,12 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
               key={id}
               href={isHomePath ? `#${id}` : `${localePath('/')}#${id}`}
               onClick={(e) => handleSectionClick(e, id)}
-              className={`rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition-colors ${
+              className={`px-4 py-3 chanel-nav transition-colors ${
                 isHomePath && activeSection === id
-                  ? 'bg-brand-dark-blue/10 text-brand-dark-blue'
-                  : 'text-brand-black/60 hover:bg-brand-black/5 hover:text-brand-black'
+                  ? 'bg-nav-active/10 text-deep-blue'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
+              style={{ borderRadius: '0.25rem' }}
             >
               {t(NAV_TRANSLATION_KEYS[id])}
             </a>
@@ -128,24 +130,25 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
           <LocaleLink
             to="/blog"
             onClick={onClose}
-            className={`rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition-colors ${
+            className={`px-4 py-3 chanel-nav transition-colors ${
               isBlogActive
-                ? 'bg-brand-dark-blue/10 text-brand-dark-blue'
-                : 'text-brand-black/60 hover:bg-brand-black/5 hover:text-brand-black'
+                ? 'bg-nav-active/10 text-deep-blue'
+                : 'text-muted-foreground hover:text-foreground'
             }`}
+            style={{ borderRadius: '0.25rem' }}
           >
             {t('nav.blog')}
           </LocaleLink>
         </nav>
 
-        <div className="border-t border-brand-black/10 px-6 py-4">
+        <div className="border-t border-border px-6 py-4">
           <div className="flex items-center gap-4 text-lg">
             <LanguageSwitcher />
             <a
               href="https://github.com/bafu"
               target="_blank"
               rel="noreferrer"
-              className="text-brand-black/60 transition-colors hover:text-brand-black"
+              className="text-muted-foreground transition-colors hover:text-foreground"
             >
               <i className="fab fa-github" aria-hidden="true"></i>
               <span className="sr-only">{t('a11y.github')}</span>
@@ -154,7 +157,7 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
               href="https://twitter.com/bafuchen"
               target="_blank"
               rel="noreferrer"
-              className="text-brand-black/60 transition-colors hover:text-brand-black"
+              className="text-muted-foreground transition-colors hover:text-foreground"
             >
               <i className="fab fa-twitter" aria-hidden="true"></i>
               <span className="sr-only">{t('a11y.twitter')}</span>

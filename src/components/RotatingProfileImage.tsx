@@ -58,31 +58,31 @@ const RotatingProfileImage = () => {
 
   if (!isLoaded) {
     return (
-      <div className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass">
-        <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-brand-dark-blue/20 blur-3xl"></div>
-        <div className="relative aspect-square w-full animate-pulse rounded-2xl bg-brand-black/10"></div>
+      <div className="relative border border-border bg-card p-4" style={{ borderRadius: '0.25rem' }}>
+        <div className="relative aspect-square w-full animate-pulse bg-foreground/10" style={{ borderRadius: '0.25rem' }}></div>
       </div>
     )
   }
 
   return (
     <div
-      className="relative rounded-[28px] border border-brand-black/10 bg-brand-white p-4 shadow-glass"
+      className="relative border border-border bg-card p-4"
+      style={{ borderRadius: '0.25rem' }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="absolute -top-6 right-6 h-24 w-24 rounded-full bg-brand-dark-blue/20 blur-3xl"></div>
-      <div className="relative w-full overflow-hidden rounded-2xl" aria-live="polite" aria-atomic="true">
+      <div className="relative w-full overflow-hidden" style={{ borderRadius: '0.25rem' }} aria-live="polite" aria-atomic="true">
         {IMAGES.map((src, index) => (
           <img
             key={src}
             src={src}
             alt={IMAGE_ALTS[index]}
-            className={`absolute left-0 top-0 w-full rounded-2xl transition-opacity duration-1000 ${
+            className={`absolute left-0 top-0 w-full transition-opacity duration-1000 ${
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
               position: index === 0 ? 'relative' : 'absolute',
+              borderRadius: '0.25rem',
             }}
             aria-hidden={index !== currentIndex}
           />
@@ -96,10 +96,10 @@ const RotatingProfileImage = () => {
             type="button"
             onClick={() => goToImage(index)}
             aria-label={`Go to image ${index + 1}: ${IMAGE_ALTS[index]}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full transition-all duration-200 ${
               index === currentIndex
-                ? 'w-6 bg-brand-dark-blue'
-                : 'w-2 bg-brand-black/20 hover:bg-brand-black/40'
+                ? 'w-6 bg-beige-gold'
+                : 'w-2 bg-foreground/20 hover:bg-foreground/40'
             }`}
           />
         ))}

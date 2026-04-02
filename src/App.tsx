@@ -13,7 +13,7 @@ import HomePage from './pages/HomePage'
 const App = () => {
   return (
     <I18nProvider>
-      <div className="noise-overlay relative min-h-screen bg-gradient-to-br from-brand-cream via-brand-white to-brand-stone/40 text-brand-black">
+      <div className="relative min-h-screen bg-background text-foreground">
         <MetaTags />
         <LanguageRedirect />
         <ScrollProgress />

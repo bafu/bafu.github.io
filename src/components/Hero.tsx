@@ -32,7 +32,7 @@ const Hero = () => {
             <div className="hero-animate hero-delay-2 space-y-2 text-sm text-background/50">
               <div className="flex items-center gap-2">
                 <span className="inline-block h-px w-3 bg-beige-gold" />
-                <span>Open Source</span>
+                <span>Free Software</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="inline-block h-px w-3 bg-beige-gold" />

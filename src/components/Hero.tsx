@@ -10,6 +10,11 @@ const Hero = () => {
         <div className="flex w-full flex-col justify-center bg-foreground px-8 py-16 text-background sm:px-12 md:w-1/2 md:py-24 lg:px-20">
           <div className="mx-auto max-w-lg space-y-6">
             <div className="hero-animate hero-delay-0">
+              <img
+                src="/assets/profile-pic.png"
+                alt="Bofu Chen"
+                className="photo-chanel mb-6 h-20 w-20 rounded-full border border-background/20 object-cover md:h-24 md:w-24"
+              />
               <h1 className="font-serif text-4xl font-normal leading-tight sm:text-5xl lg:text-6xl">
                 Bofu Chen
               </h1>

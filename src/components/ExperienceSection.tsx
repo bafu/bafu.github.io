@@ -43,7 +43,7 @@ const ExperienceSection = () => {
     <section id="work" className="py-16 sm:py-20 md:py-24 lg:py-28">
       <div className="container">
         <ScrollReveal>
-          <h2 className="font-display text-2xl font-semibold text-brand-black sm:text-3xl md:text-4xl">
+          <h2 className="font-serif text-2xl font-normal text-foreground sm:text-3xl md:text-4xl">
             {t('experience.heading')}
           </h2>
         </ScrollReveal>
@@ -51,26 +51,27 @@ const ExperienceSection = () => {
           {experiences.map((experience, index) => (
             <ScrollReveal key={experience.title} delay={index * 100}>
               <article className="relative mb-8 last:mb-0 sm:mb-10 md:mb-12">
-                <div className="group rounded-2xl border border-brand-black/10 bg-brand-white/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-black/20 hover:shadow-glass sm:p-6">
-                  <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-brand-dark-blue">{experience.period}</p>
-                  <h3 className="mt-2 text-lg font-semibold text-brand-black sm:text-xl md:text-2xl">{experience.title}</h3>
-                  <h4 className="mt-1 font-medium text-brand-black">
+                <div className="chanel-card group p-5 transition-colors duration-200 hover:border-foreground/20 sm:p-6">
+                  <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-deep-blue">{experience.period}</p>
+                  <h3 className="mt-2 text-lg font-semibold text-foreground sm:text-xl md:text-2xl">{experience.title}</h3>
+                  <h4 className="mt-1 font-medium text-foreground">
                     <a
                       href={experience.organizationUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-brand-black/60 transition-colors hover:text-brand-black"
+                      className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {experience.organization}
                       <i className="fas fa-external-link-alt text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
                     </a>
                   </h4>
-                  <p className="mt-3 text-sm leading-relaxed text-brand-black/70">{experience.description}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{experience.description}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {experience.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="rounded-full bg-brand-cream px-3 py-1 text-xs font-medium text-brand-black transition-all duration-200 hover:scale-105 hover:bg-brand-stone/50"
+                        className="border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
+                        style={{ borderRadius: '0.25rem' }}
                       >
                         {skill}
                       </span>
@@ -86,7 +87,7 @@ const ExperienceSection = () => {
           <div className="mt-12 sm:mt-14 md:mt-16">
             {/* Tab list with ARIA */}
             <div
-              className="flex gap-1 border-b border-brand-black/10"
+              className="flex gap-1 border-b border-border"
               role="tablist"
               aria-label={t('experience.tablistLabel')}
             >
@@ -102,16 +103,15 @@ const ExperienceSection = () => {
                   tabIndex={activeTab === id ? 0 : -1}
                   onClick={() => setActiveTab(id)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className={`relative px-4 pb-3 text-sm font-semibold transition-colors sm:px-6 sm:text-base ${
+                  className={`relative px-4 pb-3 text-sm font-medium uppercase tracking-[0.15em] transition-colors sm:px-6 ${
                     activeTab === id
-                      ? 'text-brand-black'
-                      : 'text-brand-black/60 hover:text-brand-black'
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {t(`experience.tabs.${id}`)}
-                  {/* Animated underline */}
                   {activeTab === id && (
-                    <span className="absolute bottom-0 left-0 h-0.5 w-full bg-brand-dark-blue" />
+                    <span className="absolute bottom-0 left-0 h-0.5 w-full bg-beige-gold" />
                   )}
                 </button>
               ))}
@@ -127,19 +127,19 @@ const ExperienceSection = () => {
             >
               {activeTab === 'talks' && (
                 <>
-                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">{t('experience.subheadings.talks')}</h3>
+                  <h3 className="font-serif text-xl font-normal text-foreground sm:text-2xl">{t('experience.subheadings.talks')}</h3>
                   <div className="mt-6 sm:mt-8">
                     {talks.map((talk) => (
                       <article key={talk.title} className="relative mb-6 last:mb-0 sm:mb-8">
-                        <div className="group rounded-2xl border border-brand-black/10 bg-brand-white/90 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass sm:p-5">
-                          <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{talk.date}</p>
-                          <h4 className="mt-2 text-base font-semibold text-brand-black sm:text-lg">
+                        <div className="chanel-card group p-4 transition-colors duration-200 hover:border-foreground/20 sm:p-5">
+                          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-deep-blue">{talk.date}</p>
+                          <h4 className="mt-2 text-base font-semibold text-foreground sm:text-lg">
                             {talk.url ? (
                               <a
                                 href={talk.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-brand-dark-blue"
+                                className="inline-flex items-center gap-2 text-foreground transition-colors hover:text-deep-blue"
                               >
                                 {talk.title}
                                 <i className="fas fa-external-link-alt text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
@@ -148,7 +148,7 @@ const ExperienceSection = () => {
                               talk.title
                             )}
                           </h4>
-                          <p className="mt-1 text-sm text-brand-black/70">{talk.event}</p>
+                          <p className="mt-1 text-sm text-muted-foreground">{talk.event}</p>
                         </div>
                       </article>
                     ))}
@@ -158,21 +158,21 @@ const ExperienceSection = () => {
 
               {activeTab === 'awards' && (
                 <>
-                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">{t('experience.subheadings.awards')}</h3>
+                  <h3 className="font-serif text-xl font-normal text-foreground sm:text-2xl">{t('experience.subheadings.awards')}</h3>
                   <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {awards.map((award) => (
                       <article
                         key={`${award.year}-${award.title}`}
-                        className="group rounded-2xl border border-brand-black/10 bg-brand-white/90 p-5 shadow-glass transition-all duration-300 hover:-translate-y-1 hover:border-brand-black/20 sm:p-6"
+                        className="chanel-card group p-5 transition-colors duration-200 hover:border-foreground/20 sm:p-6"
                       >
-                        <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{award.year}</p>
-                        <h4 className="mt-2 text-base font-semibold text-brand-black sm:text-lg">
+                        <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-deep-blue">{award.year}</p>
+                        <h4 className="mt-2 text-base font-semibold text-foreground sm:text-lg">
                           {award.url ? (
                             <a
                               href={award.url}
                               target="_blank"
                               rel="noreferrer"
-                              className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-brand-dark-blue"
+                              className="inline-flex items-center gap-2 text-foreground transition-colors hover:text-deep-blue"
                             >
                               {award.title}
                               <i className="fas fa-external-link-alt text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
@@ -182,7 +182,7 @@ const ExperienceSection = () => {
                           )}
                         </h4>
                         {award.description ? (
-                          <p className="mt-2 text-sm text-brand-black/70">{award.description}</p>
+                          <p className="mt-2 text-sm text-muted-foreground">{award.description}</p>
                         ) : null}
                       </article>
                     ))}
@@ -192,19 +192,19 @@ const ExperienceSection = () => {
 
               {activeTab === 'media' && (
                 <>
-                  <h3 className="font-display text-xl font-semibold text-brand-black sm:text-2xl">{t('experience.subheadings.media')}</h3>
+                  <h3 className="font-serif text-xl font-normal text-foreground sm:text-2xl">{t('experience.subheadings.media')}</h3>
                   <div className="mt-6 sm:mt-8">
                     {media.map((item) => (
                       <article key={item.title} className="relative mb-6 last:mb-0 sm:mb-8">
-                        <div className="group rounded-2xl border border-brand-black/10 bg-brand-white/90 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass sm:p-5">
-                          <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark-blue">{item.date}</p>
-                          <h4 className="mt-2 text-base font-semibold text-brand-black sm:text-lg">
+                        <div className="chanel-card group p-4 transition-colors duration-200 hover:border-foreground/20 sm:p-5">
+                          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-deep-blue">{item.date}</p>
+                          <h4 className="mt-2 text-base font-semibold text-foreground sm:text-lg">
                             {item.url ? (
                               <a
                                 href={item.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex items-center gap-2 text-brand-black transition-colors hover:text-brand-dark-blue"
+                                className="inline-flex items-center gap-2 text-foreground transition-colors hover:text-deep-blue"
                               >
                                 {item.title}
                                 <i className="fas fa-external-link-alt text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
@@ -213,7 +213,7 @@ const ExperienceSection = () => {
                               item.title
                             )}
                           </h4>
-                          <p className="mt-1 text-sm text-brand-black/70">{item.source}</p>
+                          <p className="mt-1 text-sm text-muted-foreground">{item.source}</p>
                         </div>
                       </article>
                     ))}

@@ -88,16 +88,12 @@ const HomePage = () => {
     <NavigationContext.Provider value={{ activeSection, handleNavigate }}>
       <main id="main-content">
         <Hero />
-        <div className="mx-auto h-px w-11/12 max-w-6xl bg-gradient-to-r from-transparent via-brand-black/10 to-transparent" />
-        <div className="bg-brand-cream/40">
-          <ExperienceSection />
-        </div>
-        <div className="mx-auto h-px w-11/12 max-w-6xl bg-gradient-to-r from-transparent via-brand-black/10 to-transparent" />
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
+        <ExperienceSection />
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
         <ProjectsSection />
-        <div className="mx-auto h-px w-11/12 max-w-6xl bg-gradient-to-r from-transparent via-brand-black/10 to-transparent" />
-        <div className="bg-brand-cream/40">
-          <ContactSection />
-        </div>
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
+        <ContactSection />
       </main>
     </NavigationContext.Provider>
   )

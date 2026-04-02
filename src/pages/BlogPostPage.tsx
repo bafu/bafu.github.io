@@ -19,7 +19,7 @@ const BlogPostPage = () => {
     <main id="main-content" className="container py-20 sm:py-28">
       <LocaleLink
         to="/blog"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-black/50 transition-colors hover:text-brand-dark-blue"
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-deep-blue"
       >
         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -29,10 +29,10 @@ const BlogPostPage = () => {
 
       <article className="mt-8 max-w-3xl">
         <header>
-          <time className="text-xs font-medium uppercase tracking-widest text-brand-black/40">
+          <time className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
             {post.date}
           </time>
-          <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-brand-black sm:text-4xl">
+          <h1 className="mt-2 font-serif text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
             {post.title}
           </h1>
           {post.tags.length > 0 && (
@@ -40,7 +40,8 @@ const BlogPostPage = () => {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-brand-cream px-3 py-1 text-xs font-medium text-brand-black/60"
+                  className="border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
+                  style={{ borderRadius: '0.25rem' }}
                 >
                   {tag}
                 </span>

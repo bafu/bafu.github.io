@@ -5,6 +5,7 @@ import { getTalks } from '../data/talks'
 import { getMedia } from '../data/media'
 import { useI18n } from '../i18n'
 import ScrollReveal from './ScrollReveal'
+import RotatingProfileImage from './RotatingProfileImage'
 
 const TAB_IDS = ['talks', 'awards', 'media'] as const
 
@@ -47,40 +48,52 @@ const ExperienceSection = () => {
             {t('experience.heading')}
           </h2>
         </ScrollReveal>
-        <div className="mt-8 sm:mt-10 md:mt-12">
-          {experiences.map((experience, index) => (
-            <ScrollReveal key={experience.title} delay={index * 100}>
-              <article className="relative mb-8 last:mb-0 sm:mb-10 md:mb-12">
-                <div className="chanel-card group p-5 transition-colors duration-200 hover:border-foreground/20 sm:p-6">
-                  <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-deep-blue">{experience.period}</p>
-                  <h3 className="mt-2 text-lg font-semibold text-foreground sm:text-xl md:text-2xl">{experience.title}</h3>
-                  <h4 className="mt-1 font-medium text-foreground">
-                    <a
-                      href={experience.organizationUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {experience.organization}
-                      <i className="fas fa-external-link-alt text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
-                    </a>
-                  </h4>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{experience.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {experience.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
-                        style={{ borderRadius: '0.25rem' }}
+        <div className="mt-8 grid grid-cols-1 gap-8 sm:mt-10 md:mt-12 lg:grid-cols-12">
+          {/* Experience cards — main column */}
+          <div className="lg:col-span-8">
+            {experiences.map((experience, index) => (
+              <ScrollReveal key={experience.title} delay={index * 100}>
+                <article className="relative mb-8 last:mb-0 sm:mb-10 md:mb-12">
+                  <div className="chanel-card group p-5 transition-colors duration-200 hover:border-foreground/20 sm:p-6">
+                    <p className="font-mono text-sm font-medium uppercase tracking-[0.2em] text-deep-blue">{experience.period}</p>
+                    <h3 className="mt-2 text-lg font-semibold text-foreground sm:text-xl md:text-2xl">{experience.title}</h3>
+                    <h4 className="mt-1 font-medium text-foreground">
+                      <a
+                        href={experience.organizationUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        {skill}
-                      </span>
-                    ))}
+                        {experience.organization}
+                        <i className="fas fa-external-link-alt text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
+                      </a>
+                    </h4>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{experience.description}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {experience.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
+                          style={{ borderRadius: '0.25rem' }}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </article>
-            </ScrollReveal>
-          ))}
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Photo carousel — sidebar */}
+          <aside className="order-first lg:order-last lg:col-span-4">
+            <div className="lg:sticky lg:top-24">
+              <ScrollReveal>
+                <RotatingProfileImage />
+              </ScrollReveal>
+            </div>
+          </aside>
         </div>
 
         <ScrollReveal>

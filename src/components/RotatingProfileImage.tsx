@@ -77,7 +77,7 @@ const RotatingProfileImage = () => {
             key={src}
             src={src}
             alt={IMAGE_ALTS[index]}
-            className={`absolute left-0 top-0 w-full transition-opacity duration-1000 ${
+            className={`photo-chanel absolute left-0 top-0 w-full transition-[opacity,filter] duration-300 ${
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
             style={{

@@ -82,6 +82,15 @@ a {
   border-radius: 0.25rem;
 }
 
+.photo-chanel {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.photo-chanel:hover {
+  filter: grayscale(20%);
+}
+
 .focus-gold:focus-visible {
   @apply outline-none ring-2 ring-offset-2;
   --tw-ring-color: hsl(var(--beige-gold));

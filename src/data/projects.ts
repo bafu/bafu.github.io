@@ -78,40 +78,6 @@ const projectData: Record<Language, Project[]> = {
       tags: ['AI', 'Right-to-Repair', 'Privacy']
     }
   ],
-  'zh-CN': [
-    {
-      title: 'Nit - Create onchain provenance like Git',
-      url: 'https://github.com/numbersprotocol/nit',
-      description: '通过密码学签名与区块链技术验证数字媒体真实性与完整性的工具集。',
-      tags: ['Digital Provenance', 'Web3', 'Open Standards']
-    },
-    {
-      title: 'ERC-7053: Interoperable Digital Media Indexing',
-      url: 'https://eips.ethereum.org/EIPS/eip-7053',
-      description:
-        '一种通用索引方法，用于在 EVM 兼容区块链上记录、发现和检索数字媒体的历史。',
-      tags: ['Digital Provenance', 'Web3', 'Open Standards']
-    },
-    {
-      title: 'Capture Cam',
-      url: 'https://github.com/numbersprotocol/capture-lite',
-      description: '第一款具有链上溯源与 C2PA 的 Web3 相机应用。',
-      tags: ['Digital Provenance', 'Web3', 'C2PA']
-    },
-    {
-      title: 'BerryNet',
-      url: 'https://github.com/DT42/BerryNet',
-      description:
-        '边缘设备上的深度学习网关。在 Raspberry Pi 及其他 IoT 设备上轻松部署 AI 图像识别与目标检测。',
-      tags: ['AI', 'IoT', 'Edge Computing']
-    },
-    {
-      title: 'AIKEA',
-      url: 'https://github.com/dt42/aikea',
-      description: 'AI 知识引擎架构，帮助将非结构化内容转化为结构化、可搜索的知识库。',
-      tags: ['AI', 'Right-to-Repair', 'Privacy']
-    }
-  ],
   ja: [
     {
       title: 'Nit - Create onchain provenance like Git',

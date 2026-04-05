@@ -16,7 +16,7 @@ export function readingTime(content: string, lang: Language): number {
     .replace(/[#*>_~\-|]/g, '')         // markdown formatting chars
     .trim()
 
-  if (['zh-TW', 'zh-CN', 'ja'].includes(lang)) {
+  if (['zh-TW', 'ja'].includes(lang)) {
     // Count CJK characters (Unified Ideographs + Hiragana + Katakana + Hangul)
     const cjkChars = (text.match(/[\u3000-\u9fff\uf900-\ufaff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af]/g) || []).length
     const latinWords = text.replace(/[\u3000-\u9fff\uf900-\ufaff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af]/g, ' ').split(/\s+/).filter(Boolean).length
@@ -35,8 +35,6 @@ export function formatReadingTime(minutes: number, lang: Language): string {
   switch (lang) {
     case 'zh-TW':
       return `${minutes} 分鐘閱讀`
-    case 'zh-CN':
-      return `${minutes} 分钟阅读`
     case 'ja':
       return `${minutes} 分で読めます`
     default:

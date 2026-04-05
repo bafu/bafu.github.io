@@ -67,6 +67,8 @@ In March 2026 alone, **114 AI models had pricing changes** [5]. OpenAI announced
 
 Accidents do happen. On March 31, 2026, Anthropic accidentally leaked Claude Code's full source code — 512,000 lines of TypeScript — due to an npm packaging mistake [8]. On the same day, the axios npm package was hit by a supply chain attack, meaning users who updated Claude Code during a specific window may have installed a version containing malicious code [8].
 
+A more recent example: on April 4, 2026, Anthropic banned Claude subscription users from using third-party agent frameworks like OpenClaw. Imagine this — your team spent two months building an agent system on OpenClaw + Claude, you're finally ready to deploy, and then one announcement wipes out all that work. That's the risk of building core workflows on a platform you don't control.
+
 > If your entire development environment depends on an external tool, and that tool has an accident — it's not your fault, but it's your problem.
 
 On the other hand, AI is now smart and mature enough to build commercial products. Building your own AI system is entirely feasible in 2026.

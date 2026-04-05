@@ -68,35 +68,6 @@ const experienceData: Record<Language, Experience[]> = {
       skills: ['Linux', 'Open Source', 'System Integration']
     }
   ],
-  'zh-CN': [
-    {
-      period: '2020 - 至今',
-      title: '创始人兼首席执行官/首席技术官',
-      organization: 'Numbers Protocol',
-      organizationUrl: 'https://www.numbersprotocol.io/',
-      description:
-        '构建开放、去中心化的数字媒体溯源协议。保护了数百万笔数字资产，并获得多项国际奖项，包括 Tech4Trust 大奖。',
-      skills: ['Blockchain', 'Open Source', 'Product Development']
-    },
-    {
-      period: '2017 - 2020',
-      title: '创始人兼首席技术官',
-      organization: 'DT42',
-      organizationUrl: 'https://dt42.io/',
-      description:
-        '打造 AI 知识引擎，帮助组织将内容转化为互动式知识库。领导技术团队与产品愿景。',
-      skills: ['Artificial Intelligence', 'Product Development', 'Technical Leadership']
-    },
-    {
-      period: '2014 - 2017',
-      title: '技术主管',
-      organization: 'Canonical Ltd.',
-      organizationUrl: 'https://canonical.com/',
-      description:
-        '参与 Ubuntu 核心系统集成。领导与主要硬件制造商的 OEM 合作伙伴关系，优化其设备上的 Ubuntu 体验。',
-      skills: ['Linux', 'Open Source', 'System Integration']
-    }
-  ],
   ja: [
     {
       period: '2020 - 現在',

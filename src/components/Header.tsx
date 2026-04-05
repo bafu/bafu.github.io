@@ -31,7 +31,7 @@ const Header = () => {
     }
   }
 
-  const isBlogActive = location.pathname.replace(/^\/(zh-TW|zh-CN|ja)/, '').startsWith('/blog')
+  const isBlogActive = location.pathname.replace(/^\/(zh-TW|ja)/, '').startsWith('/blog')
 
   return (
     <>

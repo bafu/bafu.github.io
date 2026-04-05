@@ -60,32 +60,6 @@ const mediaData: Record<Language, Media[]> = {
       url: 'https://foundation.mozilla.org/en/insights/privacy-included/'
     }
   ],
-  'zh-CN': [
-    {
-      date: '2024-07',
-      title: 'AI 来了 — 加密技术能助其正道',
-      source: 'Grayscale',
-      url: 'https://research.grayscale.com/reports/ai-is-coming-crypto-can-help-make-it-right'
-    },
-    {
-      date: '2021-01',
-      title: 'Numbers Protocol 的区块链相机 Capture App 守护照片完整性',
-      source: 'TechCrunch',
-      url: 'https://techcrunch.com/2021/01/12/numbers-protocols-blockchain-camera-capture-app-safeguards-the-integrity-of-photos/'
-    },
-    {
-      date: '2020-04',
-      title: '什么是 Numbers Protocol',
-      source: 'Filecoin',
-      url: 'https://filecoin.io/blog/posts/tammy-yang-and-bofu-chen-numbers/'
-    },
-    {
-      date: '2019-11',
-      title: '隐私优先：重新思考智能家居',
-      source: 'Mozilla',
-      url: 'https://foundation.mozilla.org/en/insights/privacy-included/'
-    }
-  ],
   ja: [
     {
       date: '2024-07',

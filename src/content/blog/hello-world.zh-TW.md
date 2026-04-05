@@ -2,6 +2,7 @@
 title: Hello World — 第一篇文章
 date: "2026-02-28"
 description: 本站的第一篇部落格文章。快速介紹技術架構與未來方向。
+author: 陳伯符
 tags:
   - meta
   - react

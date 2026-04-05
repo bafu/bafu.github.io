@@ -5,6 +5,7 @@ import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import SiteFooter from './components/SiteFooter'
 import MetaTags from './components/MetaTags'
+import HeadLinks from './components/HeadLinks'
 import LanguageRedirect from './components/LanguageRedirect'
 import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
@@ -15,6 +16,7 @@ const App = () => {
     <I18nProvider>
       <div className="relative min-h-screen bg-background text-foreground">
         <MetaTags />
+        <HeadLinks />
         <LanguageRedirect />
         <ScrollProgress />
         <Header />

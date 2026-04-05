@@ -2,6 +2,7 @@
 title: Hello World — First Post
 date: "2026-02-28"
 description: The very first blog post on this site. A quick look at the tech stack and what to expect.
+author: Bofu Chen
 tags:
   - meta
   - react

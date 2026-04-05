@@ -15,6 +15,8 @@ type BlogFrontmatter = {
   description: string
   tags?: string[]
   draft?: boolean
+  author?: string
+  image?: string
 }
 
 function parseFilename(filename: string): { slug: string; lang: Language } {
@@ -50,6 +52,8 @@ for (const [path, raw] of Object.entries(modules)) {
     description: data.description ?? '',
     tags: data.tags ?? [],
     draft: data.draft ?? false,
+    author: data.author ?? 'Bofu Chen',
+    image: data.image,
     content
   }
 

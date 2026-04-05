@@ -1,26 +1,67 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import ScrollReveal from '../components/ScrollReveal'
 import LocaleLink from '../components/LocaleLink'
+import JsonLd from '../components/JsonLd'
 import { useI18n } from '../i18n'
+import { DEFAULT_LANGUAGE, type Language } from '../i18n/types'
 import { getPosts } from '../lib/blog'
 import { formatDate } from '../lib/formatDate'
 import { readingTime, formatReadingTime } from '../lib/readingTime'
+import { setMeta, setOg } from '../components/MetaTags'
+
+const SITE_URL = 'https://bafu.github.io'
+
+function buildUrl(path: string, lang: Language): string {
+  const prefix = lang === DEFAULT_LANGUAGE ? '' : `/${lang}`
+  return `${SITE_URL}${prefix}${path}`
+}
 
 const BlogListPage = () => {
   const { lang, t } = useI18n()
   const posts = getPosts(lang)
 
-  // Update page title for the blog list
+  // Update page title and meta for the blog list
   useEffect(() => {
     const siteName = t('meta.title')
     document.title = `${t('blog.heading')} — ${siteName}`
+
+    setMeta('description', t('blog.subtitle'))
+    setOg('og:title', `${t('blog.heading')} — ${siteName}`)
+    setOg('og:description', t('blog.subtitle'))
+    setOg('og:url', buildUrl('/blog', lang))
+
     return () => {
       document.title = siteName
+      setMeta('description', t('meta.description'))
+      setOg('og:title', siteName)
+      setOg('og:description', t('meta.description'))
+      setOg('og:url', SITE_URL)
     }
-  }, [t])
+  }, [lang, t])
+
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = useMemo(() => ({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: t('meta.title'),
+        item: buildUrl('/', lang),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: t('blog.heading'),
+        item: buildUrl('/blog', lang),
+      },
+    ],
+  }), [lang, t])
 
   return (
     <main id="main-content" className="container py-20 sm:py-28">
+      <JsonLd data={breadcrumbJsonLd} />
       <ScrollReveal>
         <h1 className="font-serif text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
           {t('blog.heading')}

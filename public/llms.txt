@@ -1,0 +1,53 @@
+# Bofu Chen (陳伯符) — Portfolio & Blog
+
+> Personal portfolio and blog of Bofu Chen (陳伯符), co-founder and CEO of Numbers Protocol.
+> Software Engineer, AI Builder, and Open-Source Contributor based in Taiwan.
+
+## About
+
+Bofu Chen is an entrepreneur and engineer focused on digital provenance, AI, and open-source development. He co-founded Numbers Protocol, building tools for digital media authenticity using blockchain and cryptographic technologies. Previously, he served as a Technical Engineering Lead at Canonical (Ubuntu).
+
+## Site Structure
+
+- [Homepage](https://bafu.github.io): Portfolio overview — experience, projects, talks, awards, and contact
+- [Homepage (繁體中文)](https://bafu.github.io/zh-TW): 繁體中文版作品集
+- [Homepage (日本語)](https://bafu.github.io/ja): 日本語版ポートフォリオ
+- [Blog](https://bafu.github.io/blog): Technical articles on AI, web3, and open source
+- [Blog (繁體中文)](https://bafu.github.io/zh-TW/blog): 繁體中文技術部落格
+- [Blog (日本語)](https://bafu.github.io/ja/blog): 日本語テクニカルブログ
+
+## Languages
+
+This site is available in three languages:
+- English (default, no URL prefix): https://bafu.github.io
+- 繁體中文 (Traditional Chinese): https://bafu.github.io/zh-TW
+- 日本語 (Japanese): https://bafu.github.io/ja
+
+## Blog Posts
+
+### Why Our 10-Person Startup Built Its Own AI Instead of Using ChatGPT
+- English: https://bafu.github.io/blog/why-build-your-own-ai
+- 繁體中文: https://bafu.github.io/zh-TW/blog/why-build-your-own-ai
+- 日本語: https://bafu.github.io/ja/blog/why-build-your-own-ai
+- Topics: TAE-AI, enterprise AI, data sovereignty, founder's journal
+- Published: 2026-04-04
+
+### Hello World — First Post
+- English: https://bafu.github.io/blog/hello-world
+- 繁體中文: https://bafu.github.io/zh-TW/blog/hello-world
+- Topics: meta, React, Markdown
+- Published: 2026-02-28
+
+## Notable Projects
+
+- [Nit](https://github.com/numbersprotocol/nit): Onchain provenance toolkit (like Git for digital media)
+- [ERC-7053](https://eips.ethereum.org/EIPS/eip-7053): Ethereum standard for interoperable digital media indexing
+- [Capture Cam](https://github.com/numbersprotocol/capture-lite): First web3 camera app with onchain provenance and C2PA
+- [BerryNet](https://github.com/DT42/BerryNet): Deep learning gateway for edge/IoT devices
+- [AIKEA](https://github.com/dt42/aikea): AI knowledge engine architecture
+
+## Contact
+
+- GitHub: https://github.com/bafu
+- Twitter/X: https://twitter.com/bafuchen
+- LinkedIn: https://www.linkedin.com/in/bofuchen/

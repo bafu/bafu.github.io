@@ -2,6 +2,7 @@
 title: "Why Our 10-Person Startup Built Its Own AI Instead of Using ChatGPT"
 date: "2026-04-04"
 description: "Data sovereignty, AI sovereignty, unified gateway, knowledge accumulation — why a tech founder chose to build in-house AI, and what it actually costs."
+author: Bofu Chen
 tags:
   - tae-ai
   - enterprise-ai
@@ -9,6 +10,18 @@ tags:
   - founders-journal
 series: "Building TAE-AI: A Founder's Journal"
 week: 1
+---
+
+## Before We Begin
+
+This Omni development journal is based entirely on a real development timeline — including how many commits it took, the wrong turns, the decisions we built up and then tore down, and the technical and business trade-offs along the way. All of it is real.
+
+I believe "sovereign AI for the company" is one of the defining trends of the next five years. Companies without AI are already falling behind their competitors, but companies without sovereign AI will fall behind too — because your lifeline is in the hands of an AI vendor, not your own.
+
+Building sovereign AI is hard enough. Building one that's actually usable and compatible with every department's needs across the entire company is even harder. You can't just stitch together a few open-source projects and call it done — there's a lot to consider, and every company's situation is different.
+
+During the development of Omni, I took wrong turns and made plenty of bad decisions. There was also a constant tug-of-war between the "founder brain" thinking about business and the "engineer brain" thinking about architecture. By publishing this journal openly, I hope the thought process and the detours we took can help you — whether you're building your own AI or your company's sovereign AI.
+
 ---
 
 ## TL;DR

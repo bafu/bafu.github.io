@@ -1,16 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ContactSection from '../components/ContactSection'
 import ExperienceSection from '../components/ExperienceSection'
 import Hero from '../components/Hero'
+import JsonLd from '../components/JsonLd'
 import LatestBlogSection from '../components/LatestBlogSection'
 import ProjectsSection from '../components/ProjectsSection'
 import { NavigationContext } from '../context/NavigationContext'
+import { useI18n } from '../i18n'
+import { HTML_LANG_MAP } from '../i18n/types'
 
+const SITE_URL = 'https://bafu.github.io'
 const SECTION_IDS = ['hero', 'work', 'projects', 'contact'] as const
 const ENABLE_WEBBRAIN = false
 
 const HomePage = () => {
+  const { lang, t } = useI18n()
   const [activeSection, setActiveSection] = useState<(typeof SECTION_IDS)[number]>('hero')
+
+  // Person + WebSite JSON-LD (renders once per language)
+  const homeJsonLd = useMemo(() => [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Bofu Chen',
+      alternateName: ['陳伯符'],
+      jobTitle: 'Software Engineer & AI Builder',
+      url: SITE_URL,
+      image: `${SITE_URL}/assets/profile-pic.png`,
+      sameAs: [
+        'https://github.com/bafu',
+        'https://twitter.com/bafuchen',
+        'https://www.linkedin.com/in/bofuchen/',
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Numbers Protocol',
+        url: 'https://numbersprotocol.io',
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: t('meta.title'),
+      url: SITE_URL,
+      inLanguage: HTML_LANG_MAP[lang],
+      description: t('meta.description'),
+    },
+  ], [lang, t])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,6 +124,7 @@ const HomePage = () => {
   return (
     <NavigationContext.Provider value={{ activeSection, handleNavigate }}>
       <main id="main-content">
+        <JsonLd data={homeJsonLd} />
         <Hero />
         <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
         <ExperienceSection />

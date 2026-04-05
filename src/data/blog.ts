@@ -5,5 +5,7 @@ export type BlogPost = {
   description: string
   tags: string[]
   draft: boolean
+  author: string
+  image?: string
   content: string
 }

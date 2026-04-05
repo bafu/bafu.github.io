@@ -2,6 +2,7 @@
 title: "Why Our 10-Person Startup Built Its Own AI Instead of Using ChatGPT"
 date: "2026-04-04"
 description: "Data sovereignty, AI sovereignty, unified gateway, knowledge accumulation — why a tech founder chose to build in-house AI, and what it actually costs."
+author: Bofu Chen
 tags:
   - tae-ai
   - enterprise-ai

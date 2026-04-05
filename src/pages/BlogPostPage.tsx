@@ -1,13 +1,23 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import { useI18n } from '../i18n'
+import { HTML_LANG_MAP, DEFAULT_LANGUAGE, LANGUAGES, type Language } from '../i18n/types'
 import { getPostBySlug } from '../lib/blog'
 import { formatDate } from '../lib/formatDate'
 import { readingTime, formatReadingTime } from '../lib/readingTime'
 import LocaleLink from '../components/LocaleLink'
+import JsonLd from '../components/JsonLd'
+import { setMeta, setOg, removeArticleMeta, addArticleTag } from '../components/MetaTags'
+
+const SITE_URL = 'https://bafu.github.io'
+
+function buildPostUrl(slug: string, lang: Language): string {
+  const prefix = lang === DEFAULT_LANGUAGE ? '' : `/${lang}`
+  return `${SITE_URL}${prefix}/blog/${slug}`
+}
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>()
@@ -16,35 +26,37 @@ const BlogPostPage = () => {
 
   // Update document title and meta for this specific post
   useEffect(() => {
-    if (!post) return
+    if (!post || !slug) return
 
     const siteName = t('meta.title')
     document.title = `${post.title} — ${siteName}`
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null
-      if (!el) {
-        el = document.createElement('meta')
-        el.name = name
-        document.head.appendChild(el)
-      }
-      el.content = content
-    }
-
-    const setOg = (property: string, content: string) => {
-      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null
-      if (!el) {
-        el = document.createElement('meta')
-        el.setAttribute('property', property)
-        document.head.appendChild(el)
-      }
-      el.content = content
-    }
 
     setMeta('description', post.description)
     setOg('og:title', post.title)
     setOg('og:description', post.description)
     setOg('og:type', 'article')
+    setOg('og:url', buildPostUrl(slug, lang))
+    if (post.image) {
+      setOg('og:image', `${SITE_URL}${post.image}`)
+    }
+
+    // Article-specific meta
+    removeArticleMeta()
+    if (post.date) {
+      const meta = document.createElement('meta')
+      meta.setAttribute('property', 'article:published_time')
+      meta.content = post.date
+      document.head.appendChild(meta)
+    }
+    {
+      const meta = document.createElement('meta')
+      meta.setAttribute('property', 'article:author')
+      meta.content = post.author
+      document.head.appendChild(meta)
+    }
+    for (const tag of post.tags) {
+      addArticleTag(tag)
+    }
 
     // Restore generic meta when leaving the page
     return () => {
@@ -52,8 +64,54 @@ const BlogPostPage = () => {
       setMeta('description', t('meta.description'))
       setOg('og:title', siteName)
       setOg('og:description', t('meta.description'))
+      setOg('og:type', 'website')
+      setOg('og:url', SITE_URL)
+      removeArticleMeta()
     }
-  }, [post, t])
+  }, [post, slug, lang, t])
+
+  // JSON-LD structured data for BlogPosting
+  const jsonLd = useMemo(() => {
+    if (!post || !slug) return null
+
+    const availableLangs = LANGUAGES.filter(
+      (l) => getPostBySlug(slug, l) !== undefined
+    )
+
+    const translationOf = availableLangs
+      .filter((l) => l !== lang)
+      .map((l) => ({
+        '@type': 'BlogPosting',
+        url: buildPostUrl(slug, l),
+        inLanguage: HTML_LANG_MAP[l],
+      }))
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.description,
+      datePublished: post.date,
+      author: {
+        '@type': 'Person',
+        name: post.author,
+        url: SITE_URL,
+      },
+      publisher: {
+        '@type': 'Person',
+        name: post.author,
+        url: SITE_URL,
+      },
+      url: buildPostUrl(slug, lang),
+      inLanguage: HTML_LANG_MAP[lang],
+      keywords: post.tags,
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': buildPostUrl(slug, lang),
+      },
+      ...(translationOf.length > 0 ? { translationOfWork: translationOf } : {}),
+    }
+  }, [post, slug, lang])
 
   if (!post) {
     return <Navigate to={localePath('/blog')} replace />
@@ -63,6 +121,7 @@ const BlogPostPage = () => {
 
   return (
     <main id="main-content" className="container py-20 sm:py-28">
+      {jsonLd && <JsonLd data={jsonLd} />}
       <LocaleLink
         to="/blog"
         className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-deep-blue"
@@ -76,7 +135,7 @@ const BlogPostPage = () => {
       <article className="mt-8 max-w-3xl">
         <header>
           <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            <time>{formatDate(post.date, lang)}</time>
+            <time dateTime={post.date}>{formatDate(post.date, lang)}</time>
             <span aria-hidden="true" className="text-border">|</span>
             <span>{formatReadingTime(minutes, lang)}</span>
           </div>

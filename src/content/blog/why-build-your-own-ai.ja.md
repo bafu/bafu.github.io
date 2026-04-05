@@ -2,6 +2,7 @@
 title: "ChatGPT も Claude もあるのに、なぜ自社でAIを構築したのか"
 date: "2026-04-04"
 description: "データ主権、AI主権、統一ゲートウェイ、ナレッジの蓄積——テック創業者が自社AIの内製を決めた4つの理由と、実際のコスト比較。"
+author: Bofu Chen
 tags:
   - tae-ai
   - enterprise-ai

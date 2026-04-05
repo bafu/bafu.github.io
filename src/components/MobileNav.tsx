@@ -27,7 +27,7 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
     window.scrollTo({ top, behavior: 'smooth' })
   }
 
-  const isBlogActive = location.pathname.replace(/^\/(zh-TW|zh-CN|ja)/, '').startsWith('/blog')
+  const isBlogActive = location.pathname.replace(/^\/(zh-TW|ja)/, '').startsWith('/blog')
 
   useEffect(() => {
     if (isOpen) {

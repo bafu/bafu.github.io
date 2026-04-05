@@ -3,7 +3,6 @@ import type { Language } from '../i18n/types'
 const LOCALE_MAP: Record<Language, string> = {
   en: 'en-US',
   'zh-TW': 'zh-TW',
-  'zh-CN': 'zh-CN',
   ja: 'ja-JP'
 }
 

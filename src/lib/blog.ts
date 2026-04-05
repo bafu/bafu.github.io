@@ -23,7 +23,6 @@ function parseFilename(filename: string): { slug: string; lang: Language } {
   // hello-world.md → { slug: 'hello-world', lang: 'en' }
   const langSuffixes: Record<string, Language> = {
     'zh-TW': 'zh-TW',
-    'zh-CN': 'zh-CN',
     ja: 'ja'
   }
 

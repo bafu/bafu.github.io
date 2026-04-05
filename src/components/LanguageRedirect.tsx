@@ -12,10 +12,8 @@ function detectLanguage(): Language {
   for (const bl of browserLangs) {
     const normalized = bl.trim()
     if (LANGUAGES.includes(normalized as Language)) return normalized as Language
-    // Match zh-TW, zh-Hant → zh-TW
-    if (/^zh[_-](TW|Hant)/i.test(normalized)) return 'zh-TW'
-    // Match zh-CN, zh-Hans, zh → zh-CN
-    if (/^zh([_-](CN|Hans|SG))?$/i.test(normalized)) return 'zh-CN'
+    // Match any zh variant → zh-TW
+    if (/^zh/i.test(normalized)) return 'zh-TW'
     if (/^ja/i.test(normalized)) return 'ja'
     if (/^en/i.test(normalized)) return DEFAULT_LANGUAGE
   }

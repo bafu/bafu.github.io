@@ -1,7 +1,6 @@
 import type { Language } from './types'
 import en from './locales/en.json'
 import zhTW from './locales/zh-TW.json'
-import zhCN from './locales/zh-CN.json'
 import ja from './locales/ja.json'
 
 type NestedRecord = { [key: string]: string | NestedRecord }
@@ -9,7 +8,6 @@ type NestedRecord = { [key: string]: string | NestedRecord }
 const locales: Record<Language, NestedRecord> = {
   en: en as NestedRecord,
   'zh-TW': zhTW as NestedRecord,
-  'zh-CN': zhCN as NestedRecord,
   ja: ja as NestedRecord
 }
 

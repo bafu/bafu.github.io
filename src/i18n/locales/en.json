@@ -42,7 +42,10 @@
   "blog": {
     "heading": "Blog",
     "subtitle": "Thoughts on engineering, open source, and startup life.",
-    "backToBlog": "Back to blog"
+    "backToBlog": "Back to blog",
+    "empty": "No posts yet. Stay tuned.",
+    "readMore": "Read More",
+    "viewAll": "View All Posts"
   },
   "footer": {
     "home": "Home",

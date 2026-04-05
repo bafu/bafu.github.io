@@ -1,9 +1,12 @@
+import { useEffect } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import { useI18n } from '../i18n'
 import { getPostBySlug } from '../lib/blog'
+import { formatDate } from '../lib/formatDate'
+import { readingTime, formatReadingTime } from '../lib/readingTime'
 import LocaleLink from '../components/LocaleLink'
 
 const BlogPostPage = () => {
@@ -11,9 +14,52 @@ const BlogPostPage = () => {
   const { lang, t, localePath } = useI18n()
   const post = slug ? getPostBySlug(slug, lang) : undefined
 
+  // Update document title and meta for this specific post
+  useEffect(() => {
+    if (!post) return
+
+    const siteName = t('meta.title')
+    document.title = `${post.title} — ${siteName}`
+
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null
+      if (!el) {
+        el = document.createElement('meta')
+        el.name = name
+        document.head.appendChild(el)
+      }
+      el.content = content
+    }
+
+    const setOg = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null
+      if (!el) {
+        el = document.createElement('meta')
+        el.setAttribute('property', property)
+        document.head.appendChild(el)
+      }
+      el.content = content
+    }
+
+    setMeta('description', post.description)
+    setOg('og:title', post.title)
+    setOg('og:description', post.description)
+    setOg('og:type', 'article')
+
+    // Restore generic meta when leaving the page
+    return () => {
+      document.title = siteName
+      setMeta('description', t('meta.description'))
+      setOg('og:title', siteName)
+      setOg('og:description', t('meta.description'))
+    }
+  }, [post, t])
+
   if (!post) {
     return <Navigate to={localePath('/blog')} replace />
   }
+
+  const minutes = readingTime(post.content, lang)
 
   return (
     <main id="main-content" className="container py-20 sm:py-28">
@@ -29,10 +75,12 @@ const BlogPostPage = () => {
 
       <article className="mt-8 max-w-3xl">
         <header>
-          <time className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            {post.date}
-          </time>
-          <h1 className="mt-2 font-serif text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+          <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            <time>{formatDate(post.date, lang)}</time>
+            <span aria-hidden="true" className="text-border">|</span>
+            <span>{formatReadingTime(minutes, lang)}</span>
+          </div>
+          <h1 className="mt-3 font-serif text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
             {post.title}
           </h1>
           {post.tags.length > 0 && (

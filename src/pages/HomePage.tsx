@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ContactSection from '../components/ContactSection'
 import ExperienceSection from '../components/ExperienceSection'
 import Hero from '../components/Hero'
+import LatestBlogSection from '../components/LatestBlogSection'
 import ProjectsSection from '../components/ProjectsSection'
 import { NavigationContext } from '../context/NavigationContext'
 
@@ -92,6 +93,8 @@ const HomePage = () => {
         <ExperienceSection />
         <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
         <ProjectsSection />
+        <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
+        <LatestBlogSection />
         <div className="mx-auto h-px w-11/12 max-w-6xl bg-border" />
         <ContactSection />
       </main>

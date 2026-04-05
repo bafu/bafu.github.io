@@ -1,5 +1,5 @@
 ---
-title: "Why Our 8-Person Startup Built Its Own AI Instead of Using ChatGPT"
+title: "Why Our 10-Person Startup Built Its Own AI Instead of Using ChatGPT"
 date: "2026-04-04"
 description: "Data sovereignty, AI sovereignty, unified gateway, knowledge accumulation — why a tech founder chose to build in-house AI, and what it actually costs."
 tags:
@@ -21,7 +21,7 @@ AI is a data-driven tool. No data sovereignty, no AI sovereignty. If you're runn
 
 At the end of 2025, my co-founder and I sat down and talked about one thing.
 
-Numbers Protocol is a blockchain company. Eight people. Engineering, marketing, sales, legal — everyone was using AI. ChatGPT, Claude, Copilot, Perplexity. Different tools, different accounts, data scattered everywhere.
+Numbers Protocol is a blockchain company. Ten people. Engineering, marketing, sales, legal — everyone was using AI. ChatGPT, Claude, Copilot, Perplexity. Different tools, different accounts, data scattered everywhere.
 
 I didn't discuss it with the whole team. Not because I didn't value their opinions — but when I tried to explain "we're going to build our own AI system" to non-technical colleagues, their reaction was: they didn't understand. Not opposition. They simply couldn't picture what "building your own" even means.
 
@@ -59,7 +59,7 @@ Some people ask: ChatGPT Enterprise and Claude for Enterprise both claim enterpr
 
 My answer might surprise you: **not using them has nothing to do with their claimed security level.**
 
-First, the names of these services say it all: they're built for large enterprises. Claude Enterprise reportedly starts at $60 per person per month, requires a minimum of 70 seats on a 12-month contract — roughly $50,000 a year minimum [4]. For an eight-person company, this doesn't make sense.
+First, the names of these services say it all: they're built for large enterprises. Claude Enterprise reportedly starts at $60 per person per month, requires a minimum of 70 seats on a 12-month contract — roughly $50,000 a year minimum [4]. For a ten-person company, this doesn't make sense.
 
 But the more fundamental reason is control.
 
@@ -73,11 +73,11 @@ On the other hand, AI is now smart and mature enough to build commercial product
 
 ---
 
-## 3. Unified Gateway: Eight People Using Eight Tools Equals Zero
+## 3. Unified Gateway: Ten People Using Ten Tools Equals Zero
 
 This is the most overlooked problem.
 
-Our company has eight people using at least four different AI tools. Marketing does market analysis on ChatGPT. Engineering makes architecture decisions on Claude. Legal checks compliance issues on Copilot. None of them know what the others asked — or what answers they got.
+Our company has ten people using at least four different AI tools. Marketing does market analysis on ChatGPT. Engineering makes architecture decisions on Claude. Legal checks compliance issues on Copilot. None of them know what the others asked — or what answers they got.
 
 According to a 2025 survey, **28% of enterprises use more than ten different AI applications** [9], but **70% fail to integrate them** beyond basic connections [10]. Even worse, 49% of employees use multiple AI tools for different tasks at the same time [3], and 54% of Shadow AI tools have been used to upload sensitive company data [3].
 
@@ -134,7 +134,7 @@ Two things never change: whether your company's goals can be achieved, and wheth
 
 Let's do the math.
 
-Claude Team costs $25 per person per month (annual billing). For eight people, that's $200 per month [15]. If you need full Claude Code functionality, the Premium Seat is $150 per person per month — $1,200 per month for eight people [15].
+Claude Team costs $25 per person per month (annual billing). For ten people, that's $250 per month [15]. If you need full Claude Code functionality, the Premium Seat is $150 per person per month — $1,500 per month for ten people [15].
 
 But subscriptions have a hidden cost that few people calculate.
 
@@ -142,7 +142,7 @@ Eight hours a day, five days a week — your employees actually use AI about 40 
 
 What about a self-built system? Two sets of Claude API tokens in rotation, roughly $400 per month. That covers everyone's usage, plus AI running autonomously (heartbeat checks, background tasks). Every dollar actually buys real tokens — you pay for what you use, nothing wasted.
 
-**$400/mo vs. $1,200+/mo.** And the self-built system comes with full data sovereignty, AI sovereignty, a unified gateway, and knowledge accumulation. Subscription dollars are gone once spent. Investment in a self-built system compounds into an asset.
+**$400/mo vs. $1,500+/mo.** And the self-built system comes with full data sovereignty, AI sovereignty, a unified gateway, and knowledge accumulation. Subscription dollars are gone once spent. Investment in a self-built system compounds into an asset.
 
 ---
 

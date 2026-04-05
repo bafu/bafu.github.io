@@ -68,6 +68,29 @@
     "viewGithub": "查看我的 GitHub 個人檔案",
     "navMenu": "導航選單"
   },
+  "contactForm": {
+    "heading": "留言給我",
+    "name": "你希望我怎麼稱呼你",
+    "namePlaceholder": "你的名字",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "company": "公司名稱",
+    "companyPlaceholder": "公司名稱，若為個人請填「個人」",
+    "social": "社群媒體",
+    "socialPlaceholder": "LinkedIn、Twitter 等",
+    "phone": "電話",
+    "phonePlaceholder": "+886 000-000-000",
+    "message": "我可以如何協助你",
+    "messagePlaceholder": "請描述你的專案或問題...",
+    "optional": "選填",
+    "submit": "送出訊息",
+    "submitting": "傳送中...",
+    "successHeading": "訊息已送出",
+    "successMessage": "感謝你的來信，我會盡快回覆。",
+    "errorMessage": "發生錯誤，請重試或直接寄信給我。",
+    "validationRequired": "此欄位為必填。",
+    "validationEmail": "請輸入有效的 Email 地址。"
+  },
   "meta": {
     "title": "陳伯符 — 創業家與開源貢獻者",
     "description": "陳伯符的作品集與部落格，Numbers Protocol 創辦人。"

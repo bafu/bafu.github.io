@@ -68,6 +68,29 @@
     "viewGithub": "GitHub プロフィールを見る",
     "navMenu": "ナビゲーションメニュー"
   },
+  "contactForm": {
+    "heading": "メッセージを送る",
+    "name": "お名前",
+    "namePlaceholder": "お名前",
+    "email": "メールアドレス",
+    "emailPlaceholder": "you@example.com",
+    "company": "会社名",
+    "companyPlaceholder": "会社名（個人の場合は「個人」）",
+    "social": "ソーシャルメディア",
+    "socialPlaceholder": "LinkedIn、Twitter など",
+    "phone": "電話番号",
+    "phonePlaceholder": "+81 00-0000-0000",
+    "message": "どのようにお手伝いできますか",
+    "messagePlaceholder": "プロジェクトやご質問についてお聞かせください...",
+    "optional": "任意",
+    "submit": "送信する",
+    "submitting": "送信中...",
+    "successHeading": "送信完了",
+    "successMessage": "お問い合わせありがとうございます。折り返しご連絡いたします。",
+    "errorMessage": "エラーが発生しました。もう一度お試しいただくか、メールでご連絡ください。",
+    "validationRequired": "この項目は必須です。",
+    "validationEmail": "有効なメールアドレスを入力してください。"
+  },
   "meta": {
     "title": "Bofu Chen — 起業家・オープンソースコントリビューター",
     "description": "Bofu Chen のポートフォリオとブログ。Numbers Protocol 創設者。"

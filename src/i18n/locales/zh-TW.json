@@ -42,7 +42,10 @@
   "blog": {
     "heading": "部落格",
     "subtitle": "關於工程、開源與創業生活的思考。",
-    "backToBlog": "返回部落格"
+    "backToBlog": "返回部落格",
+    "empty": "尚無文章，敬請期待。",
+    "readMore": "閱讀更多",
+    "viewAll": "查看所有文章"
   },
   "footer": {
     "home": "首頁",

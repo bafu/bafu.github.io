@@ -23,7 +23,28 @@ This site is available in three languages:
 - 繁體中文 (Traditional Chinese): https://bafu.github.io/zh-TW
 - 日本語 (Japanese): https://bafu.github.io/ja
 
+## Blog Series
+
+### Building TAE-AI: A Founder's Journal
+A weekly series documenting how a 10-person startup built its own sovereign AI system from scratch. Written by Bofu Chen, covering real development timelines, architecture decisions, usage data, and lessons learned. TAE-AI stands for Transparent, Auditable, Explainable AI.
+
 ## Blog Posts
+
+### Two Months of Sovereign AI — What Actually Changed at Our Company?
+- English: https://bafu.github.io/blog/what-changed-after-sovereign-ai
+- 繁體中文: https://bafu.github.io/zh-TW/blog/what-changed-after-sovereign-ai
+- 日本語: https://bafu.github.io/ja/blog/what-changed-after-sovereign-ai
+- Topics: TAE-AI, enterprise AI, sovereign AI, AI agent, AI governance, founder's journal
+- Published: 2026-04-18
+- Summary: Real data from two months with Omni — 420 conversations, 7,471 messages, 4,171 autonomous health checks. Non-engineering departments account for 24.5% of human messages. AI autonomous activity exceeds human activity at 62:38. Omni contributed 61.9% of March commits and 88.9% of PRs.
+
+### We Decided to Build. But What Kind of System Did We Actually Need?
+- English: https://bafu.github.io/blog/what-kind-of-system
+- 繁體中文: https://bafu.github.io/zh-TW/blog/what-kind-of-system
+- 日本語: https://bafu.github.io/ja/blog/what-kind-of-system
+- Topics: TAE-AI, enterprise AI, sovereign AI, founder's journal
+- Published: 2026-04-11
+- Summary: From zero to working prototype in four days — Lovable for frontend, Claude Code for backend, founder making architecture decisions. Three key definitions: Claude Code as blueprint but web-first, per-conversation workspace isolation, and separating "make it alive" from "make it good."
 
 ### Why Our 10-Person Startup Built Its Own AI Instead of Using ChatGPT
 - English: https://bafu.github.io/blog/why-build-your-own-ai
@@ -31,6 +52,7 @@ This site is available in three languages:
 - 日本語: https://bafu.github.io/ja/blog/why-build-your-own-ai
 - Topics: TAE-AI, enterprise AI, data sovereignty, founder's journal
 - Published: 2026-04-04
+- Summary: Data sovereignty, AI sovereignty, unified gateway, knowledge accumulation — why a tech founder chose to build in-house AI, and what it actually costs.
 
 ### Hello World — First Post
 - English: https://bafu.github.io/blog/hello-world

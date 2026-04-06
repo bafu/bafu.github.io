@@ -5,7 +5,7 @@ import { useI18n } from '../i18n'
  * After deploying the Google Apps Script (see docs/google-apps-script.js),
  * replace this URL with your deployment URL.
  */
-const APPS_SCRIPT_URL = ''
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBErc6rbCR3ATDH36nAFEq2qmPhaFHKDcaP_efOq2XXf_scAzl3Sggk5mYLCf3z9LX/exec'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 

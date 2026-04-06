@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { Navigate, useParams, useLocation } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
@@ -11,6 +11,7 @@ import { readingTime, formatReadingTime } from '../lib/readingTime'
 import LocaleLink from '../components/LocaleLink'
 import JsonLd from '../components/JsonLd'
 import { setMeta, setOg, removeArticleMeta, addArticleTag } from '../components/MetaTags'
+import ContactForm from '../components/ContactForm'
 
 const SITE_URL = 'https://bafu.github.io'
 
@@ -22,6 +23,7 @@ function buildPostUrl(slug: string, lang: Language): string {
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>()
   const { lang, t, localePath } = useI18n()
+  const location = useLocation()
   const post = slug ? getPostBySlug(slug, lang) : undefined
 
   // Update document title and meta for this specific post
@@ -161,6 +163,12 @@ const BlogPostPage = () => {
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
             {post.content}
           </ReactMarkdown>
+        </div>
+
+        <div className="mt-16 h-px w-full bg-border sm:mt-20" />
+
+        <div className="mt-12 sm:mt-16">
+          <ContactForm variant="inline" pagePath={location.pathname} />
         </div>
       </article>
     </main>

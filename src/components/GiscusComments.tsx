@@ -50,9 +50,9 @@ const GiscusComments = () => {
         <Giscus
           id="comments"
           repo="bafu/bafu.github.io"
-          repoId="PLACEHOLDER_REPO_ID"
-          category="Blog Comments"
-          categoryId="PLACEHOLDER_CATEGORY_ID"
+          repoId="MDEwOlJlcG9zaXRvcnk2Njg2MDIwNQ=="
+          category="Announcements"
+          categoryId="DIC_kwDOA_w0rc4C6iOX"
           mapping="pathname"
           reactionsEnabled="1"
           emitMetadata="0"

@@ -12,6 +12,7 @@ import LocaleLink from '../components/LocaleLink'
 import JsonLd from '../components/JsonLd'
 import { setMeta, setOg, removeArticleMeta, addArticleTag } from '../components/MetaTags'
 import ContactForm from '../components/ContactForm'
+import GiscusComments from '../components/GiscusComments'
 
 const SITE_URL = 'https://bafu.github.io'
 
@@ -166,6 +167,12 @@ const BlogPostPage = () => {
         </div>
 
         <div className="mt-16 h-px w-full bg-border sm:mt-20" />
+
+        <div className="mt-12 sm:mt-16">
+          <GiscusComments />
+        </div>
+
+        <div className="mt-12 h-px w-full bg-border sm:mt-16" />
 
         <div className="mt-12 sm:mt-16">
           <ContactForm variant="inline" pagePath={location.pathname} />

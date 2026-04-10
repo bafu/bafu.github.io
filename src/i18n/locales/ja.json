@@ -45,7 +45,9 @@
     "backToBlog": "ブログに戻る",
     "empty": "まだ記事がありません。お楽しみに。",
     "readMore": "続きを読む",
-    "viewAll": "すべての記事を見る"
+    "viewAll": "すべての記事を見る",
+    "commentsHeading": "コメント",
+    "commentsLabel": "ブログ記事のコメント"
   },
   "footer": {
     "home": "ホーム",

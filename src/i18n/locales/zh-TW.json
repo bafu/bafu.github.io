@@ -45,7 +45,9 @@
     "backToBlog": "返回部落格",
     "empty": "尚無文章，敬請期待。",
     "readMore": "閱讀更多",
-    "viewAll": "查看所有文章"
+    "viewAll": "查看所有文章",
+    "commentsHeading": "留言",
+    "commentsLabel": "文章留言區"
   },
   "footer": {
     "home": "首頁",

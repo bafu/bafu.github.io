@@ -45,7 +45,9 @@
     "backToBlog": "Back to blog",
     "empty": "No posts yet. Stay tuned.",
     "readMore": "Read More",
-    "viewAll": "View All Posts"
+    "viewAll": "View All Posts",
+    "commentsHeading": "Comments",
+    "commentsLabel": "Blog post comments"
   },
   "footer": {
     "home": "Home",

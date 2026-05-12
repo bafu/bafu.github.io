@@ -9,6 +9,7 @@ export type Talk = {
 
 const talkData: Record<Language, Talk[]> = {
   en: [
+    { date: '2026-05-12', title: "Owning Your Content's Story: Transparent and Immutable Provenance in Practice", event: 'Content Authenticity Summit / OTS Forum 2026', url: 'https://otsforum2026.catos.sg/' },
     { date: '2025-02-24', title: 'Open and Transparent: Secure Digital Media with Blockchain', event: 'RightsCon25', url: 'https://x.com/numbersprotocol/status/1894009699852484927' },
     { date: '2024-05-08', title: 'IPTC Panel: AI and Image Authenticity', event: 'IPTC', url: 'https://youtu.be/4q7iBkRLCMQ?si=qZWn38r_El6NAK7f' },
     { date: '2022-12-16', title: 'Create the Full History of Digital Assets with Numbers Mainnet', event: 'Taipei Blockchain Week', url: 'https://www.youtube.com/watch?v=sGWkcnc7yoE' },
@@ -28,6 +29,7 @@ const talkData: Record<Language, Talk[]> = {
     { date: '2007', title: 'MS, Computer Science and Information Engineering', event: 'National Cheng Kung University' },
   ],
   'zh-TW': [
+    { date: '2026-05-12', title: '掌握內容的故事：透明且不可竄改的內容來源實踐', event: 'Content Authenticity Summit / OTS Forum 2026', url: 'https://otsforum2026.catos.sg/' },
     { date: '2025-02-24', title: '開放透明：以區塊鏈保護數位媒體', event: 'RightsCon25', url: 'https://x.com/numbersprotocol/status/1894009699852484927' },
     { date: '2024-05-08', title: 'IPTC 座談：AI 與影像真實性', event: 'IPTC', url: 'https://youtu.be/4q7iBkRLCMQ?si=qZWn38r_El6NAK7f' },
     { date: '2022-12-16', title: '以 Numbers 主網建立數位資產完整歷史', event: '台北區塊鏈週', url: 'https://www.youtube.com/watch?v=sGWkcnc7yoE' },
@@ -47,6 +49,7 @@ const talkData: Record<Language, Talk[]> = {
     { date: '2007', title: '碩士，資訊工程學系', event: '國立成功大學' },
   ],
   ja: [
+    { date: '2026-05-12', title: 'コンテンツの物語を自ら所有する：透明で改ざん不可能なプロヴェナンスの実践', event: 'Content Authenticity Summit / OTS Forum 2026', url: 'https://otsforum2026.catos.sg/' },
     { date: '2025-02-24', title: 'オープン＆透明：ブロックチェーンでデジタルメディアを保護', event: 'RightsCon25', url: 'https://x.com/numbersprotocol/status/1894009699852484927' },
     { date: '2024-05-08', title: 'IPTCパネル：AIと画像の真正性', event: 'IPTC', url: 'https://youtu.be/4q7iBkRLCMQ?si=qZWn38r_El6NAK7f' },
     { date: '2022-12-16', title: 'Numbers Mainnetでデジタル資産の完全な履歴を作成', event: '台北ブロックチェーンウィーク', url: 'https://www.youtube.com/watch?v=sGWkcnc7yoE' },

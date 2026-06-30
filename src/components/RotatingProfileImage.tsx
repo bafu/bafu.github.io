@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 
 const IMAGES = [
+  '/assets/bofu-ots-forum-2026.jpg',
   '/assets/bofu-nvidia-hq-2017-3.jpg',
   '/assets/bofu-coscup-2017.jpg',
   '/assets/bofu-nvidia-hq-2017-1.jpg',
@@ -8,6 +9,7 @@ const IMAGES = [
 ]
 
 const IMAGE_ALTS = [
+  'Bofu Chen speaking at OTS Forum 2026 Content Authenticity Summit',
   'Bofu Chen at NVIDIA HQ 2017',
   'Bofu Chen at COSCUP 2017',
   'Bofu Chen at NVIDIA HQ 2017',

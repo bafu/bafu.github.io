@@ -120,10 +120,13 @@ function buildAlternates(pathWithoutLang: string, availableLangs: Language[]): S
       href: fullUrl(`${langPrefix(lang)}${pathWithoutLang}`),
     })
   }
-  // x-default points to the English (default) version
+  const defaultAltLang = availableLangs.includes(DEFAULT_LANGUAGE)
+    ? DEFAULT_LANGUAGE
+    : availableLangs[0]
+  // x-default points to English when present, otherwise the source language.
   alts.push({
     hreflang: 'x-default',
-    href: fullUrl(pathWithoutLang),
+    href: fullUrl(`${langPrefix(defaultAltLang)}${pathWithoutLang}`),
   })
   return alts
 }
@@ -159,9 +162,11 @@ function generateSitemap(): string {
   // --- Blog posts ---
   const posts = discoverPosts()
   for (const post of posts) {
-    // Every post is available in all languages (falls back to English)
-    // but alternates only list languages that have actual translations
-    for (const lang of LANGUAGES) {
+    const publishedLangs = post.langs.includes(DEFAULT_LANGUAGE) ? LANGUAGES : post.langs
+    // Posts with an English source are available in all languages via fallback.
+    // Non-English source-only posts should only publish URLs that actually render.
+    // Alternates only list languages that have actual translations.
+    for (const lang of publishedLangs) {
       entries.push({
         loc: fullUrl(`${langPrefix(lang)}/blog/${post.slug}`),
         lastmod: post.date || today,

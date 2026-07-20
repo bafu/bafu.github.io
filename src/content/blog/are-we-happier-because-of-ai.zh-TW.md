@@ -65,7 +65,7 @@ Nathan Lambert 在 7 月 12 日寫了一篇文章，討論美國是否可能在�
 
 7 月 17 日，我看到最多人討論的是 Kimi K3。Moonshot 官方在 7 月 16 日宣布 Kimi K3，稱它是 2.8T 參數、1M context、具備 vision 能力的 open 3T-class 模型，完整權重預計 7 月 27 日釋出 [10]。
 
-很多社群標題會說 Kimi K3 超越 Fable 5 與 GPT-5.6。更精確地說，Moonshot 自己也承認 Kimi K3 整體表現仍落後最強的閉源模型，但在長鏈路 coding、前端、工具使用與知識工作等特定評測中，已經展現出非常接近甚至局部領先的能力 [10]。
+很多社群標題會說 Kimi K3 超越 Fable 5 與 GPT-5.6 [11]。更精確地說，Moonshot 自己也承認 Kimi K3 整體表現仍落後最強的閉源模型，但在長鏈路 coding、前端、工具使用與知識工作等特定評測中，已經展現出非常接近甚至局部領先的能力 [10]。
 
 這裡真正重要的不是「誰贏了」。
 
@@ -185,11 +185,15 @@ Threads 上那些大量 AI 生成內容讓我疲倦，不是因為它們都是�
 
 AI 如果只是讓我們更快生成更多內容，思想不一定提升。思想提升是：我們能不能問出更好的問題？能不能用 AI 幫助自己看到盲點？能不能把原本模糊的直覺，變成可檢查、可討論、可修正的觀點？
 
-好的 AI 使用，不是讓人停止思考，而是讓人更難逃避思考。
+這件事沒有想像中那麼自動。研究觀察到，當人對 AI 的能力越有信心，投入的批判思考反而越少；使用 AI 之後，思考工作開始從「自己想」轉向「確認 AI 對不對」[13]。更值得警惕的是，AI 提供的想法雖然能提升個別作品的平均水準，卻也讓作品彼此更相似——每個人都及格，但沒有誰真正不同 [14]。
+
+所以思想提升不是 AI 幫你想到更多，而是你比沒有 AI 的時候，更清楚自己為什麼這樣想。好的 AI 使用，不是讓人停止思考，而是讓人更難逃避思考。
 
 第二，**生活有沒有變好。**
 
 AI 節省出來的時間，最後去了哪裡？
+
+一項追蹤知識工作者使用 AI 六個月的研究發現，受試者每週確實少了約兩小時的 email 處理時間，非上班時間的工作也減少了；但會議沒有變少，整體工作組成沒有明顯改變 [15]。省下來的時間不是自動變成生活——它只是變成了另一種工作的空間，或是被更多的數位內容填回去。
 
 如果節省出來的時間只是拿去滑更多短影音、看更多 AI 生成內容、上更多讓自己焦慮的課，那生活沒有變好。只是工作的焦慮被轉移成自我提升的焦慮。
 
@@ -198,6 +202,8 @@ AI 節省出來的時間，最後去了哪裡？
 第三，**控制權有沒有回到人手上。**
 
 這是我最在意的。
+
+也是最難被量化的一件事。研究可以測量生產力、心理症狀、工作滿意度，但很難測量「人還能不能決定自己要成為什麼樣的人」。而這恰恰是幸福最核心的問題。
 
 如果 AI 讓少數平台更懂我們，卻讓我們更不了解自己，這不是控制權。
 
@@ -223,45 +229,33 @@ AI 節省出來的時間，最後去了哪裡？
 
 我希望答案是肯定的，但現在我不敢這樣說。
 
-AI 的能力提升太快，人的消化速度、制度的修正速度、社會分配的調整速度，都沒有跟上。
+AI 的能力提升太快，人的消化速度、制度的修正速度、社會分配的調整速度，都沒有跟上。模型一天比一天強，內容一天比一天多，課程一天比一天焦慮，政策一天比一天靠近權力核心。每一件事單獨看都可以理解，但放在一起，就會讓人懷疑：我們是在往更幸福的方向走，還是只是往更高效率的方向衝？
 
-模型一天比一天強，內容一天比一天多，課程一天比一天焦慮，政策一天比一天靠近權力核心。每一件事單獨看都可以理解，但放在一起，就會讓人懷疑：我們是在往更幸福的方向走，還是只是往更高效率的方向衝？
-
-效率不是幸福。
-
-產出不是幸福。
-
-模型變強也不是幸福。
+效率不是幸福。產出不是幸福。模型變強也不是幸福。
 
 幸福比較接近另一件事：你更清楚自己想要什麼，也更有能力靠近它。
 
-如果 AI 幫助人做到這件事，那 AI 是人類文明的升級。
+但這裡有一個更深的問題，是大部分 AI 討論很少觸及的。
 
-如果 AI 讓人不再需要問自己想要什麼，只要接受平台、公司、政府、模型替你安排好的路，那 AI 就不是解放，而是新的馴化。
+即使 AI 的每一項政策都有充分證據支持，即使每一個使用建議都來自嚴謹的研究，如果這些決定只發生在少數公司、少數智庫、少數監管機構之間——如果「AI 應該如何影響人類」的討論，從一開始就排除了大部分人的聲音——那就算結果是「正確」的，人也沒有因此變得更自主。
 
-我還是相信 AI 的未來會讓人類提升至少一個層次。
+幸福不只是結果好不好的問題，也是過程由誰控制的問題。
 
-但這不是自動發生的。
-
-AI 不是一條自己會通往幸福的路。它比較像一台非常強大的引擎。引擎可以帶我們去更遠的地方，也可以讓我們更快衝下懸崖。
-
-差別不在引擎。
-
-差別在掌舵的人是否還在思考。
+這也是為什麼我不認為這個題目有標準答案。AI 可以同時是真實的生產力工具、新的知識壟斷、注意力經濟的加速器、國家競爭的武器，以及人類重新定義自身價值的契機。哪一個面向主導，不取決於模型的能力，取決於坐在駕駛座上的，是不是還包含那些被影響的人。
 
 所以回到題目：我們因為 AI 變得更幸福了嗎？
 
 現在還沒有。
 
-但我們有機會。
+但我不是悲觀。我只是認為，幸福不是一個可以外包給模型的目標。
 
-前提是我們不要把 AI 只當成更快的內容機器、更便宜的勞動力、更好用的監管理由，或更溫柔的贍養系統。
+AI 可以幫我們更快抵達某個地方，但它沒辦法告訴我們，那個地方是不是我們真正想去的。它可以幫我們寫出更流暢的句子，但它沒辦法替我們決定，哪些話值得被說出來。它可以幫我們管理生活，但它沒辦法替我們回答，什麼樣的生活值得過。
 
-AI 應該讓人變得更自由、更清醒、更能承擔自己的目標。
+這些問題的答案，仍然需要人。
 
-如果做不到，那就算未來真的有一天工作變成 optional，人類也未必更幸福。
+需要人還在問問題，還在承擔答案，還在決定方向。
 
-我們可能只是終於不用工作了，但也忘了自己為什麼要活著。
+而這件事，AI 幫不了我們。
 
 ---
 
@@ -290,3 +284,13 @@ AI 應該讓人變得更自由、更清醒、更能承擔自己的目標。
 [11] OpenAI, "Previewing GPT-5.6 Sol: a next-generation model," 2026. [Link](https://openai.com/index/previewing-gpt-5-6-sol/)
 
 [12] 批踢踢實業坊首頁。 [Link](https://www.ptt.cc/index.html)
+
+[13] H. Lee et al., "The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects from a Survey of Knowledge Workers," Microsoft Research, ACM CHI 2025. [Link](https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/)
+
+[14] A. Doshi and O. Hauser, "Generative AI Enhances Individual Creativity but Reduces the Collective Diversity of Novel Content," Science Advances, 2024. [Link](https://doi.org/10.1126/sciadv.adn5290)
+
+[15] A. Liu et al., "AI and the Extended Workday: Productivity, Time Use, and Well-Being," NBER Working Paper No. 33795, 2025 (revised 2025-11). [Link](https://www.nber.org/papers/w33795)
+
+[16] P. Gmyrek, J. Berg, and D. Bescond, "Generative AI and Jobs: A Refined Global Index of Occupational Exposure," ILO Working Paper 140, 2025. [Link](https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure)
+
+[17] International AI Safety Report 2026. [Link](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026)

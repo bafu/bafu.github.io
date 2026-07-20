@@ -21,5 +21,39 @@
 - Blog posts live in `bafu.github.io/src/content/blog/`; filenames use `slug.md` for English, `slug.zh-TW.md` for Traditional Chinese, and `slug.ja.md` for Japanese.
 - Sitemap generation now only publishes actual language URLs for non-English source-only posts; English-source posts still publish all language URLs via English fallback.
 
+## Installed Skills
+
+- **`aeo-assessment`** (system)
+- **`agent-readiness-generator`** (system)
+- **`ai-bot-traffic`** (system)
+- **`dev-monitor`** (system)
+- **`doc-coauthoring`** (system)
+- **`frontend-design`** (system)
+- **`google-ads`** (system)
+- **`google-workspace`** (system)
+- **`gov-projects-search`** (space)
+- **`harness-agent`** (system)
+- **`harness-dev`** (system)
+- **`harness-execution`** (system)
+- **`harness-plan`** (system)
+- **`harness-supervisor`** (system)
+- **`image-generation`** (system)
+- **`internal-comms`** (system)
+- **`line-messaging`** (system)
+- **`meta-ads`** (system)
+- **`ms-office-suite`** (system)
+- **`omni-help`** (system)
+- **`pdf`** (system)
+- **`short-video`** (system)
+- **`skill-creator`** (system)
+- **`theme-factory`** (system)
+- **`webapp-testing`** (system)
+- **`z-agent-ticket-creation`** (system)
+- **`z-check-comment`** (system)
+- **`z-report-status`** (system)
+- **`z-sync`** (system)
+- **`z-ticket-check`** (system)
+- **`z-writing-rules`** (system)
+
 ---
-_Last system refresh: 2026-07-19 14:23 UTC_
+_Last system refresh: 2026-07-20 15:28 UTC_

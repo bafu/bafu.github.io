@@ -10,6 +10,7 @@ import { formatDate } from '../lib/formatDate'
 import { readingTime, formatReadingTime } from '../lib/readingTime'
 import LocaleLink from '../components/LocaleLink'
 import JsonLd from '../components/JsonLd'
+import { Badge } from '../components/ui/badge'
 import { setMeta, setOg, removeArticleMeta, addArticleTag } from '../components/MetaTags'
 import ContactForm from '../components/ContactForm'
 import GiscusComments from '../components/GiscusComments'
@@ -127,7 +128,7 @@ const BlogPostPage = () => {
       {jsonLd && <JsonLd data={jsonLd} />}
       <LocaleLink
         to="/blog"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-deep-blue"
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-beige-gold"
       >
         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -137,24 +138,18 @@ const BlogPostPage = () => {
 
       <article className="mt-8 max-w-3xl">
         <header>
-          <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
             <time dateTime={post.date}>{formatDate(post.date, lang)}</time>
-            <span aria-hidden="true" className="text-border">|</span>
+            <span aria-hidden="true" className="text-border">/</span>
             <span>{formatReadingTime(minutes, lang)}</span>
           </div>
-          <h1 className="mt-3 font-serif text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+          <h1 className="display mt-4 text-4xl font-normal text-foreground sm:text-5xl">
             {post.title}
           </h1>
           {post.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
-                  style={{ borderRadius: '0.25rem' }}
-                >
-                  {tag}
-                </span>
+                <Badge key={tag}>{tag}</Badge>
               ))}
             </div>
           )}

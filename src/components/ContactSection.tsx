@@ -9,7 +9,8 @@ const ContactSection = () => {
     <section id="contact" className="py-16 sm:py-20 md:py-24 lg:py-28">
       <div className="container text-center">
         <ScrollReveal>
-          <h2 className="font-serif text-2xl font-normal text-foreground sm:text-3xl md:text-4xl">{t('contact.heading')}</h2>
+          <p className="kicker mb-3">03 — Get in Touch</p>
+          <h2 className="display text-3xl font-normal text-foreground sm:text-4xl md:text-5xl">{t('contact.heading')}</h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:mt-6">
             {t('contact.description')}
           </p>

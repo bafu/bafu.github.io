@@ -35,7 +35,7 @@ const SiteFooter = () => {
                     const target = document.getElementById(id)
                     target?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="chanel-nav text-background/50 transition-colors hover:text-background"
+                  className="chanel-nav link-underline text-background/50 transition-colors hover:text-background"
                 >
                   {t(FOOTER_TRANSLATION_KEYS[id])}
                 </a>
@@ -43,7 +43,7 @@ const SiteFooter = () => {
                 <a
                   key={id}
                   href={`${localePath('/')}#${id}`}
-                  className="chanel-nav text-background/50 transition-colors hover:text-background"
+                  className="chanel-nav link-underline text-background/50 transition-colors hover:text-background"
                 >
                   {t(FOOTER_TRANSLATION_KEYS[id])}
                 </a>
@@ -51,7 +51,7 @@ const SiteFooter = () => {
             )}
             <LocaleLink
               to="/blog"
-              className="chanel-nav text-background/50 transition-colors hover:text-background"
+              className="chanel-nav link-underline text-background/50 transition-colors hover:text-background"
             >
               {t('nav.blog')}
             </LocaleLink>

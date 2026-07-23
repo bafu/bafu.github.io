@@ -1,5 +1,6 @@
 import { useState, type FormEvent, type FC } from 'react'
 import { useI18n } from '../i18n'
+import { Button } from './ui/button'
 
 /**
  * After deploying the Google Apps Script (see docs/google-apps-script.js),
@@ -102,7 +103,7 @@ const ContactForm: FC<ContactFormProps> = ({ variant = 'section', pagePath = '/'
               d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <h3 className="mt-4 font-serif text-xl font-normal text-foreground sm:text-2xl">
+          <h3 className="display mt-4 text-2xl font-normal text-foreground sm:text-3xl">
             {t('contactForm.successHeading')}
           </h3>
           <p className="mt-2 text-sm text-muted-foreground">{t('contactForm.successMessage')}</p>
@@ -114,7 +115,7 @@ const ContactForm: FC<ContactFormProps> = ({ variant = 'section', pagePath = '/'
   return (
     <div className={variant === 'section' ? 'mx-auto max-w-xl' : 'max-w-xl'}>
       {variant === 'inline' && (
-        <h3 className="font-serif text-xl font-normal text-foreground sm:text-2xl">
+        <h3 className="display text-2xl font-normal text-foreground sm:text-3xl">
           {t('contactForm.heading')}
         </h3>
       )}
@@ -245,14 +246,9 @@ const ContactForm: FC<ContactFormProps> = ({ variant = 'section', pagePath = '/'
 
         {/* Submit */}
         <div className={variant === 'section' ? 'pt-2 text-center' : 'pt-2'}>
-          <button
-            type="submit"
-            disabled={formState === 'submitting'}
-            className="inline-flex h-10 items-center justify-center border border-foreground bg-foreground px-8 text-sm font-medium uppercase tracking-wide text-background transition-colors duration-200 hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-60"
-            style={{ borderRadius: '0.25rem' }}
-          >
+          <Button type="submit" variant="primary" size="md" disabled={formState === 'submitting'} className="px-8">
             {formState === 'submitting' ? t('contactForm.submitting') : t('contactForm.submit')}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

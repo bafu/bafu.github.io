@@ -68,9 +68,9 @@ const Header = () => {
                   key={id}
                   href={isHomePath ? `#${id}` : `${localePath('/')}#${id}`}
                   onClick={(e) => handleSectionClick(e, id)}
-                  className={`chanel-nav transition-colors ${
+                  className={`chanel-nav link-underline transition-colors ${
                     isHomePath && activeSection === id
-                      ? 'text-deep-blue'
+                      ? 'text-beige-gold'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
@@ -79,9 +79,9 @@ const Header = () => {
               ))}
               <LocaleLink
                 to="/blog"
-                className={`chanel-nav transition-colors ${
+                className={`chanel-nav link-underline transition-colors ${
                   isBlogActive
-                    ? 'text-deep-blue'
+                    ? 'text-beige-gold'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >

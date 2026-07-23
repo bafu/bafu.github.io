@@ -20,6 +20,9 @@
 
 - Blog posts live in `bafu.github.io/src/content/blog/`; filenames use `slug.md` for English, `slug.zh-TW.md` for Traditional Chinese, and `slug.ja.md` for Japanese.
 - Sitemap generation now only publishes actual language URLs for non-English source-only posts; English-source posts still publish all language URLs via English fallback.
+- shadcn/ui adopted (Atelier direction): `@/` alias in tsconfig+vite, `cn()` in `src/lib/utils.ts`, `components.json`, primitives in `src/components/ui/` (button/badge/card/separator/input/tabs) rebranded to Chanel tokens (1px border, 0.25rem radius, no shadow, beige-gold surgical accent). Tabs is dependency-free (no Radix); ExperienceSection keeps its own accessible keyboard tabs.
+- Design tokens shifted warm: light bg paper white `40 33% 98%`, dark warm charcoal `30 6% 7%`; body has a fixed SVG grain overlay (disabled under prefers-reduced-motion). Atelier utility classes in global.css: `.display .kicker .eyebrow .link-underline .rise/.rise-d0..d5`.
+- Standalone style proposal demo (not part of build): `design-proposal/index.html` — self-contained Tailwind CDN page with light/dark toggle.
 
 ## Installed Skills
 
@@ -56,4 +59,4 @@
 - **`z-writing-rules`** (system)
 
 ---
-_Last system refresh: 2026-07-20 15:28 UTC_
+_Last system refresh: 2026-07-23 08:40 UTC_

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-Hant" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier — 風格提案示範 · Bofu Chen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              serif: ["'Playfair Display'", 'Georgia', 'serif'],
+              mono: ["'JetBrains Mono'", 'monospace'],
+            },
+            colors: {
+              background: 'hsl(var(--background))',
+              foreground: 'hsl(var(--foreground))',
+              card: 'hsl(var(--card))',
+              border: 'hsl(var(--border))',
+              muted: 'hsl(var(--muted-foreground))',
+              beige: 'hsl(var(--beige))',
+              gold: 'hsl(var(--beige-gold))',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        /* Enhancement: pure white → warm editorial paper */
+        --background: 40 33% 98%;
+        --foreground: 20 6% 8%;
+        --card: 40 24% 96%;
+        --muted-foreground: 30 4% 38%;
+        --border: 38 20% 88%;
+        --beige: 37 38% 72%;
+        --beige-gold: 37 45% 42%;
+      }
+      .dark {
+        color-scheme: dark;
+        --background: 30 6% 7%;
+        --foreground: 40 20% 94%;
+        --card: 30 5% 11%;
+        --muted-foreground: 35 8% 64%;
+        --border: 30 6% 18%;
+        --beige: 37 33% 68%;
+        --beige-gold: 37 42% 58%;
+      }
+
+      html { scroll-behavior: smooth; }
+      body {
+        background: hsl(var(--background));
+        color: hsl(var(--foreground));
+        font-feature-settings: 'ss01', 'cv05';
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Paper grain overlay — atmosphere without breaking minimalism */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.4;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+      }
+      .dark body::before { mix-blend-mode: screen; opacity: 0.06; }
+
+      /* Fluid editorial display */
+      .display {
+        font-family: 'Playfair Display', Georgia, serif;
+        letter-spacing: -0.02em;
+        line-height: 0.98;
+      }
+      .kicker {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: hsl(var(--beige-gold));
+      }
+      .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      /* Hairline underline reveal on links */
+      .link-underline {
+        position: relative;
+      }
+      .link-underline::after {
+        content: '';
+        position: absolute;
+        left: 0; bottom: -2px;
+        width: 100%; height: 1px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
+
+      /* shadcn-style tokens preview */
+      .ui-card {
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        border-radius: 0.25rem;
+        transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.19,1,0.22,1);
+      }
+      .ui-card:hover { border-color: hsl(var(--beige-gold) / 0.6); transform: translateY(-2px); }
+
+      .btn { border-radius: 0.25rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: all 0.25s ease; }
+      .btn-primary { background: hsl(var(--foreground)); color: hsl(var(--background)); }
+      .btn-primary:hover { opacity: 0.88; }
+      .btn-outline { border: 1px solid hsl(var(--foreground)); color: hsl(var(--foreground)); }
+      .btn-outline:hover { background: hsl(var(--foreground)); color: hsl(var(--background)); }
+      .btn-ghost { color: hsl(var(--foreground)); }
+      .btn-ghost:hover { color: hsl(var(--beige-gold)); }
+
+      .badge { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid hsl(var(--border)); border-radius: 999px; padding: 0.2rem 0.7rem; color: hsl(var(--muted-foreground)); }
+      .badge-gold { border-color: hsl(var(--beige-gold) / 0.5); color: hsl(var(--beige-gold)); }
+
+      .rule { height: 1px; background: hsl(var(--border)); }
+      .photo-chanel { filter: grayscale(100%) contrast(1.02); transition: filter 0.6s ease; }
+      .photo-chanel:hover { filter: grayscale(0%); }
+
+      /* Staggered entrance */
+      @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+      .rise { opacity: 0; animation: rise 0.9s cubic-bezier(0.19,1,0.22,1) forwards; }
+      .d0 { animation-delay: 0.05s; } .d1 { animation-delay: 0.18s; } .d2 { animation-delay: 0.31s; }
+      .d3 { animation-delay: 0.44s; } .d4 { animation-delay: 0.57s; } .d5 { animation-delay: 0.7s; }
+
+      main, header, footer { position: relative; z-index: 2; }
+      ::selection { background: hsl(var(--beige)); color: #000; }
+    </style>
+  </head>
+  <body class="font-sans">
+    <!-- ══════════ NAV ══════════ -->
+    <header class="sticky top-0 z-40 border-b border-border backdrop-blur-md" style="background: hsl(var(--background) / 0.8)">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
+        <a href="#" class="display text-xl">Bofu Chen</a>
+        <nav class="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.18em] md:flex">
+          <a href="#type" class="link-underline">Work</a>
+          <a href="#components" class="link-underline">Writing</a>
+          <a href="#cards" class="link-underline">About</a>
+          <a href="#" class="link-underline text-gold">Contact</a>
+        </nav>
+        <button id="theme" class="badge" aria-label="toggle theme">◐ Theme</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ══════════ HERO ══════════ -->
+      <section class="grid md:grid-cols-2 md:min-h-[78vh]">
+        <!-- dark column -->
+        <div class="flex flex-col justify-center bg-foreground px-8 py-20 text-background sm:px-12 md:py-28 lg:px-20">
+          <div class="mx-auto w-full max-w-lg">
+            <div class="rise d0 mb-8 flex items-center gap-3">
+              <span class="h-px w-8" style="background: hsl(var(--beige-gold))"></span>
+              <span class="kicker">Est. Taipei · Founder & CTO</span>
+            </div>
+            <h1 class="rise d1 display text-6xl sm:text-7xl lg:text-[5.5rem]">
+              Bofu<br />Chen
+            </h1>
+            <p class="rise d2 mt-3 font-serif text-lg italic opacity-70">陳伯符</p>
+            <p class="rise d3 mt-8 max-w-sm text-sm leading-relaxed opacity-60">
+              Software engineer & AI builder. Building sovereign AI,
+              open-source infrastructure, and writing about the future
+              we are actually walking into.
+            </p>
+            <div class="rise d4 mt-10 space-y-3 text-sm opacity-70">
+              <div class="flex items-center gap-3"><span class="h-px w-4" style="background: hsl(var(--beige-gold))"></span>Free Software</div>
+              <div class="flex items-center gap-3"><span class="h-px w-4" style="background: hsl(var(--beige-gold))"></span>AI Development</div>
+              <div class="flex items-center gap-3"><span class="h-px w-4" style="background: hsl(var(--beige-gold))"></span>Technical Writing</div>
+            </div>
+          </div>
+        </div>
+        <!-- light column -->
+        <div class="flex flex-col justify-center border-l border-border px-8 py-20 sm:px-12 md:py-28 lg:px-20">
+          <div class="mx-auto w-full max-w-lg">
+            <p class="rise d2 kicker mb-6">A — Point of View</p>
+            <p class="rise d3 display text-5xl sm:text-6xl">
+              <span class="text-beige">Engineer.</span><br />
+              <span class="text-beige">Builder.</span><br />
+              <span style="color: hsl(var(--beige-gold))">Context-Aware</span><br />
+              <span class="text-beige">Thinker.</span>
+            </p>
+            <div class="rise d4 mt-12 flex flex-col gap-3 sm:flex-row">
+              <a href="#" class="btn btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5">Explore Work →</a>
+              <a href="#" class="btn btn-outline inline-flex items-center justify-center px-7 py-3.5">Let's Connect</a>
+            </div>
+            <div class="rise d5 mt-14 flex items-center gap-6 text-xs uppercase tracking-[0.18em] text-muted">
+              <span>16y Building</span><span class="rule w-8"></span><span>Numbers Protocol</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ TYPOGRAPHY SPECIMEN ══════════ -->
+      <section id="type" class="mx-auto max-w-6xl px-6 py-24 md:px-10">
+        <div class="mb-14 flex items-baseline justify-between border-b border-border pb-5">
+          <div>
+            <p class="kicker mb-3">01 — Typography</p>
+            <h2 class="display text-4xl sm:text-5xl">The Editorial Voice</h2>
+          </div>
+          <span class="hidden font-mono text-xs text-muted md:block">Playfair · Inter · JetBrains Mono</span>
+        </div>
+
+        <div class="grid gap-12 md:grid-cols-3">
+          <div>
+            <p class="eyebrow mb-4 text-muted">Display / Playfair</p>
+            <p class="display text-5xl">Aa</p>
+            <p class="display mt-4 text-2xl italic">為一句話負責</p>
+            <p class="mt-4 text-sm text-muted">用於標題與強調。放大字級、收緊字距，帶出雜誌感。</p>
+          </div>
+          <div>
+            <p class="eyebrow mb-4 text-muted">Body / Inter</p>
+            <p class="text-5xl font-medium">Aa</p>
+            <p class="mt-4 text-base leading-relaxed">
+              效率不是幸福。產出不是幸福。幸福比較接近另一件事：你更清楚自己想要什麼，也更有能力靠近它。
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow mb-4 text-muted">Mono / JetBrains</p>
+            <p class="font-mono text-5xl">Aa</p>
+            <p class="mt-4 font-mono text-xs leading-relaxed text-muted">
+              // 用於索引、標籤、程式碼<br />
+              const truth = evidence.verify()<br />
+              01 / 02 / 03 — TAE-AI
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ COMPONENTS (shadcn restyled) ══════════ -->
+      <section id="components" class="border-y border-border" style="background: hsl(var(--card) / 0.4)">
+        <div class="mx-auto max-w-6xl px-6 py-24 md:px-10">
+          <div class="mb-14">
+            <p class="kicker mb-3">02 — shadcn/ui, Rebranded</p>
+            <h2 class="display text-4xl sm:text-5xl">Components in the Chanel Grammar</h2>
+            <p class="mt-4 max-w-2xl text-sm text-muted">
+              導入 shadcn/ui，但覆寫每個 token 讓它們說同一種語言：1px 邊框、0.25rem 圓角、無陰影、beige-gold 只作外科手術式點綴。
+            </p>
+          </div>
+
+          <div class="grid gap-10 lg:grid-cols-2">
+            <!-- Buttons -->
+            <div class="ui-card p-8">
+              <p class="eyebrow mb-6 text-muted">Button</p>
+              <div class="flex flex-wrap items-center gap-4">
+                <button class="btn btn-primary px-6 py-3">Primary</button>
+                <button class="btn btn-outline px-6 py-3">Outline</button>
+                <button class="btn btn-ghost px-6 py-3">Ghost →</button>
+              </div>
+            </div>
+            <!-- Badges -->
+            <div class="ui-card p-8">
+              <p class="eyebrow mb-6 text-muted">Badge</p>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge">AI</span>
+                <span class="badge">Open Source</span>
+                <span class="badge badge-gold">Featured</span>
+                <span class="badge">Founder's Journal</span>
+              </div>
+            </div>
+            <!-- Input -->
+            <div class="ui-card p-8">
+              <p class="eyebrow mb-6 text-muted">Input & Separator</p>
+              <input class="w-full border border-border bg-transparent px-4 py-3 text-sm outline-none transition-colors focus:border-gold" style="border-radius:0.25rem" placeholder="you@email.com" />
+              <div class="rule my-6"></div>
+              <button class="btn btn-primary w-full py-3">Subscribe</button>
+            </div>
+            <!-- Tabs -->
+            <div class="ui-card p-8">
+              <p class="eyebrow mb-6 text-muted">Tabs</p>
+              <div class="flex gap-8 border-b border-border text-xs uppercase tracking-[0.18em]">
+                <button class="tab -mb-px border-b-2 pb-3" style="border-color: hsl(var(--beige-gold)); color: hsl(var(--foreground))">Talks</button>
+                <button class="tab -mb-px border-b-2 border-transparent pb-3 text-muted">Awards</button>
+                <button class="tab -mb-px border-b-2 border-transparent pb-3 text-muted">Media</button>
+              </div>
+              <p class="mt-5 text-sm text-muted">選中態以 beige-gold 底線標示，其餘保持靜默——克制的層級。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ CARDS — Projects & Blog ══════════ -->
+      <section id="cards" class="mx-auto max-w-6xl px-6 py-24 md:px-10">
+        <div class="mb-14 flex items-baseline justify-between border-b border-border pb-5">
+          <div>
+            <p class="kicker mb-3">03 — Editorial Cards</p>
+            <h2 class="display text-4xl sm:text-5xl">Writing & Work</h2>
+          </div>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <!-- Featured blog card -->
+          <article class="ui-card group flex flex-col justify-between p-8 md:col-span-2">
+            <div>
+              <div class="mb-5 flex items-center gap-3">
+                <span class="badge badge-gold">Latest</span>
+                <span class="font-mono text-xs text-muted">2026 · 07 · 19</span>
+              </div>
+              <h3 class="display text-3xl leading-tight sm:text-4xl">我們因為 AI 變得<br class="hidden sm:block" />更幸福了嗎？</h3>
+              <p class="mt-5 max-w-xl text-sm leading-relaxed text-muted">
+                從 Threads 的疲倦、開源模型管制、Kimi K3，到工作 optional 的未來——
+                AI 應該讓人更幸福，但我們現在走在那條路上嗎？
+              </p>
+            </div>
+            <div class="mt-8 flex items-center gap-4">
+              <span class="link-underline text-xs font-medium uppercase tracking-[0.18em]">Read essay</span>
+              <span style="color: hsl(var(--beige-gold))">→</span>
+            </div>
+          </article>
+
+          <!-- Project card -->
+          <article class="ui-card group flex flex-col justify-between p-8">
+            <div>
+              <p class="font-mono text-xs text-muted">/ 01</p>
+              <h3 class="display mt-4 text-2xl">Numbers Protocol</h3>
+              <p class="mt-4 text-sm leading-relaxed text-muted">
+                Provenance infrastructure for the AI era. Sovereign, verifiable, explainable.
+              </p>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-2">
+              <span class="badge">Web3</span><span class="badge">Provenance</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ══════════ CLOSING STATEMENT ══════════ -->
+      <section class="border-t border-border bg-foreground py-28 text-background">
+        <div class="mx-auto max-w-4xl px-6 text-center md:px-10">
+          <p class="kicker mb-8">The Difference</p>
+          <p class="display text-4xl leading-tight sm:text-5xl">
+            差別不在引擎。<br />
+            差別在<span class="italic" style="color: hsl(var(--beige-gold))">掌舵的人</span>是否還在思考。
+          </p>
+          <div class="mt-12 flex items-center justify-center gap-6 text-xs uppercase tracking-[0.2em] opacity-60">
+            <span class="rule w-10"></span>Bofu Chen<span class="rule w-10"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-auto max-w-6xl px-6 py-12 md:px-10">
+      <div class="flex flex-col items-center justify-between gap-4 text-xs uppercase tracking-[0.18em] text-muted sm:flex-row">
+        <span>© 2026 Bofu Chen</span>
+        <span class="font-mono">Atelier Proposal · v1</span>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('theme')
+      btn.addEventListener('click', () => document.documentElement.classList.toggle('dark'))
+    </script>
+  </body>
+</html>

@@ -99,7 +99,7 @@ const Hero = () => {
             </div>
 
             <div className="rise rise-d5 mt-14 flex items-center gap-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              <span>16y Building</span>
+              <span>25y Building</span>
               <Separator orientation="horizontal" className="w-8" />
               <span>Open Source</span>
             </div>

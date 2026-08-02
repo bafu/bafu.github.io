@@ -23,6 +23,7 @@
 - shadcn/ui adopted (Atelier direction): `@/` alias in tsconfig+vite, `cn()` in `src/lib/utils.ts`, `components.json`, primitives in `src/components/ui/` (button/badge/card/separator/input/tabs) rebranded to Chanel tokens (1px border, 0.25rem radius, no shadow, beige-gold surgical accent). Tabs is dependency-free (no Radix); ExperienceSection keeps its own accessible keyboard tabs.
 - Design tokens shifted warm: light bg paper white `40 33% 98%`, dark warm charcoal `30 6% 7%`; body has a fixed SVG grain overlay (disabled under prefers-reduced-motion). Atelier utility classes in global.css: `.display .kicker .eyebrow .link-underline .rise/.rise-d0..d5`.
 - Standalone style proposal demo (not part of build): `design-proposal/index.html` — self-contained Tailwind CDN page with light/dark toggle.
+- Hero now displays `25y Building`; `are-we-happier-because-of-ai` is available as complete English, Traditional Chinese, and Japanese articles.
 
 ## Installed Skills
 
@@ -58,5 +59,6 @@
 - **`z-ticket-check`** (system)
 - **`z-writing-rules`** (system)
 
+
 ---
-_Last system refresh: 2026-07-23 08:40 UTC_
+_Last system refresh: 2026-07-23 11:08 UTC_

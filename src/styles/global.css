@@ -276,6 +276,264 @@ a:hover > .chanel-card {
   }
 }
 
+/* ──────────────────────────────────────────
+   12. Résumé — Editorial one-page profile
+   ────────────────────────────────────────── */
+
+.resume-page {
+  @apply px-0 py-0 sm:px-6 sm:py-10 lg:py-14;
+}
+
+.resume-sheet {
+  @apply mx-auto max-w-6xl overflow-hidden border-y border-border bg-background sm:border-x;
+}
+
+.resume-hero {
+  @apply grid border-b border-border lg:grid-cols-[0.82fr_1.18fr];
+}
+
+.resume-identity {
+  @apply bg-foreground p-8 sm:p-12 lg:p-14;
+}
+
+.resume-portrait {
+  @apply h-28 w-24 flex-none border border-beige object-cover grayscale sm:h-36 sm:w-28;
+  object-position: center 22%;
+}
+
+.resume-intro {
+  @apply flex flex-col justify-center p-8 sm:p-12 lg:p-14;
+}
+
+.resume-contact-list {
+  @apply mt-7 flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-5 text-xs sm:text-sm;
+}
+
+.resume-contact-list a {
+  @apply inline-flex items-center gap-1 text-muted-foreground hover:text-foreground;
+}
+
+.resume-print {
+  @apply mt-8 inline-flex w-fit items-center gap-2 border border-foreground bg-transparent px-5 py-3 text-xs font-medium uppercase tracking-[0.16em] text-foreground transition-colors hover:bg-foreground hover:text-background;
+}
+
+.resume-section {
+  @apply p-7 sm:p-10 lg:p-12;
+}
+
+.resume-profile {
+  @apply border-b border-border;
+}
+
+.resume-section-heading {
+  @apply mb-7 flex items-baseline gap-4;
+}
+
+.resume-section-heading span {
+  @apply font-mono text-[0.65rem] tracking-widest text-beige-gold;
+}
+
+.resume-section-heading h2 {
+  @apply font-serif text-2xl font-normal text-foreground sm:text-3xl;
+}
+
+.resume-highlight-list {
+  @apply grid gap-5 lg:grid-cols-3 lg:gap-8;
+}
+
+.resume-highlight-list li {
+  @apply relative border-t border-border pt-5 text-sm leading-7 text-muted-foreground;
+}
+
+.resume-highlight-list li::before {
+  content: '';
+  @apply absolute -top-px left-0 h-px w-12 bg-beige-gold;
+}
+
+.resume-main-grid {
+  @apply grid lg:grid-cols-[1.5fr_0.75fr];
+}
+
+.resume-main-column {
+  @apply lg:border-r lg:border-border;
+}
+
+.resume-main-column > .resume-section + .resume-section,
+.resume-side-column > .resume-section + .resume-section {
+  @apply border-t border-border;
+}
+
+.resume-side-column {
+  @apply border-t border-border lg:border-t-0;
+}
+
+.resume-entry {
+  @apply grid gap-2 sm:grid-cols-[7.5rem_1fr] sm:gap-6;
+}
+
+.resume-date {
+  @apply font-mono text-[0.68rem] uppercase leading-6 tracking-wider text-beige-gold;
+}
+
+.resume-entry h3,
+.resume-project h3,
+.resume-compact-entry h3,
+.resume-compact-entry a {
+  @apply font-serif text-lg font-medium leading-snug text-foreground;
+}
+
+.resume-org {
+  @apply mt-1 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.13em] text-beige-gold hover:text-foreground;
+}
+
+.resume-description {
+  @apply mt-3 text-sm leading-6 text-muted-foreground;
+}
+
+.resume-tags {
+  @apply mt-4 flex flex-wrap gap-2;
+}
+
+.resume-tags span {
+  @apply border border-border px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-wide text-muted-foreground;
+}
+
+.resume-projects {
+  @apply grid gap-px border border-border bg-border sm:grid-cols-2;
+}
+
+.resume-project {
+  @apply flex min-h-56 flex-col bg-background p-6 text-foreground transition-colors hover:bg-card;
+}
+
+.resume-project p {
+  @apply mt-4 flex-1 text-sm leading-6 text-muted-foreground;
+}
+
+.resume-project > span {
+  @apply mt-6 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-beige-gold;
+}
+
+.resume-expertise {
+  @apply divide-y divide-border border-y border-border;
+}
+
+.resume-expertise li {
+  @apply py-3 text-sm text-foreground;
+}
+
+.resume-expertise li::before {
+  content: '◆';
+  @apply mr-3 text-[0.55rem] text-beige-gold;
+}
+
+.resume-compact-entry > p {
+  @apply mb-1 font-mono text-[0.62rem] uppercase tracking-widest text-beige-gold;
+}
+
+.resume-compact-entry > h3,
+.resume-compact-entry > a {
+  @apply block text-base;
+}
+
+.resume-compact-entry > a:hover {
+  @apply text-beige-gold;
+}
+
+.resume-compact-entry > span {
+  @apply mt-1 block text-xs leading-5 text-muted-foreground;
+}
+
+.resume-talks-grid {
+  @apply grid gap-7 sm:grid-cols-2;
+}
+
+.resume-talks-grid .resume-compact-entry:last-child {
+  @apply sm:col-span-2;
+}
+
+.resume-document-footer {
+  @apply flex flex-col gap-2 border-t border-border px-7 py-5 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-12;
+}
+
+.resume-document-footer a {
+  @apply hover:text-foreground;
+}
+
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 97%;
+    --muted-foreground: 0 0% 29%;
+    --border: 0 0% 88%;
+    --beige: 37 38% 72%;
+    --beige-gold: 37 45% 36%;
+  }
+
+  body::before,
+  #site-header,
+  #root > div > footer,
+  .resume-actions {
+    display: none !important;
+  }
+
+  body,
+  .resume-page,
+  .resume-sheet {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+    border: 0;
+    background: white;
+  }
+
+  .resume-sheet {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume-hero {
+    grid-template-columns: 0.82fr 1.18fr;
+  }
+
+  .resume-identity,
+  .resume-intro,
+  .resume-section {
+    padding: 8mm;
+  }
+
+  .resume-profile,
+  .resume-entry,
+  .resume-project,
+  .resume-compact-entry,
+  .resume-section-heading {
+    break-inside: avoid;
+  }
+
+  .resume-main-grid {
+    grid-template-columns: 1.5fr 0.75fr;
+  }
+
+  .resume-main-column {
+    border-right: 1px solid hsl(var(--border));
+  }
+
+  .resume-side-column {
+    border-top: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
 .hero-animate {
   opacity: 0;
   animation: hero-fade-in 0.3s ease-out forwards;

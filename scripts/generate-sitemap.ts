@@ -159,6 +159,17 @@ function generateSitemap(): string {
     })
   }
 
+  // Résumé page
+  for (const lang of LANGUAGES) {
+    entries.push({
+      loc: fullUrl(`${langPrefix(lang)}/resume`),
+      lastmod: today,
+      changefreq: 'monthly',
+      priority: '0.8',
+      alternates: buildAlternates('/resume', LANGUAGES),
+    })
+  }
+
   // --- Blog posts ---
   const posts = discoverPosts()
   for (const post of posts) {

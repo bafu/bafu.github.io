@@ -10,6 +10,7 @@ import LanguageRedirect from './components/LanguageRedirect'
 import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
 import HomePage from './pages/HomePage'
+import ResumePage from './pages/ResumePage'
 
 const App = () => {
   return (
@@ -25,9 +26,11 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogListPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/resume" element={<ResumePage />} />
           <Route path="/:lang" element={<HomePage />} />
           <Route path="/:lang/blog" element={<BlogListPage />} />
           <Route path="/:lang/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/:lang/resume" element={<ResumePage />} />
         </Routes>
         <SiteFooter />
       </div>

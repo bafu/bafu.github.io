@@ -55,6 +55,12 @@ const SiteFooter = () => {
             >
               {t('nav.blog')}
             </LocaleLink>
+            <LocaleLink
+              to="/resume"
+              className="chanel-nav link-underline text-background/50 transition-colors hover:text-background"
+            >
+              {t('nav.resume')}
+            </LocaleLink>
           </nav>
 
           {/* Social + Back to top */}

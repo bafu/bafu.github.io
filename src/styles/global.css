@@ -297,7 +297,7 @@ a:hover > .chanel-card {
 }
 
 .resume-portrait {
-  @apply h-28 w-24 flex-none border border-beige object-cover grayscale sm:h-36 sm:w-28;
+  @apply h-28 w-24 flex-none border border-beige object-cover sm:h-36 sm:w-28;
   object-position: center 22%;
 }
 

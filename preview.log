@@ -1,0 +1,6 @@
+
+> bafu-site@0.0.1 preview
+> vite preview --host 127.0.0.1 --port 4173
+
+  ➜  Local:   http://127.0.0.1:4173/
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`

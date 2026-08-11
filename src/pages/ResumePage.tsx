@@ -45,7 +45,7 @@ const ResumePage = () => {
         name: 'Bofu Chen',
         alternateName: '陳伯符',
         jobTitle: 'Founder & CEO/CTO',
-        image: `${SITE_URL}/assets/profile-pic.png`,
+        image: `${SITE_URL}/assets/bofu-nvidia-hq-2017-1.jpg`,
         worksFor: {
           '@type': 'Organization',
           name: 'Numbers Protocol',
@@ -87,8 +87,8 @@ const ResumePage = () => {
             <p className="kicker text-beige">{copy.eyebrow}</p>
             <div className="mt-8 flex items-end gap-5 sm:mt-12 sm:gap-7">
               <img
-                src="/assets/profile-pic.png"
-                alt="Bofu Chen"
+                src="/assets/bofu-nvidia-hq-2017-1.jpg"
+                alt="Bofu Chen with Jensen Huang at NVIDIA HQ, 2017"
                 className="resume-portrait"
               />
               <div>

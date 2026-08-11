@@ -15,6 +15,9 @@ Bofu Chen is an entrepreneur and engineer focused on digital provenance, AI, and
 - [Blog](https://bafu.github.io/blog): Technical articles on AI, web3, and open source
 - [Blog (繁體中文)](https://bafu.github.io/zh-TW/blog): 繁體中文技術部落格
 - [Blog (日本語)](https://bafu.github.io/ja/blog): 日本語テクニカルブログ
+- [Résumé](https://bafu.github.io/resume): One-page professional résumé
+- [履歷（繁體中文）](https://bafu.github.io/zh-TW/resume): 繁體中文單頁履歷
+- [履歴書（日本語）](https://bafu.github.io/ja/resume): 日本語1ページ履歴書
 
 ## Languages
 

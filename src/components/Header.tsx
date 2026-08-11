@@ -32,6 +32,7 @@ const Header = () => {
   }
 
   const isBlogActive = location.pathname.replace(/^\/(zh-TW|ja)/, '').startsWith('/blog')
+  const isResumeActive = location.pathname.replace(/^\/(zh-TW|ja)/, '') === '/resume'
 
   return (
     <>
@@ -86,6 +87,16 @@ const Header = () => {
                 }`}
               >
                 {t('nav.blog')}
+              </LocaleLink>
+              <LocaleLink
+                to="/resume"
+                className={`chanel-nav link-underline transition-colors ${
+                  isResumeActive
+                    ? 'text-beige-gold'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {t('nav.resume')}
               </LocaleLink>
             </div>
 

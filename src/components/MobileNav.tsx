@@ -28,6 +28,7 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
   }
 
   const isBlogActive = location.pathname.replace(/^\/(zh-TW|ja)/, '').startsWith('/blog')
+  const isResumeActive = location.pathname.replace(/^\/(zh-TW|ja)/, '') === '/resume'
 
   useEffect(() => {
     if (isOpen) {
@@ -138,6 +139,18 @@ const MobileNav: FC<MobileNavProps> = ({ isOpen, onClose }) => {
             style={{ borderRadius: '0.25rem' }}
           >
             {t('nav.blog')}
+          </LocaleLink>
+          <LocaleLink
+            to="/resume"
+            onClick={onClose}
+            className={`px-4 py-3 chanel-nav transition-colors ${
+              isResumeActive
+                ? 'bg-nav-active/10 text-deep-blue'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+            style={{ borderRadius: '0.25rem' }}
+          >
+            {t('nav.resume')}
           </LocaleLink>
         </nav>
 

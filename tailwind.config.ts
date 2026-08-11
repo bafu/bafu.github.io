@@ -25,9 +25,9 @@ const config: Config = {
         focus: 'hsl(var(--beige-gold))',
       },
       fontFamily: {
-        sans: ['Inter', "'Helvetica Neue'", 'system-ui', 'sans-serif'],
-        serif: ["'Playfair Display'", 'Georgia', 'serif'],
-        mono: ["'JetBrains Mono'", 'monospace'],
+        sans: ['Inter', "'Noto Sans TC'", "'Noto Sans JP'", "'Helvetica Neue'", 'system-ui', 'sans-serif'],
+        serif: ["'Playfair Display'", "'Noto Serif TC'", "'Noto Serif JP'", 'Georgia', 'serif'],
+        mono: ["'JetBrains Mono'", "'Noto Sans TC'", "'Noto Sans JP'", 'monospace'],
       },
       borderRadius: {
         DEFAULT: '0.25rem',
